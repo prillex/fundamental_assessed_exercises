@@ -1,0 +1,82 @@
+---
+---
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Hidden Libraries
+library(knitr)
+library(ggplot2)
+library(dplyr)
+```
+
+# \*Fundamentals of Data Science Assessment Sheet
+
+#### *Matt Prill*
+
+##### Using mixture of typeset and images of workings out
+
+## See 'R Markdown and Literate programming pdf
+
+<https://ele.exeter.ac.uk/pluginfile.php/4501313/mod_resource/content/3/docs/index.html>
+
+## See also Rmarkdown cheatsheet
+
+<https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf>
+
+#### Typeset Example: Spearmans rmarkdown
+
+$$\ r_s = 1 -\left(\frac{6\sum_{}D^2}{n(n^2-1)}\right)$$
+
+# Images
+
+Note that you must use out.width and out.height to scale external images (fig.height and fig.width won’t work), e.g.,
+
+```{r, echo = FALSE, out.width = "20%"}
+library(knitr)
+include_graphics("images/Culture.jpeg")
+
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+#summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+#plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+``` r
+# Data Manipulation----
+ox <- data %>% 
+  gather("year", "pop", 25:69) %>%  # Reshape data to long form
+  filter(Common.Name == "Musk ox",  # Filter for species of interest: Musk ox 
+         Region ==  "Europe",  # Filter for the European populations (filter out Canada; not geographically or geo-politically European and only has 2 samples of very different values: would create unbalanced model)
+         !is.na(as.numeric(pop))) %>%  # Remove non numeric population counts ('NA's)
+  mutate(year = parse_number(year),  # Remove characters from 'year' column to allow model to treat as integer variable.
+         pop = as.integer(pop),   # Poisson requires response variable to be integer 
+         year2 = I(year-1969)) # To stop repeating this function in the model
+```
+
+# Libraries
+
+```{r libraries, echo = TRUE, message = FALSE, warning = FALSE}
+library(knitr)
+library(ggplot2)
+library(dplyr)
+```
+
+## Q1
