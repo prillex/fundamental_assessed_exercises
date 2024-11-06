@@ -3,7 +3,7 @@
     "path": "~/R/exeter/fundamentals/fundamental_assessed_exercises/exercise_sheet_answers.Rmd",
     "project_path": "exercise_sheet_answers.Rmd",
     "type": "r_markdown",
-    "hash": "1360508460",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1730821332746.0,
@@ -14,18 +14,18 @@
         "Source": "Source",
         "rmdVisualMode": "false",
         "rmdVisualWrapConfigured": "true",
-        "docOutlineVisible": "1",
+        "docOutlineVisible": "0",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "1260:940.6666870117188",
-        "cursorPosition": "53,0",
-        "scrollLine": "45"
+        "rmdVisualModeLocation": "1313:1230",
+        "cursorPosition": "62,6",
+        "scrollLine": "54"
     },
     "folds": "",
-    "lastKnownWriteTime": 1730840121,
+    "lastKnownWriteTime": 1730884030,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1730840121690,
+    "last_content_update": 1730884030699,
     "read_only": false,
     "read_only_alternatives": []
 }
