@@ -9,15 +9,11 @@ library(rmarkdown)
 library(tidyverse)
 ```
 
-<center>
-
 # Fundamentals of Data Science Assessment Sheet
 
 #### *Matt Prill*
 
-</center>
-
-## Q1. a)
+## Question 1a
 
 #### Initial Equations:
 
@@ -48,12 +44,24 @@ $$
 
 #### Calculating the Determinant of A:
 
-To showcase that these equations lack a unique solution for any value of η, I can attempt to find the determinant. To find the determinant ($\text{det}$) of a $3 \times 3$ matrix, I can use the following formula:
+To showcase that these equations lack a unique solution for any value of η, I can attempt to find the determinant. To to find a determinant of square matrix (irrespective of size), I must;
+
+1.  Pick a coefficient from the first row.
+2.  Delete remaining elements in coefficient's respective row and column.
+3.  Make a matrix of the remaining elements.
+4.  Find the determinant of the sub-matrix, and multiply this with the coefficient.
+5.  Repeat the same procedure for each element in the first row.
+6.  Finally, sum all the terms to find the determinant (Linear Algebra Slides).
+
+Therefore, to find the determinant ($\text{det}$) of a $3 \times 3$ matrix, I can use the following formula:
 
 $$
 \Large
 \text{det} \begin{bmatrix} a & b & c \\ d & e & f \\ g & h & i \end{bmatrix} = a \times \text{det} \begin{bmatrix} e & f \\ h & i \end{bmatrix} - b \times \text{det} \begin{bmatrix} d & f \\ g & i \end{bmatrix} + c \times \text{det} \begin{bmatrix} d & e \\ g & h \end{bmatrix}
 $$
+
+The terms are added/ subtracted depending on the sum the row and column indices of the coefficient. Even = positive. Odd = negative. For example "- b" is negative because b is $a_{12}$, thus the sum of the row and column indices = 1+2 = 3 = odd.
+
 
 Applying this to the $3 \times 3$ matrix:
 
@@ -109,7 +117,7 @@ $$
 \Large
 \text{det}(A)=
 (1 \times 4)  - (1 \times 6) + (1 \times 2) = \mathbf{0}
-$$ 
+$$
 
 The determinant of the coefficient matrix and therefore the matrix vector is 0. This means that the matrix is singular:
 
@@ -118,13 +126,37 @@ $$
 \text{det}(A) = Ax = 0
 $$\
 
-In being singular, the matrix does not have an inverse meaning that the corresponding linear equations have either no, or unlimited solution. Regardless, in this case, the initial equations have no unique solution for η. 
+In being singular, the matrix does not have an inverse meaning that the corresponding linear equations have either no, or unlimited solutions. Regardless, in this case, the initial equations have no unique solution for η.
 
+\
+\
+\
+\
 
+## Question 1b
 
+#### The Set of Linear Equations:
 
+$$
+\Large
+\begin{aligned}
+x + y + z &= 1 \\
+x + 2y + 4z &= \eta \\
+x + 4y + 10z &= \eta^2
+\end{aligned}
+$$\
 
+#### The correspinding Augmented Matrix:
 
+$$
+\Large
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 1 \\
+1 & 2 & 4 & \eta \\
+1 & 4 & 10 & \eta^2
+\end{array}
+\right]
+$$
 
-
-
+#### Using Gaussian Elimination to Identify the Solutions for η

@@ -352,15 +352,13 @@ display: none;
 </div>
 
 
-<center>
 <div id="fundamentals-of-data-science-assessment-sheet" class="section level1">
 <h1>Fundamentals of Data Science Assessment Sheet</h1>
 <div id="matt-prill" class="section level4">
 <h4><em>Matt Prill</em></h4>
-</center>
 </div>
-<div id="q1.-a" class="section level2">
-<h2>Q1. a)</h2>
+<div id="question-1a" class="section level2">
+<h2>Question 1a</h2>
 <div id="initial-equations" class="section level4">
 <h4>Initial Equations:</h4>
 <p><span class="math display">\[
@@ -392,8 +390,20 @@ A = \begin{bmatrix}
 <div id="calculating-the-determinant-of-a" class="section level4">
 <h4>Calculating the Determinant of A:</h4>
 <p>To showcase that these equations lack a unique solution for any value
-of η, I can attempt to find the determinant. To find the determinant
-(<span class="math inline">\(\text{det}\)</span>) of a <span class="math inline">\(3 \times 3\)</span> matrix, I can use the
+of η, I can attempt to find the determinant. To to find a determinant of
+square matrix (irrespective of size), I must;</p>
+<ol style="list-style-type: decimal">
+<li>Pick a coefficient from the first row.</li>
+<li>Delete remaining elements in coefficient’s respective row and
+column.</li>
+<li>Make a matrix of the remaining elements.</li>
+<li>Find the determinant of the sub-matrix, and multiply this with the
+coefficient.</li>
+<li>Repeat the same procedure for each element in the first row.</li>
+<li>Finally, sum all the terms to find the determinant (Linear Algebra
+Slides).</li>
+</ol>
+<p>Therefore, to find the determinant (<span class="math inline">\(\text{det}\)</span>) of a <span class="math inline">\(3 \times 3\)</span> matrix, I can use the
 following formula:</p>
 <p><span class="math display">\[
 \Large
@@ -403,6 +413,10 @@ following formula:</p>
 d &amp; f \\ g &amp; i \end{bmatrix} + c \times \text{det}
 \begin{bmatrix} d &amp; e \\ g &amp; h \end{bmatrix}
 \]</span></p>
+<p><em>Note: The terms are added/ subtracted depending on the sum the
+row and column indices of the coefficient. Even = positive. Odd =
+negative. For example “- b” is negative because b is a~ 12~, thus the
+sum of the row and column indices = 1+2 = 3 = odd. </em></p>
 <p>Applying this to the <span class="math inline">\(3 \times 3\)</span>
 matrix:</p>
 <p><span class="math display">\[
@@ -456,27 +470,54 @@ gives:</p>
 \Large
 \text{det}(A)=
 (1 \times 4)  - (1 \times 6) + (1 \times 2) = \mathbf{0}
-\]</span> The determinant of the coefficient matrix is 0. This means
-that the matrix is singular:</p>
+\]</span></p>
+<p>The determinant of the coefficient matrix and therefore the matrix
+vector is 0. This means that the matrix is singular:</p>
 <p><span class="math display">\[
 \Large
-Ax = 0
+\text{det}(A) = Ax = 0
 \]</span><br />
+</p>
+<p>In being singular, the matrix does not have an inverse meaning that
+the corresponding linear equations have either no, or unlimited
+solutions. Regardless, in this case, the initial equations have no
+unique solution for η.</p>
+<p><br />
 <br />
 <br />
 <br />
 </p>
 </div>
-<div id="identifying-eigenvalues-not-needed" class="section level4">
-<h4>Identifying Eigenvalues (NOT NEEDED?):</h4>
+</div>
+<div id="question-1b" class="section level2">
+<h2>Question 1b</h2>
+<div id="the-set-of-linear-equations" class="section level4">
+<h4>The Set of Linear Equations:</h4>
 <p><span class="math display">\[
 \Large
-\begin{bmatrix}
-1 - \lambda &amp; 1 &amp; 1 \\
-1 &amp; 10 - \lambda &amp; 4 \\
-1 &amp; 4 &amp; 10 - \lambda
-\end{bmatrix}
+\begin{aligned}
+x + y + z &amp;= 1 \\
+x + 2y + 4z &amp;= \eta \\
+x + 4y + 10z &amp;= \eta^2
+\end{aligned}
+\]</span><br />
+</p>
+</div>
+<div id="the-correspinding-augmented-matrix" class="section level4">
+<h4>The correspinding Augmented Matrix:</h4>
+<p><span class="math display">\[
+\Large
+\left[
+\begin{array}{ccc|c}
+1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; 2 &amp; 4 &amp; \eta \\
+1 &amp; 4 &amp; 10 &amp; \eta^2
+\end{array}
+\right]
 \]</span></p>
+</div>
+<div id="using-gaussian-elimination-to-identify-the-solutions-for-η" class="section level4">
+<h4>Using Gaussian Elimination to Identify the Solutions for η</h4>
 </div>
 </div>
 </div>
