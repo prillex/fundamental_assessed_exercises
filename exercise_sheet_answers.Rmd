@@ -79,7 +79,9 @@ $$
 det(A) =
 1 \times \text{det} \begin{bmatrix} 10 & 4 \\ 4 & 10 \end{bmatrix} - 1 \times \text{det} \begin{bmatrix} 1 & 4 \\ 1 & 10 \end{bmatrix} + 1 \times \text{det} \begin{bmatrix} 1 & 10 \\ 1 & 4 \end{bmatrix}
 $$
+To calcualte the determinants of the $2 \times 2$ matricies, I can apply the formula:
 
+$ad - bc$ where $$matrix = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$$
 \
 \
 \
