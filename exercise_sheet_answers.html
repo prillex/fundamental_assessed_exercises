@@ -379,7 +379,7 @@ x + 4y + 10z &amp;= \eta^2
 \Large
 A = \begin{bmatrix}
 1 &amp; 1 &amp; 1 \\
-1 &amp; 10 &amp; 4 \\
+1 &amp; 2 &amp; 4 \\
 1 &amp; 4 &amp; 10
 \end{bmatrix}
 \begin{bmatrix}
@@ -402,13 +402,14 @@ following formula:</p>
 &amp; f \\ h &amp; i \end{bmatrix} - b \times \text{det} \begin{bmatrix}
 d &amp; f \\ g &amp; i \end{bmatrix} + c \times \text{det}
 \begin{bmatrix} d &amp; e \\ g &amp; h \end{bmatrix}
-\]</span> Applying this to the <span class="math inline">\(3 \times
-3\)</span> matrix:</p>
+\]</span></p>
+<p>Applying this to the <span class="math inline">\(3 \times 3\)</span>
+matrix:</p>
 <p><span class="math display">\[
 \Large
 A = \begin{bmatrix}
 1 &amp; 1 &amp; 1 \\
-1 &amp; 10 &amp; 4 \\
+1 &amp; 2 &amp; 4 \\
 1 &amp; 4 &amp; 10
 \end{bmatrix}
 =
@@ -421,12 +422,35 @@ g &amp; h &amp; i
 <p>Thus,</p>
 <p><span class="math display">\[
 \Large
-det(A) =
-1 \times \text{det} \begin{bmatrix} 10 &amp; 4 \\ 4 &amp; 10
+\text{det}(A) =
+1 \times \text{det} \begin{bmatrix} 2 &amp; 4 \\ 4 &amp; 10
 \end{bmatrix} - 1 \times \text{det} \begin{bmatrix} 1 &amp; 4 \\ 1 &amp;
-10 \end{bmatrix} + 1 \times \text{det} \begin{bmatrix} 1 &amp; 10 \\ 1
+10 \end{bmatrix} + 1 \times \text{det} \begin{bmatrix} 1 &amp; 2 \\ 1
 &amp; 4 \end{bmatrix}
 \]</span></p>
+<p>To calcualte the determinants of the <span class="math inline">\(2
+\times 2\)</span> matrices, I can apply the formula:</p>
+<p><span class="math display">\[
+\Large
+\text{det}\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix} = ad - bc
+\]</span> Corresponding calculations for determinants of the <span class="math inline">\(2 \times 2\)</span> matrices:</p>
+<p><span class="math display">\[
+\Large
+\text{det}
+\begin{bmatrix} 2 &amp; 4 \\ 4 &amp; 10 \end{bmatrix} = 10
+\]</span></p>
+<p><span class="math display">\[
+\Large
+\text{det} \begin{bmatrix} 1 &amp; 4 \\ 1 &amp; 10 \end{bmatrix} =
+\]</span></p>
+<p><span class="math display">\[
+\Large
+\text{det} \begin{bmatrix} 1 &amp; 2 \\ 1 &amp; 4 \end{bmatrix} =
+\]</span><br />
+<br />
+<br />
+<br />
+</p>
 </div>
 <div id="identifying-eigenvalues-not-needed" class="section level4">
 <h4>Identifying Eigenvalues (NOT NEEDED?):</h4>
