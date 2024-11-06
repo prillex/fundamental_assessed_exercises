@@ -31,3 +31,12 @@ $$
 \end{bmatrix}
 $$
   
+  
+  
+# Quadratic solve not needed
+  Therefore, to solve:
+  $$
+  \Large
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+= x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$
