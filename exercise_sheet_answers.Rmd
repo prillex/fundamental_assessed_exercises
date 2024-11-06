@@ -90,33 +90,41 @@ $$ Corresponding calculations for determinants of the $2 \times 2$ matrices:
 $$
 \Large
 \text{det} 
- \begin{bmatrix} 2 & 4 \\ 4 & 10 \end{bmatrix} = 20 - 16 = 4
+ \begin{bmatrix} 2 & 4 \\ 4 & 10 \end{bmatrix} = 20 - 16 =\mathbf{4}
 $$
 
 $$
 \Large
- \text{det} \begin{bmatrix} 1 & 4 \\ 1 & 10 \end{bmatrix} = 10 - 4 = 6
+ \text{det} \begin{bmatrix} 1 & 4 \\ 1 & 10 \end{bmatrix} = 10 - 4 =\mathbf{6}
 $$
 
 $$
 \Large
- \text{det} \begin{bmatrix} 1 & 2 \\ 1 & 4 \end{bmatrix} = 4-2 = 2
+ \text{det} \begin{bmatrix} 1 & 2 \\ 1 & 4 \end{bmatrix} = 4-2 = \mathbf{2}
 $$
 
-
-
-\
-\
-\
-\
-
-#### Identifying Eigenvalues (NOT NEEDED?):
+Substituting these determinants into the aforementioned $3 \times 3$ matrix determinant formula gives:
 
 $$
 \Large
-\begin{bmatrix}
-1 - \lambda & 1 & 1 \\
-1 & 10 - \lambda & 4 \\
-1 & 4 & 10 - \lambda
-\end{bmatrix}
+\text{det}(A)=
+(1 \times 4)  - (1 \times 6) + (1 \times 2) = \mathbf{0}
+$$ 
+
+The determinant of the coefficient matrix and therefore the matrix vector is 0. This means that the matrix is singular:
+
 $$
+\Large
+\text{det}(A) = Ax = 0
+$$\
+
+In being singular, the matrix does not have an inverse meaning that the corresponding linear equations have either no, or unlimited solution. Regardless, in this case, the initial equations have no unique solution for η. 
+
+
+
+
+
+
+
+
+

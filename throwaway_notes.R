@@ -14,3 +14,20 @@ kable(matrix_lambda)
 
 
 ```
+
+
+\
+\
+\
+
+#### Identifying Eigenvalues (NOT NEEDED?):
+
+$$
+  \Large
+\begin{bmatrix}
+1 - \lambda & 1 & 1 \\
+1 & 10 - \lambda & 4 \\
+1 & 4 & 10 - \lambda
+\end{bmatrix}
+$$
+  
