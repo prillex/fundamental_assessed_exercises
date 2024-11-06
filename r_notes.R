@@ -107,3 +107,37 @@ expected_value_X2 <- sum((0:50)^2 * all_prob)
 
 # Compute the variance
 variance <- expected_value_X2 - (expected_value)^2
+
+
+# Rmarkdown notes ----
+##### Using mixture of typeset and images of workings out
+
+## See 'R Markdown and Literate programming pdf
+
+<https://ele.exeter.ac.uk/pluginfile.php/4501313/mod_resource/content/3/docs/index.html>
+  
+  ## See also Rmarkdown cheatsheet
+  
+  <https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf>
+  
+  #### Typeset Example: Spearmans rmarkdown
+  
+  $$\ r_s = 1 -\left(\frac{6\sum_{}D^2}{n(n^2-1)}\right)$$
+  
+  # Images
+  
+  Note that you must use out.width and out.height to scale external images (fig.height and fig.width won’t work). To see images, must knit file
+
+```{r, echo = FALSE, out.width = "20%"}
+library(knitr)
+include_graphics("images/Culture.jpeg")
+
+```
+
+echo = FALSE\` parameter added to prevent printing of the R code \# Libraries
+
+```{r libraries, echo = TRUE, message = FALSE, warning = FALSE}
+library(ggplot2)  # For Plotting
+library(dplyr)  # For data manipulation
+```
+
