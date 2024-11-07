@@ -40,3 +40,19 @@ $$
 x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 = x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 $$
+  
+  
+  
+  $$
+  \Large
+\begin{bmatrix}
+x & y & z \\
+y & 3 z\\
+z \ 
+\end{bmatrix} =
+  \begin{bmatrix}
+1 \\
+0 \\
+0
+\end{bmatrix}
+$$
