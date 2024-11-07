@@ -42,8 +42,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 $$
   
   
-  
-  $$
+$$
   \Large
 \begin{bmatrix}
 x & y & z \\
@@ -56,3 +55,11 @@ z \
 0
 \end{bmatrix}
 $$
+  
+  
+
+  
+  # Probability
+P(Alice Then going onto win) = $(1 - β) \times α$
+  
+Therefore, P(Alice misses first then goes onto win) = $P_{1} = P((1-β\times)α|1-α)$

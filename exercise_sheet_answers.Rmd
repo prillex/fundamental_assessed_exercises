@@ -327,6 +327,87 @@ $$
 \
 \
 \
+\
+\
+\
+
+## Question 2a
+
+$P_{1} = P(\text{Alice winning when first to throw})$
+
+The distribution shares some characteristics of the Bernoulli distribution whereby there are two outcomes (success & failure) and discrete. However, the question is asking for the probability to a given success. The balls are thrown (trials) until a success (hit). Furthermore, I have to assume that each throw is independent of the other which makes the distribution memoryless with two outcomes: success (win), & failure (miss). This is a geometric distribution.
+
+$$
+\large
+\left.
+\begin{aligned}
+\text{Hit} = α\\
+\text{Miss}= 1-α\
+\end{aligned}
+\right\} \text{Alice}
+$$
+
+$$
+\large
+\left.
+\begin{aligned}
+\text{Hit} =  β\\
+\text{Miss}= 1- β\
+\end{aligned}
+\right\} \text{Ben}
+$$
+
+#### The probability of Alice missing Ben with her first throw and going on to win:
+
+P(Alice misses first throw) = $1 - α$
+
+P(Ben misses first throw) = $1-β$
+
+Thus,\
+P(Alice miss, Ben miss) = $(1 - α)\times (1-β)$
+
+So,\
+P(Alice miss, Ben miss, Alice goes onto win) = $P_{1}\times(1 - α) \times(1 - β)$
+
+$P_{1}$ is able to be used here because of the memoryless nature of the geometric distribution; no matter how many trials have transpired prior to a given throw of Alice's, the probability that she will win from that point onwards is still $P_{1}$.
+
+\
+\
+
+## Question 2b
+
+Because I'm working with the Geometric distribution with parameter p, X has a probability mass function:
+
+$$
+\large
+P(X = k) = p(k) =
+\left\{
+\begin{aligned}
+(1 − p)^{k-1}p,\\
+0\
+\end{aligned}
+\right.
+$$
+
+As previously discussed, the proability that Alice and Ben both miss in a given round is: $(1 - α)\times (1-β)$
+
+\
+This could repeat n times where n can denotes any integer (theoretically): $((1 - α)\times (1-β))^n$
+
+\
+Eventual success from Alice (given that she throws first) therefore gives: $((1 - α)\times (1-β))^{n-1} \timesα$
+
+This is because $α$ still denotes the probability that she will hit successfully.
+
+\
+Therefore, substituting my terms in gives:
+
+$P_{1} = (1-α)\times(1-β)^{n-1}\times α$
+
+\
+\
+\
+\
 
 ## References
 
