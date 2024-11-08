@@ -470,24 +470,22 @@ $$\
 
 ## Question 3a
 
-The tins' weight follows a normal distribution $μ = 426, σ = 21$. The variance (Var) is therefore $441$ because var$= σ^2$.
-
 Infinite geometric series for $|r| < 1$:\
 $$
 \Large 
 \sum_{n=0}^{\infty}r^n=\frac{1}{1-r} 
 $$\
 
-The equation $\Large \sum_{n=0}^{\infty}n(n-1)r^{n-2}$ has no common ratio i.e. there are extra terms: $n(n-1)$ - a polynomial.This means it is not part of the geometric series but we can use properties of the geometric to work out the sum of the latter.
+The equation $\sum_{n=0}^{\infty}n(n-1)r^{n-2}$ has no common ratio i.e. there are extra terms: $n(n-1)$ - a polynomial.This means it is not part of the geometric series but we can use properties of the geometric series to work out the sum of the latter.
 
 1.Differentiating the geometric series gives a similar form to the second expression:
 
 $$
 \Large
-\frac{d}{dr} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dx} \left( \frac{1}{1 - r} \right)
+\frac{d}{dx} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dx} \left( \frac{1}{1 - r} \right)
 $$
 
-For the first term (equation) I apply the power rule: $\frac{d}{dx} \left( x^n \right) = n x^{n-1}$ Note, I am derivating wiht respect to r i.e. r = x to match geometric series form.
+For the first term (equation) I apply the power rule: $\frac{d}{dx} \left( x^n \right) = n x^{n-1}$ Note, I am derivating with respect to $r$ i.e. $r = x$ to match geometric series form.
 
 $$
 \Large
@@ -495,42 +493,96 @@ $$
 \sum_{n=0}^{\infty} nr^{n-1}
 $$
 
-And for the sum I can apply the quotient rule to find the derivative: $\frac{d}{dx} \left( \frac{f}{g} \right) = \frac{g \frac{d}{dx}(f) - f \frac{d}{dx}(g)}{g^2}$ Again, I am derivating with respect to r.
+And for the sum I can apply the quotient rule to find the derivative: $\frac{d}{dx} \left( \frac{f}{g} \right) = \frac{g \frac{d}{dx}(f) - f \frac{d}{dx}(g)}{g^2}$ Again, I am derivating with respect to r (r = x)
 
 $$
 \Large
  \frac{d}{dx} \left( \frac{1}{1 - r} \right) = \frac{(1-r)\times\frac{d}{dx}(1)-1 \times \frac{d}{dx}(1-r)}{(1-r)^2}
  = \frac{1}{(1-r)^2}
 $$
-Now I have:
 
+Now I have:
 
 $$
 \Large
 \sum_{n=0}^{\infty} nr^{n-1} = \frac{1}{(1-r)^2}
 $$
 
-The equation form now mirrors that of the equation of interest:
+The equation form now mirrors that of the equation of interest: $\sum_{n=0}^{\infty}n(n-1)r^{n-2}$
+
+
+#### Next, I can take the second derivative:
+
+The second derivative of $\sum_{n=0}^{\infty}r^n$:
+
 $$
-\Large 
-\sum_{n=0}^{\infty}n(n-1)r^{n-2}
+\Large
+\frac{d2}{dx2} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dx}\sum_{n=0}^{\infty} nr^{n-1}
+
+$$
+Using the power rule again:
+
+$$
+\Large
+\frac{d}{dx}\sum_{n=0}^{\infty} nr^{n-1}
+= \sum_{n=0}^{\infty}n(n-1)r^{n-2}
+$$
+This is the exact same as the equation of interest:
+
+Therefore, the second derivative of the given geometric series $( \sum_{n=0}^{\infty} r^n)$ is equal to the equation of interest:
+
+$$
+\Large
+\frac{d2}{dx2} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dx}\sum_{n=0}^{\infty} nr^{n-1} = \sum_{n=0}^{\infty}n(n-1)r^{n-2}
 $$
 
-#### Finding Expression for:
+Therefore, to find its respective sum, I must find the second derivative of the initial equations sum too. I can do this again with the quotient rule.
 
 
+$$
+\Large
+\frac{d2}{dx2} \left( \frac{1}{1 - r} \right) =
+\frac{d}{dx} \left( \frac{1}{(1 - r^2)} \right) =
+\frac{(1-r)^2\times\frac{d}{dx}(1)-1 \times \frac{d}{dx}(1-r)^2}{((1-r)^2)^2}
+$$\
+\
+Note: I now also have to apply chain rule to differentiate $(1-r)^2$.
+$1-r$ is the inner function, $^2$ is the outer. So $\frac{d}{dx}(1-r)^2 = -2(1-r)$
+Thus, I arrive at:
+\
+$$
+\Large
+= \frac{(1-r)^2\times0-1 \times (-2\times(1-r))}{(1-r)^4}=\frac{2(1-r)}{(1-r)^4} =\frac{2}{(1-r)^3}
+$$
+To conclude:
+
+$$
+\Large
+\sum_{n=0}^{\infty}n(n-1)r^{n-2} =\frac{2}{(1-r)^3}
+$$
 
 \
 \
 \
+\
+\
 
 
+
+
+\
+
+\
+\
+\
 
 \
 \
 \
 
 ## Question 3b
+
+The tins' weight follows a normal distribution $μ = 426, σ = 21$. The variance (Var) is therefore $441$ because var$= σ^2$.
 
 The expectation of each fine (E[Fine])...
 
