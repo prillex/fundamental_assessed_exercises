@@ -394,10 +394,13 @@ This is not conditional probability as the probability is with respect to the be
 As discussed, the probability that Alice and Ben both miss in a given round is: $(1 - α)\times (1-β)$
 
 \
-This could repeat n times where n can denotes any integer (theoretically): $((1 - α)\times (1-β))^n$ meaning the proability will be a summation of all the rounds where n = 1-infinity $(\sum_{n=1}^{\infty})$
+This could repeat n times where n can denotes any integer (theoretically): $((1 - α)\times (1-β))^n$ meaning the probability will be a summation of all the rounds where n is potentially indefinite $(\sum_{n=1}^{\infty})$
 
 \
-Eventual success from Alice (given that she throws first) therefore gives: $P(X = n) =  \sum_{n=1}^{\infty} ((1 - α)\times (1-β))^{n-1} \timesα$
+Eventual success from Alice (given that she throws first) therefore gives: $$
+\Large
+P(X = n) =  \sum_{n=1}^{\infty} ((1 - α)\times (1-β))^{n-1} \timesα
+$$\
 
 The $n-1$ term is used because Alice and Ben must miss every time until the final round (hence $-1$); the $n$-th round is the one she wins (success).
 
@@ -411,7 +414,26 @@ $$
 P_{1} =  \sum_{n=1}^{\infty} ((1-α)\times(1-β))^{n-1}\times α
 $$
 
-# 
+In line with the geometric series, this is then equivalent to: $$
+\Large
+P_{1} =
+α\times \sum_{n=0}^{\infty} ((1-α)\times(1-β))^{n}
+$$ This holds even if n = 0 because in this instance the equation would still equate to α.\
+\
+
+In the infinite geometric series equation $\sum_{n=0}^{\infty}r^n=\frac{1}{1-r}$ where $|r|< 1$\
+$(1-α)\times(1-β)$ is the common ratio (this holds because the terms are probabilities and so \< 1) Thus:
+
+$$
+\Large 
+r = (1-α)\times(1-β)
+$$\
+\
+
+Finally, substituting the values into the geometric series equation gives: $$
+\Large
+P_{1} = α \times \frac{1}{1-(1-α)\times(1-β)}
+$$
 
 ## Question 2c
 
@@ -424,39 +446,49 @@ $$
 P2 \neq \sum_{n=1}^{\infty} ((1-β) \times (1-α))^{n-1} \times α
 $$
 
-Instead there must be a final $1-β$ before Alice is victorious. Thus,
+Instead there must be a final $1-β$ before Alice is victorious. Again, the $n$-th round is the one where she wins (also the round where Ben misses a final time) Thus,
 
 $$
 \Large 
-P2 = \sum_{n=1}^{\infty} ((1-β) \times (1-α))^{n-1} \times (1-β) \times α 
+P_{2} = \sum_{n=1}^{\infty} ((1-β) \times (1-α))^{n-1} \times (1-β) \times α 
 $$
 
-\
+By applying the geometric series steps as in the previous question, we get that: $$
+\Large 
+P_{2} = (1-β) \times α \times \sum_{n=0}^{\infty} ((1-β) \times (1-α))^{n}
+$$ And finally:
+
+$$
+\Large
+P_{1} = (1-β)\timesα \times \frac{1}{1-(1-α)\times(1-β)}
+$$\
 \
 \
 \
 
 ## Question 3a
 
-The tins' weight follows a normal distribution $μ = 426, σ = 21$.
+The tins' weight follows a normal distribution $μ = 426, σ = 21$. The variance (Var) is therefore $441$ because var$= σ^2$.
 
-The variance (Var) is therefore $441$ because var$= σ^2$.
-
-Infinite geometric series for |r| < 1:
+Infinite geometric series for $|r| < 1$:\
 $$
 \Large 
 \sum_{n=0}^{\infty}r^n=\frac{1}{1-r} 
-$$
+$$\
+
 #### Finding Expression for:
+
+\
+$$
+\Large 
+\sum_{n=0}^{\infty}n(n-1)r^{n-2}
+$$\
+1.We can use the geometric series
 $$
 \Large 
 \sum_{n=0}^{\infty}n(n-1)r^{n-2}
 $$
-1. 
-$$
-\Large 
-\sum_{n=0}^{\infty}n(n-1)r^{n-2}
-$$
+
 \
 \
 \
