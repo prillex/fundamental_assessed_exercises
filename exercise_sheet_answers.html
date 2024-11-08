@@ -356,6 +356,13 @@ display: none;
 <h1>Fundamentals of Data Science Assessment Sheet</h1>
 <div id="matt-prill" class="section level4">
 <h4><em>Matt Prill</em></h4>
+<p>Note: <em>All code formulated for this assessment is accessible in my
+github repository linked here. It also contains images of my hand
+written workings out. There is no onus to look at these; all relevant
+and neat workings can be seen in this document. I have included them in
+the repository so that I can</em> <strong>(A)</strong> <em>track my own
+workflow (version control) and</em> <strong>(B)</strong> <em>allow you
+consult them should you wish to.</em></p>
 </div>
 <div id="question-1a" class="section level2">
 <h2>Question 1a</h2>
@@ -846,15 +853,40 @@ therefore <span class="math inline">\(441\)</span> because var<span class="math 
 \sum_{n=0}^{\infty}r^n=\frac{1}{1-r}
 \]</span><br />
 </p>
+<p>The equation <span class="math inline">\(\Large
+\sum_{n=0}^{\infty}n(n-1)r^{n-2}\)</span> has no common ratio i.e. there
+are extra terms: <span class="math inline">\(n(n-1)\)</span> - a
+polynomial.This means it is not part of the geometric series but we can
+use properties of the geometric to work out the sum of the latter.</p>
+<p>1.Differentiating the geometric series gives a similar form to the
+second expression:</p>
+<p><span class="math display">\[
+\Large
+\frac{d}{dr} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dx}
+\left( \frac{1}{1 - r} \right)
+\]</span></p>
+<p>For the first term (equation) I apply the power rule: <span class="math inline">\(\frac{d}{dx} \left( x^n \right) = n
+x^{n-1}\)</span></p>
+<p><span class="math display">\[
+\Large
+\frac{d}{dx} \left( \sum_{n=0}^{\infty} r^n \right) =
+\sum_{n=0}^{\infty} nr^{n-1}
+\]</span></p>
+<p>And for the sum I can apply the quotient rule to find the derivative:
+<span class="math inline">\(\frac{d}{dx} \left( \frac{f}{g} \right) =
+\frac{g \frac{d}{dx}(f) - f \frac{d}{dx}(g)}{g^2}\)</span></p>
+<p><span class="math display">\[
+\Large
+\frac{d}{dx} \left( \frac{1}{1 - r} \right) =
+\frac{(1-r)\times\frac{d}{dx}(1)-1 \times \frac{d}{dx}(1-r)}{(1-r)^2}
+\]</span></p>
 <div id="finding-expression-for" class="section level4">
 <h4>Finding Expression for:</h4>
 <p><br />
-<span class="math display">\[
-\Large
-\sum_{n=0}^{\infty}n(n-1)r^{n-2}
-\]</span><br />
-1.<br />
-<span class="math display">\[
+<br />
+<br />
+</p>
+<p><span class="math display">\[
 \Large
 \sum_{n=0}^{\infty}n(n-1)r^{n-2}
 \]</span></p>
@@ -864,8 +896,13 @@ therefore <span class="math inline">\(441\)</span> because var<span class="math 
 </p>
 </div>
 </div>
-<div id="references" class="section level2">
-<h2>References</h2>
+<div id="question-3b" class="section level2">
+<h2>Question 3b</h2>
+<p>The expectation of each fine (E[Fine])…</p>
+<p><br />
+<br />
+<br />
+## References</p>
 <p>Linear Algebra Slides, 2020</p>
 </div>
 </div>
