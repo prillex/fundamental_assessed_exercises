@@ -389,22 +389,74 @@ P(X = k) = p(k) =
 \right.
 $$
 
-As previously discussed, the proability that Alice and Ben both miss in a given round is: $(1 - α)\times (1-β)$
+This is not conditional probability as the probability is with respect to the beginning of the round.
+
+As discussed, the probability that Alice and Ben both miss in a given round is: $(1 - α)\times (1-β)$
 
 \
-This could repeat n times where n can denotes any integer (theoretically): $((1 - α)\times (1-β))^n$
+This could repeat n times where n can denotes any integer (theoretically): $((1 - α)\times (1-β))^n$ meaning the proability will be a summation of all the rounds where n = 1-infinity $(\sum_{n=1}^{\infty})$
 
 \
-Eventual success from Alice (given that she throws first) therefore gives: $((1 - α)\times (1-β))^{n-1} \timesα$
+Eventual success from Alice (given that she throws first) therefore gives: $P(X = n) =  \sum_{n=1}^{\infty} ((1 - α)\times (1-β))^{n-1} \timesα$
 
-This is because $α$ still denotes the probability that she will hit successfully.
+The $n-1$ term is used because Alice and Ben must miss every time until the final round (hence $-1$); the $n$-th round is the one she wins (success).
+
+The $α$ term is therefore added as it still denotes the probability that she will hit successfully.
 
 \
 Therefore, substituting my terms in gives:
 
-$P_{1} = (1-α)\times(1-β)^{n-1}\times α$
+$$
+\Large
+P_{1} =  \sum_{n=1}^{\infty} ((1-α)\times(1-β))^{n-1}\times α
+$$
+
+# 
+
+## Question 2c
+
+For Ben to throw go first but Alice still to win, there must be $1-β$ term.
+
+However given the order of throws, the point at which Alice wins must be preceded by a miss from Ben $(1-β)$ after which she can throw (and win). Therefore,
+
+$$
+\Large 
+P2 \neq \sum_{n=1}^{\infty} ((1-β) \times (1-α))^{n-1} \times α
+$$
+
+Instead there must be a final $1-β$ before Alice is victorious. Thus,
+
+$$
+\Large 
+P2 = \sum_{n=1}^{\infty} ((1-β) \times (1-α))^{n-1} \times (1-β) \times α 
+$$
 
 \
+\
+\
+\
+
+## Question 3a
+
+The tins' weight follows a normal distribution $μ = 426, σ = 21$.
+
+The variance (Var) is therefore $441$ because var$= σ^2$.
+
+Infinite geometric series for |r| < 1:
+$$
+\Large 
+\sum_{n=0}^{\infty}r^n=\frac{1}{1-r} 
+$$
+#### Finding Expression for:
+$$
+\Large 
+\sum_{n=0}^{\infty}n(n-1)r^{n-2}
+$$
+1. 
+$$
+\Large 
+\sum_{n=0}^{\infty}n(n-1)r^{n-2}
+$$
 \
 \
 \
