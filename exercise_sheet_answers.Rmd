@@ -13,6 +13,8 @@ library(tidyverse)
 
 #### *Matt Prill*
 
+Note: *All code formulated for this assessment is accessible in my github repository linked here. It also contains images of my hand written workings out. There is no onus to look at these; all relevant and neat workings can be seen in this document. I have included them in the repository so that I can* **(A)** *track my own workflow (version control) and* **(B)** *allow you to consult them should you wish to.*
+
 ## Question 1a
 
 #### Initial Equations:
@@ -476,23 +478,65 @@ $$
 \sum_{n=0}^{\infty}r^n=\frac{1}{1-r} 
 $$\
 
+The equation $\Large \sum_{n=0}^{\infty}n(n-1)r^{n-2}$ has no common ratio i.e. there are extra terms: $n(n-1)$ - a polynomial.This means it is not part of the geometric series but we can use properties of the geometric to work out the sum of the latter.
+
+1.Differentiating the geometric series gives a similar form to the second expression:
+
+$$
+\Large
+\frac{d}{dr} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dx} \left( \frac{1}{1 - r} \right)
+$$
+
+For the first term (equation) I apply the power rule: $\frac{d}{dx} \left( x^n \right) = n x^{n-1}$ Note, I am derivating wiht respect to r i.e. r = x to match geometric series form.
+
+$$
+\Large
+\frac{d}{dx} \left( \sum_{n=0}^{\infty} r^n \right) =
+\sum_{n=0}^{\infty} nr^{n-1}
+$$
+
+And for the sum I can apply the quotient rule to find the derivative: $\frac{d}{dx} \left( \frac{f}{g} \right) = \frac{g \frac{d}{dx}(f) - f \frac{d}{dx}(g)}{g^2}$ Again, I am derivating with respect to r.
+
+$$
+\Large
+ \frac{d}{dx} \left( \frac{1}{1 - r} \right) = \frac{(1-r)\times\frac{d}{dx}(1)-1 \times \frac{d}{dx}(1-r)}{(1-r)^2}
+ = \frac{1}{(1-r)^2}
+$$
+Now I have:
+
+
+$$
+\Large
+\sum_{n=0}^{\infty} nr^{n-1} = \frac{1}{(1-r)^2}
+$$
+
+The equation form now mirrors that of the equation of interest:
+$$
+\Large 
+\sum_{n=0}^{\infty}n(n-1)r^{n-2}
+$$
+
 #### Finding Expression for:
 
-\
-$$
-\Large 
-\sum_{n=0}^{\infty}n(n-1)r^{n-2}
-$$\
-1.We can use the geometric series
-$$
-\Large 
-\sum_{n=0}^{\infty}n(n-1)r^{n-2}
-$$
+
 
 \
 \
 \
 
-## References
+
+
+\
+\
+\
+
+## Question 3b
+
+The expectation of each fine (E[Fine])...
+
+\
+\
+\
+\## References
 
 Linear Algebra Slides, 2020
