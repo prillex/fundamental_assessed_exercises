@@ -2,9 +2,9 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 # Hidden Libraries
-library(knitr)  # For figures, tables and matricies
+library(knitr)  # For figures, tables and matrices
 library(kableExtra)  # For kable matrix
-library(pander)  # For more complex matricies symbol 
+library(pander)  # For more complex matrices symbol 
 library(rmarkdown)
 library(tidyverse)
 ```
@@ -445,7 +445,7 @@ However given the order of throws, the point at which Alice wins must be precede
 
 $$
 \Large 
-P2 \neq \sum_{n=1}^{\infty} ((1-β) \times (1-α))^{n-1} \times α
+P_{2}\neq \sum_{n=1}^{\infty} ((1-β) \times (1-α))^{n-1} \times α
 $$
 
 Instead there must be a final $1-β$ before Alice is victorious. Again, the $n$-th round is the one where she wins (also the round where Ben misses a final time) Thus,
@@ -462,7 +462,7 @@ $$ And finally:
 
 $$
 \Large
-P_{1} = (1-β)\timesα \times \frac{1}{1-(1-α)\times(1-β)}
+P_{2} = (1-β)\timesα \times \frac{1}{1-(1-α)\times(1-β)}
 $$\
 \
 \
@@ -476,7 +476,7 @@ $$
 \sum_{n=0}^{\infty}r^n=\frac{1}{1-r} 
 $$\
 
-The equation $\sum_{n=0}^{\infty}n(n-1)r^{n-2}$ has no common ratio i.e. there are extra terms: $n(n-1)$ - a polynomial.This means it is not part of the geometric series but we can use properties of the geometric series to work out the sum of the latter.
+The equation $\sum_{n=0}^{\infty}n(n-1)r^{n-2}$ has no common ratio i.e. there are extra terms: $n(n-1)$ - a polynomial.This means it is not part of the geometric series. However, I can but we can use properties of the geometric series to work out the sum of the latter. I can do so by altering the geomtric series to take the same form of the equation of interest.
 
 1.Differentiating the geometric series gives a similar form to the second expression:
 
@@ -510,16 +510,14 @@ $$
 
 The equation form now mirrors that of the equation of interest: $\sum_{n=0}^{\infty}n(n-1)r^{n-2}$
 
-
 #### Next, I can take the second derivative:
 
 The second derivative of $\sum_{n=0}^{\infty}r^n$:
 
 $$
-\Large
-\frac{d2}{dx2} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dx}\sum_{n=0}^{\infty} nr^{n-1}
-
+\Large \frac{d^2}{dx^2} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dx} \sum_{n=0}^{\infty} n r^{n-1}
 $$
+
 Using the power rule again:
 
 $$
@@ -527,9 +525,8 @@ $$
 \frac{d}{dx}\sum_{n=0}^{\infty} nr^{n-1}
 = \sum_{n=0}^{\infty}n(n-1)r^{n-2}
 $$
-This is the exact same as the equation of interest:
 
-Therefore, the second derivative of the given geometric series $( \sum_{n=0}^{\infty} r^n)$ is equal to the equation of interest:
+This is the exact same as the equation of interest. Therefore, the second derivative of the given geometric series $( \sum_{n=0}^{\infty} r^n)$ is equal to the equation of interest:
 
 $$
 \Large
@@ -538,7 +535,6 @@ $$
 
 Therefore, to find its respective sum, I must find the second derivative of the initial equations sum too. I can do this again with the quotient rule.
 
-
 $$
 \Large
 \frac{d2}{dx2} \left( \frac{1}{1 - r} \right) =
@@ -546,14 +542,14 @@ $$
 \frac{(1-r)^2\times\frac{d}{dx}(1)-1 \times \frac{d}{dx}(1-r)^2}{((1-r)^2)^2}
 $$\
 \
-Note: I now also have to apply chain rule to differentiate $(1-r)^2$.
-$1-r$ is the inner function, $^2$ is the outer. So $\frac{d}{dx}(1-r)^2 = -2(1-r)$
-Thus, I arrive at:
+Note: I now also have to apply chain rule to differentiate $(1-r)^2$. $1-r$ is the inner function, $^2$ is the outer. So $\frac{d}{dx}(1-r)^2 = -2(1-r)$ Thus, I arrive at:
+
 \
 $$
 \Large
 = \frac{(1-r)^2\times0-1 \times (-2\times(1-r))}{(1-r)^4}=\frac{2(1-r)}{(1-r)^4} =\frac{2}{(1-r)^3}
 $$
+
 To conclude:
 
 $$
@@ -566,9 +562,6 @@ $$
 \
 \
 \
-
-
-
 
 \
 
@@ -584,7 +577,25 @@ $$
 
 The tins' weight follows a normal distribution $μ = 426, σ = 21$. The variance (Var) is therefore $441$ because var$= σ^2$.
 
-The expectation of each fine (E[Fine])...
+#### A
+
+The tins' weight follows a normal distribution: $X\text~N(μ = 426, σ = 21)$. I need to calculate the the expectation of a fine (true when weight \< 420.75). This is equivalent to the CDF $F(x) = P(X ≤ 420.75)$.
+
+The PDF of the normal distribution is:
+
+$$
+\Large
+f(x \mid \mu, \sigma^2) = \frac{1}{2 \pi \sigma^2} \exp \left\{ -\frac{1}{2 \sigma^2} (x - \mu)^2 \right\}
+$$
+
+Substituting the parameters gives:
+
+$$
+\Large
+f(x \mid 426, 21^2)  = \frac{1}{2 \pi (21)^2} \exp \left\{ -\frac{1}{2 \times (21)^2} (x - 426)^2 \right\}
+$$
+
+The corresponding CDF cannot be denoted analytically but must be evaluated. The CDF $F(x) = P(X ≤ 420.75)$ is the integral of the PDF.
 
 \
 \

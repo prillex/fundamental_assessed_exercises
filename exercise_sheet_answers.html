@@ -362,7 +362,7 @@ written workings out. There is no onus to look at these; all relevant
 and neat workings can be seen in this document. I have included them in
 the repository so that I can</em> <strong>(A)</strong> <em>track my own
 workflow (version control) and</em> <strong>(B)</strong> <em>allow you
-consult them should you wish to.</em></p>
+to consult them should you wish to.</em></p>
 </div>
 <div id="question-1a" class="section level2">
 <h2>Question 1a</h2>
@@ -817,7 +817,7 @@ be preceded by a miss from Ben <span class="math inline">\((1-β)\)</span> after
 win). Therefore,</p>
 <p><span class="math display">\[
 \Large
-P2 \neq \sum_{n=1}^{\infty} ((1-β) \times (1-α))^{n-1} \times α
+P_{2}\neq \sum_{n=1}^{\infty} ((1-β) \times (1-α))^{n-1} \times α
 \]</span></p>
 <p>Instead there must be a final <span class="math inline">\(1-β\)</span> before Alice is victorious. Again,
 the <span class="math inline">\(n\)</span>-th round is the one where she
@@ -835,7 +835,7 @@ P_{2} = (1-β) \times α \times \sum_{n=0}^{\infty} ((1-β) \times
 \]</span> And finally:</p>
 <p><span class="math display">\[
 \Large
-P_{1} = (1-β)\timesα \times \frac{1}{1-(1-α)\times(1-β)}
+P_{2} = (1-β)\timesα \times \frac{1}{1-(1-α)\times(1-β)}
 \]</span><br />
 <br />
 <br />
@@ -844,8 +844,6 @@ P_{1} = (1-β)\timesα \times \frac{1}{1-(1-α)\times(1-β)}
 </div>
 <div id="question-3a" class="section level2">
 <h2>Question 3a</h2>
-<p>The tins’ weight follows a normal distribution <span class="math inline">\(μ = 426, σ = 21\)</span>. The variance (Var) is
-therefore <span class="math inline">\(441\)</span> because var<span class="math inline">\(= σ^2\)</span>.</p>
 <p>Infinite geometric series for <span class="math inline">\(|r| &lt;
 1\)</span>:<br />
 <span class="math display">\[
@@ -853,20 +851,22 @@ therefore <span class="math inline">\(441\)</span> because var<span class="math 
 \sum_{n=0}^{\infty}r^n=\frac{1}{1-r}
 \]</span><br />
 </p>
-<p>The equation <span class="math inline">\(\Large
-\sum_{n=0}^{\infty}n(n-1)r^{n-2}\)</span> has no common ratio i.e. there
-are extra terms: <span class="math inline">\(n(n-1)\)</span> - a
-polynomial.This means it is not part of the geometric series but we can
-use properties of the geometric to work out the sum of the latter.</p>
+<p>The equation <span class="math inline">\(\sum_{n=0}^{\infty}n(n-1)r^{n-2}\)</span> has no
+common ratio i.e. there are extra terms: <span class="math inline">\(n(n-1)\)</span> - a polynomial.This means it is
+not part of the geometric series. However, I can but we can use
+properties of the geometric series to work out the sum of the latter. I
+can do so by altering the geomtric series to take the same form of the
+equation of interest.</p>
 <p>1.Differentiating the geometric series gives a similar form to the
 second expression:</p>
 <p><span class="math display">\[
 \Large
-\frac{d}{dr} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dx}
+\frac{d}{dx} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dx}
 \left( \frac{1}{1 - r} \right)
 \]</span></p>
 <p>For the first term (equation) I apply the power rule: <span class="math inline">\(\frac{d}{dx} \left( x^n \right) = n
-x^{n-1}\)</span></p>
+x^{n-1}\)</span> Note, I am derivating with respect to <span class="math inline">\(r\)</span> i.e. <span class="math inline">\(r =
+x\)</span> to match geometric series form.</p>
 <p><span class="math display">\[
 \Large
 \frac{d}{dx} \left( \sum_{n=0}^{\infty} r^n \right) =
@@ -874,22 +874,78 @@ x^{n-1}\)</span></p>
 \]</span></p>
 <p>And for the sum I can apply the quotient rule to find the derivative:
 <span class="math inline">\(\frac{d}{dx} \left( \frac{f}{g} \right) =
-\frac{g \frac{d}{dx}(f) - f \frac{d}{dx}(g)}{g^2}\)</span></p>
+\frac{g \frac{d}{dx}(f) - f \frac{d}{dx}(g)}{g^2}\)</span> Again, I am
+derivating with respect to r (r = x)</p>
 <p><span class="math display">\[
 \Large
 \frac{d}{dx} \left( \frac{1}{1 - r} \right) =
 \frac{(1-r)\times\frac{d}{dx}(1)-1 \times \frac{d}{dx}(1-r)}{(1-r)^2}
+= \frac{1}{(1-r)^2}
 \]</span></p>
-<div id="finding-expression-for" class="section level4">
-<h4>Finding Expression for:</h4>
+<p>Now I have:</p>
+<p><span class="math display">\[
+\Large
+\sum_{n=0}^{\infty} nr^{n-1} = \frac{1}{(1-r)^2}
+\]</span></p>
+<p>The equation form now mirrors that of the equation of interest: <span class="math inline">\(\sum_{n=0}^{\infty}n(n-1)r^{n-2}\)</span></p>
+<div id="next-i-can-take-the-second-derivative" class="section level4">
+<h4>Next, I can take the second derivative:</h4>
+<p>The second derivative of <span class="math inline">\(\sum_{n=0}^{\infty}r^n\)</span>:</p>
+<p><span class="math display">\[
+\Large \frac{d^2}{dx^2} \left( \sum_{n=0}^{\infty} r^n \right) =
+\frac{d}{dx} \sum_{n=0}^{\infty} n r^{n-1}
+\]</span></p>
+<p>Using the power rule again:</p>
+<p><span class="math display">\[
+\Large
+\frac{d}{dx}\sum_{n=0}^{\infty} nr^{n-1}
+= \sum_{n=0}^{\infty}n(n-1)r^{n-2}
+\]</span></p>
+<p>This is the exact same as the equation of interest. Therefore, the
+second derivative of the given geometric series <span class="math inline">\(( \sum_{n=0}^{\infty} r^n)\)</span> is equal to
+the equation of interest:</p>
+<p><span class="math display">\[
+\Large
+\frac{d2}{dx2} \left( \sum_{n=0}^{\infty} r^n \right) =
+\frac{d}{dx}\sum_{n=0}^{\infty} nr^{n-1} =
+\sum_{n=0}^{\infty}n(n-1)r^{n-2}
+\]</span></p>
+<p>Therefore, to find its respective sum, I must find the second
+derivative of the initial equations sum too. I can do this again with
+the quotient rule.</p>
+<p><span class="math display">\[
+\Large
+\frac{d2}{dx2} \left( \frac{1}{1 - r} \right) =
+\frac{d}{dx} \left( \frac{1}{(1 - r^2)} \right) =
+\frac{(1-r)^2\times\frac{d}{dx}(1)-1 \times
+\frac{d}{dx}(1-r)^2}{((1-r)^2)^2}
+\]</span><br />
+<br />
+Note: I now also have to apply chain rule to differentiate <span class="math inline">\((1-r)^2\)</span>. <span class="math inline">\(1-r\)</span> is the inner function, <span class="math inline">\(^2\)</span> is the outer. So <span class="math inline">\(\frac{d}{dx}(1-r)^2 = -2(1-r)\)</span> Thus, I
+arrive at:</p>
+<p><br />
+<span class="math display">\[
+\Large
+= \frac{(1-r)^2\times0-1 \times
+(-2\times(1-r))}{(1-r)^4}=\frac{2(1-r)}{(1-r)^4} =\frac{2}{(1-r)^3}
+\]</span></p>
+<p>To conclude:</p>
+<p><span class="math display">\[
+\Large
+\sum_{n=0}^{\infty}n(n-1)r^{n-2} =\frac{2}{(1-r)^3}
+\]</span></p>
+<p><br />
+<br />
+<br />
+<br />
+<br />
+</p>
+<p><br />
+</p>
 <p><br />
 <br />
 <br />
 </p>
-<p><span class="math display">\[
-\Large
-\sum_{n=0}^{\infty}n(n-1)r^{n-2}
-\]</span></p>
 <p><br />
 <br />
 <br />
@@ -898,12 +954,34 @@ x^{n-1}\)</span></p>
 </div>
 <div id="question-3b" class="section level2">
 <h2>Question 3b</h2>
+<p>The tins’ weight follows a normal distribution <span class="math inline">\(μ = 426, σ = 21\)</span>. The variance (Var) is
+therefore <span class="math inline">\(441\)</span> because var<span class="math inline">\(= σ^2\)</span>.</p>
 <p>The expectation of each fine (E[Fine])…</p>
+<div id="a" class="section level4">
+<h4>A</h4>
+<p>The tins’ weight follows a normal distribution: <span class="math inline">\(X\text~N(μ = 426, σ = 21)\)</span>. I need to
+calculate the the expectation of a fine i.e. that the weight will be
+&lt; 420.75.] This is equivalent to the CDF 0 to 420.75.</p>
+<p>The PDF of the normal distribution is:<br />
+</p>
+<p><span class="math display">\[
+\Large
+f(x \mid \mu, \sigma^2) = \frac{1}{2 \pi \sigma^2} \exp \left\{
+-\frac{1}{2 \sigma^2} (x - \mu)^2 \right\}
+\]</span> Substituting the parameters gives:</p>
+<p><span class="math display">\[
+\Large
+f(x \mid 426, 21^2)  = \frac{1}{2 \pi (21)^2} \exp \left\{ -\frac{1}{2
+\times (21)^2} (x - 426)^2 \right\}
+\]</span></p>
+<p>The corresponding CDF cannot be denoted analytically but must be
+evaluated.</p>
 <p><br />
 <br />
 <br />
 ## References</p>
 <p>Linear Algebra Slides, 2020</p>
+</div>
 </div>
 </div>
 
