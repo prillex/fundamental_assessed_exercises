@@ -579,9 +579,9 @@ The tins' weight follows a normal distribution $μ = 426, σ = 21$. The variance
 
 #### A
 
-The tins' weight follows a normal distribution: $X\text~N(μ = 426, σ = 21)$. I need to calculate the the expectation of a fine (true when weight \< 420.75). This is equivalent to the CDF $F(x) = P(X ≤ 420.75)$.
+I need to calculate the expectation of a fine (true when weight $<$ 420.75) per box. This is equivalent to the CDF $F(x) = P(X ≤ 420.75)$. Then I can calculate the expected value of the fine/box.
 
-The PDF of the normal distribution is:
+The tins weight follows a normal distribution $X\text~N(μ = 426, σ = 21)$. The PDF of the normal distribution is:
 
 $$
 \Large
@@ -595,7 +595,31 @@ $$
 f(x \mid 426, 21^2)  = \frac{1}{2 \pi (21)^2} \exp \left\{ -\frac{1}{2 \times (21)^2} (x - 426)^2 \right\}
 $$
 
-The corresponding CDF cannot be denoted analytically but must be evaluated. The CDF $F(x) = P(X ≤ 420.75)$ is the integral of the PDF.
+The corresponding CDF cannot be denoted analytically due to but must be evaluated. The CDF $F(x) = P(X ≤ 420.75)$ is the integral of the PDF. However, the CDF of a normal distribution (denoted as $\Phi$) which means I can consult a 'Z-' probability table. To calculate the CDF corresponding z-value I can use the formula:
+
+$$
+\Large
+Z = \frac{X - \mu}{\sigma_{\text{sample}}}
+$$
+
+Importantly, the variance value in this term is actually standard devation of a box because it is tied to the sample size. In this case, the sample size is a whole box (100 cans), not a single tin:
+
+$$
+\large
+\sigma_{\text{sample}} = \frac{\sigma}{\sqrt{n}} = \frac{21}{\sqrt{100}} = 2.1
+$$
+This makes sense because as sample size increases, variance should decrease. In turn, by weighing a whole box, the variance of the box will decrease significantly, even if the variance of the individual tins is constant.\
+
+
+Substituting the parameters into the penultimate equation gives:
+
+$$
+\Large
+Z = \frac{420.75 - 426}{2.1} = -2.5
+$$
+Now, I can consult the z-table:
+
+# Insert image:
 
 \
 \
