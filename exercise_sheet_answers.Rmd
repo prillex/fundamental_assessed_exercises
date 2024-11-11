@@ -575,9 +575,7 @@ $$
 
 ## Question 3b
 
-The tins' weight follows a normal distribution $μ = 426, σ = 21$. The variance (Var) is therefore $441$ because var$= σ^2$.
-
-#### A
+### A:
 
 I need to calculate the expectation of a fine (true when weight $<$ 420.75) per box. This is equivalent to the CDF $F(x) = P(X ≤ 420.75)$. Then I can calculate the expected value of the fine/box.
 
@@ -602,28 +600,40 @@ $$
 Z = \frac{X - \mu}{\sigma_{\text{sample}}}
 $$
 
-Importantly, the variance value in this term is actually standard devation of a box because it is tied to the sample size. In this case, the sample size is a whole box (100 cans), not a single tin:
+Importantly, the variance value in this term is actually standard deviation of a box because it is tied to the sample size. In this case, the sample size is a whole box (100 cans), not a single tin:
 
 $$
-\large
+\Large
 \sigma_{\text{sample}} = \frac{\sigma}{\sqrt{n}} = \frac{21}{\sqrt{100}} = 2.1
-$$
-This makes sense because as sample size increases, variance should decrease. In turn, by weighing a whole box, the variance of the box will decrease significantly, even if the variance of the individual tins is constant.\
-
+$$ This makes sense because as sample size increases, variance should decrease. In turn, by weighing a whole box, the variance of the box will decrease significantly, even if the variance of the individual tins is constant.\
 
 Substituting the parameters into the penultimate equation gives:
 
 $$
 \Large
 Z = \frac{420.75 - 426}{2.1} = -2.5
+$$\
+
+#### Now, I can consult the z-table:
+
+![image](images\ztable.png)\
+The CDF's corresponding z-value is 0.0062. This means the probability of a box's weight/can being \<420.75 is 0.62%. To work out the expectation of the fine:
+
 $$
-Now, I can consult the z-table:
+\Large
+E(\text{Fine}) = 3000 \times 0.0062 = 18.6
+$$
 
-# Insert image:
+Thus for A:
 
+$$
+\Large
+E(\text{Fine})=£18.60\text{/box}
+$$\
 \
-\
-\
-\## References
+
+### B:
+
+###  \## References
 
 Linear Algebra Slides, 2020
