@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
@@ -690,7 +695,47 @@ $$
 E(n) = 2
 $$
 
-N itself however will have its own distribution which must be considered before plugging into the fine equation.
+N itself however will have its own distribution which must be considered before plugging into the fine equation. The variance of n can be calculated using the varience formula for geometric distributions:
+
+$$
+\Large
+Var(n) = \frac{1-p}{p^2}
+$$
+Thus,
+$$
+\Large
+Var(n) = \frac{1-0.5}{0.5^2}= 2
+$$\
+
+
+To calculate the expectation of the fine I need to use the formula, 
+$$
+\Large
+E(n^2) = \text{Var}(n) + (E(n))^2
+$$
+
+I have the variance and expected no. samples until success but i also need the expectation of n^2 becuase $n(n−1)=n^2−n$. Therefore to calculate the expectation of $n^2$: 
+
+$$
+\Large
+E(n)^2 = 4 + 2^2 = 6
+$$
+Now I can calculate the E(n(n-1)):
+
+$$
+\Large
+E(n(n-1))=  E(n^2) - E(n) = 6-2 = 4
+$$
+Now I have $E(n(n-1))$, I can plug it into the equation:
+$$
+\Large
+E(\text{Fine}) = 5\times{}E(n(n-1))=  5 \times 4 = 20
+$$
+In conclusion:
+$$
+\Large
+E(\text{Fine}) =  £20
+$$
 
 
 
