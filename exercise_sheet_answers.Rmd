@@ -611,13 +611,13 @@ Substituting the parameters into the penultimate equation gives:
 
 $$
 \Large
-Z = \frac{420.75 - 426}{2.1} = -2.5
+Z = \frac{420.75 - 426}{2.1} = -2.50
 $$\
 
 #### Now, I can consult the z-table:
 
 ![image](images\ztable.png)\
-The CDF's corresponding z-value is 0.0062. This means the probability of a box's weight/can being \<420.75 is 0.62%. To work out the expectation of the fine:
+The CDF's corresponding z-value is 0.0062. This means the probability of a box's weight/can being \<420.75g is 0.62%. To work out the expectation of the fine:
 
 $$
 \Large
@@ -631,9 +631,74 @@ $$
 E(\text{Fine})=£18.60\text{/box}
 $$\
 \
+\
+\
+\
 
 ### B:
 
-###  \## References
+I need to calculate the CDF $F(x) = P(X ≤ 421.8)$. I will use the same logic as before and calculate the z-value before consulting the table. This time, $X = 421.8$ and $n = 25$ which means that to calculate the z-value: $$
+\Large
+\sigma_{\text{sample}} = \frac{\sigma}{\sqrt{n}} = \frac{21}{\sqrt{25}} = 4.2
+$$ This higher $\sigma$ compared to the previous question is to be expected given the smaller sample size. Thus:
+
+$$
+\Large
+Z = \frac{421.8 - 426}{4.2} = -1
+$$\
+
+![image](images\ztableb.png)\
+The CDF's corresponding z-value is 0.1587. This means the probability of a box's weight/can being \<421.8g is 15.87%. To work out the expectation of the fine:
+
+$$
+\Large
+E(\text{Fine}) = 120 \times 0.1587 = 19.044
+$$
+
+Thus for B:
+
+$$
+\Large
+E(\text{Fine})=£19.04\text{/box}
+$$\
+\
+\
+\
+\
+
+### C:
+
+The probability that X > 426 is equivalent to $1- P(X ≤ 426)$. I could do this again and consult the z-table but this is unnecessary. 426 is the mean and normally distributed so there is a 0.5 chance that a randomly sampled can will weigh more and 0.5 that it will weigh less. Note: this takes into account the fact that a PDF of a given continuous variable (in this case 426.0g) = 0.  
+
+Here, each sampling event is either success $(X > 426)$ or failure $(X ≤ 426)$ where n could take any number. This is characteristic of the geometric formula. As discussed, the finite geometric series is:
+
+$$
+\Large 
+\sum_{n=0}^{\infty}r^n=\frac{1}{1-r} 
+$$\
+
+Since the probability of success = 0.5:
+
+$$
+\Large
+\sum_{n=0}^{\infty}r^n=\frac{1}{1-0.5}  = 2
+$$
+As expected, it takes two trials until a success is expected. In turn:
+
+$$
+\Large
+E(n) = 2
+$$
+
+N itself however will have its own distribution which must be considered before plugging into the fine equation.
+
+
+
+$$
+\Large
+E(\text{Fine})= (5n(n−1))
+$$
+
+### \## References
 
 Linear Algebra Slides, 2020
