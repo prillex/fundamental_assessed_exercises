@@ -1067,12 +1067,118 @@ can will weigh more and 0.5 that it will weigh less. Note: this takes
 into account the fact that a PDF of a given continuous variable (in this
 case 426.0g) = 0.</p>
 <p>Here, each sampling event is either success <span class="math inline">\((X &gt; 426)\)</span> or failure <span class="math inline">\((X ≤ 426)\)</span> where n could take any number.
-This is characteristic of the geometric formula. Since the probability
-of success = 0.5:</p>
+This is characteristic of the geometric formula. As discussed, the
+finite geometric series is:</p>
 <p><span class="math display">\[
 \Large
-E(\text{Fine}) = 120 \times 0.1587 = 19.044
+\sum_{n=0}^{\infty}r^n=\frac{1}{1-r}
+\]</span><br />
+</p>
+<p>Since the probability of success = 0.5:</p>
+<p><span class="math display">\[
+\Large
+\sum_{n=0}^{\infty}r^n=\frac{1}{1-0.5}  = 2
+\]</span> As expected, it takes two trials until a success is expected.
+In turn:</p>
+<p><span class="math display">\[
+\Large
+E(n) = 2
 \]</span></p>
+<p>N itself however will have its own distribution which must be
+considered before plugging into the fine equation. The variance of n can
+be calculated using the varience formula for geometric
+distributions:</p>
+<p><span class="math display">\[
+\Large
+Var(n) = \frac{1-p}{p^2}
+\]</span> Thus, <span class="math display">\[
+\Large
+Var(n) = \frac{1-0.5}{0.5^2}= 2
+\]</span><br />
+</p>
+<p>To calculate the expectation of the fine I need to use the formula,
+<span class="math display">\[
+\Large
+E(n^2) = \text{Var}(n) + (E(n))^2
+\]</span></p>
+<p>I have the variance and expected no. samples until success but i also
+need the expectation of n^2 becuase <span class="math inline">\(n(n−1)=n^2−n\)</span>. Therefore to calculate the
+expectation of <span class="math inline">\(n^2\)</span>:</p>
+<p><span class="math display">\[
+\Large
+E(n)^2 = 4 + 2^2 = 6
+\]</span> Now I can calculate the E(n(n-1)):</p>
+<p><span class="math display">\[
+\Large
+E(n(n-1))=  E(n^2) - E(n) = 6-2 = 4
+\]</span> Now I have <span class="math inline">\(E(n(n-1))\)</span>, I
+can plug it into the equation: <span class="math display">\[
+\Large
+E(\text{Fine}) = 5\times{}E(n(n-1))=  5 \times 4 = 20
+\]</span> In conclusion: <span class="math display">\[
+\Large
+E(\text{Fine}) =  £20
+\]</span></p>
+<p><br />
+<br />
+<br />
+<br />
+</p>
+</div>
+</div>
+<div id="question-4a" class="section level2">
+<h2>Question 4a</h2>
+<div id="introducing-the-random-variables" class="section level4">
+<h4>Introducing the random variables:</h4>
+<p>The random variables follow Bernoulli distributions because its
+success/failure (outcomes sum to 1), is independent and n is known. It
+is not repeated n times for each sample <span class="math inline">\((i)\)</span>. If this were the case then the
+distribution would become binomial.</p>
+<p><span class="math display">\[
+\Large
+X_i^{(1)} = \left\{
+\begin{array}{ll}
+1, &amp; \text{if B supporter number } i \text{ still supports B at the
+end of day 1}, \\
+0, &amp; \text{if B supporter number } i \text{ changes to an M
+supporter at the end of day 1}.
+\end{array}
+\right.
+\]</span> This is equivalent to:</p>
+<p><span class="math display">\[
+\Large
+X_i^{(1)} = \left\{
+\begin{array}{ll}
+k= 1, \text{ }p = 1- 0.004 = 0.996 \\
+k= 0, \text{ }1-p = 1- 0.996 = 0.004
+\end{array}
+\right.
+\]</span> Each random variables can be denoted as <span class="math inline">\(X_i^{(1)} \sim \text{Bernoulli}(p) \text{ for } i
+= 1...,175\)</span>.<br />
+</p>
+<p>For <span class="math inline">\(X^{(2)}\)</span>: <span class="math display">\[
+\Large
+X_i^{(2)} = \left\{
+\begin{array}{ll}
+1, &amp; \text{if M supporter number } i \text{ changes to a B supporter
+at the end of day 1}, \\
+0, &amp; \text{if M supporter number } i \text{ still supports M at the
+end of day 1}.
+\end{array}
+\right.
+\]</span></p>
+<p>This is equivalent to:</p>
+<p><span class="math display">\[
+\Large
+X_i^{(1)} = \left\{
+\begin{array}{ll}
+k=1, \text{ }p = 0.005 \\
+k=0, \text{ }1-p = 1- 0.005 = 0.996
+\end{array}
+\right.
+\]</span> Again, each random variables can be denoted as $ X_i^{(2)} (p)
+i = 1…,186$.<br />
+</p>
 </div>
 <div id="references" class="section level3">
 <h3>## References</h3>

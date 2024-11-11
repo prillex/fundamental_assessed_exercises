@@ -922,8 +922,77 @@ E(n)^2 = 4 + 2^2 = 6
 
 \[
 \Large
-E(\text{Fine})= (5n(n−1))
+E(n(n-1))=  E(n^2) - E(n) = 6-2 = 4
+\] Now I have \(E(n(n-1))\), I can plug it into the equation: \[
+\Large
+E(\text{Fine}) = 5\times{}E(n(n-1))=  5 \times 4 = 20
+\] In conclusion: \[
+\Large
+E(\text{Fine}) =  £20
 \]
+
+\[
+\Large
+E(\text{Fine})= (5n(n−1))
+\]\\
+\strut \\
+\strut \\
+\strut \\
+\strut \\
+
+\subsection{Question 4a}\label{question-4a}
+
+\paragraph{Introducing the random
+variables:}\label{introducing-the-random-variables}
+
+The random variables follow Bernoulli distributions because its
+success/failure (outcomes sum to 1), is independent and n is known. It
+is not repeated n times for each sample \((i)\). If this were the case
+then the distribution would become binomial.
+
+\[
+\Large
+X_i^{(1)} = \left\{
+\begin{array}{ll}
+1, & \text{if B supporter number } i \text{ still supports B at the end of day 1}, \\
+0, & \text{if B supporter number } i \text{ changes to an M supporter at the end of day 1}.
+\end{array}
+\right.
+\] This is equivalent to:
+
+\[
+\Large
+X_i^{(1)} = \left\{
+\begin{array}{ll}
+k= 1, \text{ }p = 1- 0.004 = 0.996 \\
+k= 0, \text{ }1-p = 1- 0.996 = 0.004
+\end{array}
+\right.
+\] Each random variables can be denoted as
+\(X_i^{(1)} \sim \text{Bernoulli}(p) \text{ for } i = 1...,175\).\\
+
+For \(X^{(2)}\): \[
+\Large
+X_i^{(2)} = \left\{
+\begin{array}{ll}
+1, & \text{if M supporter number } i \text{ changes to a B supporter at the end of day 1}, \\
+0, & \text{if M supporter number } i \text{ still supports M at the end of day 1}.
+\end{array}
+\right.
+\]
+
+This is equivalent to:
+
+\[
+\Large
+X_i^{(1)} = \left\{
+\begin{array}{ll}
+k=1, \text{ }p = 0.005 \\
+k=0, \text{ }1-p = 1- 0.005 = 0.996
+\end{array}
+\right.
+\] Again, each random variables can be denoted as \$ X\_i\^{}\{(2)\}
+\sim \text{Bernoulli}(p) \text{ for } i = 1\ldots,186\$.\\
 
 \subsubsection{\#\# References}\label{references}
 

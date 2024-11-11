@@ -1,7 +1,7 @@
 ---
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -739,10 +739,72 @@ $$
 
 
 
+\
+\
+\
+\
+
+## Question 4a
+
+
+
+#### Introducing the random variables:
+The random variables follow Bernoulli distributions because its success/failure (outcomes sum to 1), is independent and n is known. It is not repeated n times for each sample $(i)$. If this were the case then the distribution would become binomial.
+
 $$
 \Large
-E(\text{Fine})= (5n(n−1))
+X_i^{(1)} = \left\{
+\begin{array}{ll}
+1, & \text{if B supporter number } i \text{ still supports B at the end of day 1}, \\
+0, & \text{if B supporter number } i \text{ changes to an M supporter at the end of day 1}.
+\end{array}
+\right.
 $$
+This is equivalent to:
+
+$$
+\Large
+X_i^{(1)} = \left\{
+\begin{array}{ll}
+k= 1, \text{ }p = 1- 0.004 = 0.996 \\
+k= 0, \text{ }1-p = 1- 0.996 = 0.004
+\end{array}
+\right.
+$$
+Each random variables can be denoted as $X_i^{(1)} \sim \text{Bernoulli}(p) \text{ for } i = 1...,175$.
+\
+
+For $X^{(2)}$:
+$$
+\Large
+X_i^{(2)} = \left\{
+\begin{array}{ll}
+1, & \text{if M supporter number } i \text{ changes to a B supporter at the end of day 1}, \\
+0, & \text{if M supporter number } i \text{ still supports M at the end of day 1}.
+\end{array}
+\right.
+$$
+
+This is equivalent to:
+
+
+$$
+\Large
+X_i^{(1)} = \left\{
+\begin{array}{ll}
+k=1, \text{ }p = 0.005 \\
+k=0, \text{ }1-p = 1- 0.005 = 0.996
+\end{array}
+\right.
+$$
+Again, each random variables can be denoted as $X_i^{(2)} \sim \text{Bernoulli}(p) \text{ for } i = 1...,186$.
+\
+
+
+#### Expressing the number of B supporters at the end of the first day:
+
+This encompasses repeating the trial n-times, thus making both $X_i^{(1)}$ and $X_i^{(2)}$  follow a Binomial distribution.
+CONTINUE HERE
 
 ### \## References
 
