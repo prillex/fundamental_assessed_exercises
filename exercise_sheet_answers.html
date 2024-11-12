@@ -1130,10 +1130,11 @@ E(\text{Fine}) =  £20
 <h2>Question 4a</h2>
 <div id="introducing-the-random-variables" class="section level4">
 <h4>Introducing the random variables:</h4>
-<p>The random variables follow Bernoulli distributions because its
-success/failure (outcomes sum to 1), is independent and n is known. It
-is not repeated n times for each sample <span class="math inline">\((i)\)</span>. If this were the case then the
-distribution would become binomial.</p>
+<p>Individually, <span class="math inline">\(X_i^{(1)}\)</span> and
+<span class="math inline">\(X_i^{(2)}\)</span> random variables follow
+Bernoulli distributions because its success/failure (outcomes sum to 1),
+each trial is independent and <span class="math inline">\(n\)</span> is
+1.</p>
 <p><span class="math display">\[
 \Large
 X_i^{(1)} = \left\{
@@ -1153,8 +1154,11 @@ k= 1, \text{ }p = 1- 0.004 = 0.996 \\
 k= 0, \text{ }1-p = 1- 0.996 = 0.004
 \end{array}
 \right.
-\]</span> Each random variables can be denoted as <span class="math inline">\(X_i^{(1)} \sim \text{Bernoulli}(p) \text{ for } i
-= 1...,175\)</span>.<br />
+\]</span> For <span class="math inline">\(\sum_i  1...,175\)</span>:</p>
+<p>In summary, each random variables can be denoted as <span class="math inline">\(X_i^{(1)} \sim \text{Bernoulli}(p)\)</span> and
+<span class="math inline">\(\sum_{i=1}^{175} X_i^{(1)} \sim
+\text{Binomial}(175, p) \text{ for } i = 1...,175\)</span></p>
+<p><br />
 </p>
 <p>For <span class="math inline">\(X^{(2)}\)</span>: <span class="math display">\[
 \Large
@@ -1176,9 +1180,34 @@ k=1, \text{ }p = 0.005 \\
 k=0, \text{ }1-p = 1- 0.005 = 0.996
 \end{array}
 \right.
-\]</span> Again, each random variables can be denoted as $ X_i^{(2)} (p)
-i = 1…,186$.<br />
+\]</span> Again, each random variables can be denoted as <span class="math inline">\(X_i^{(2)} \sim \text{Bernoulli}(p) \text{ for } i
+= 1...,186\)</span>.<br />
 </p>
+<p>If these were repeated and summed (<span class="math inline">\(n\)</span> is known (186 or 175)), this repetition
+would change it from the Bernoulli to a Binomial distribution. This
+would holds because even though each sample (person) is different, we
+know that they have the same probability of switching allegiance. If
+this were the case then it would change from from <span class="math inline">\(X_i^{(1)} \sim \text{Bernoulli}(p)\)</span> to
+<span class="math inline">\(\sum_{i=1}^{175} X_i^{(1)} \sim
+\text{Binomial}(175, p)\)</span>. However the question asks for each
+individual trail rather than the summed trials so this is not the
+case.</p>
+</div>
+<div id="expressing-the-number-of-b-supporters-at-the-end-of-the-first-day" class="section level4">
+<h4>Expressing the number of B supporters at the end of the first
+day:</h4>
+<p>This encompasses repeating the trial n-times, thus making both <span class="math inline">\(X_i^{(1)}\)</span> and <span class="math inline">\(X_i^{(2)}\)</span> follow a Binomial distribution.
+This is because the sum of Bernoulli random variable trail successes
+<span class="math inline">\((\sum X_i = X_1 + X_2...,X_{175})\)</span>
+will denote the number of successes amongst the number if if Is
+Binomial.</p>
+<p>The number of B supporters at the end of day 1 will be the inital
+supporters - those that switch allegiance to support M + those that
+switch allegiance to support B:</p>
+<p><span class="math display">\[
+\text{B supporters after 1 day} = 175 - P(B &gt; M) + P(M &gt; B) NEED
+TO INCLUDE THE N HERE
+\]</span></p>
 </div>
 <div id="references" class="section level3">
 <h3>## References</h3>
