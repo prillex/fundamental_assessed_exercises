@@ -101,7 +101,9 @@ To calculate the determinants of the $2 \times 2$ matrices, I can apply the form
 $$
 \Large
 \text{det}\begin{bmatrix} a & b \\ c & d \end{bmatrix} = ad - bc
-$$ Corresponding calculations for determinants of the $2 \times 2$ matrices:
+$$
+
+Corresponding calculations for determinants of the $2 \times 2$ matrices:
 
 $$
 \Large
@@ -426,7 +428,9 @@ In line with the geometric series, this is then equivalent to: $$
 \Large
 P_{1} =
 α\times \sum_{n=0}^{\infty} ((1-α)\times(1-β))^{n}
-$$ This holds even if n = 0 because in this instance the equation would still equate to α.\
+$$
+
+This holds even if n = 0 because in this instance the equation would still equate to α.\
 \
 
 In the infinite geometric series equation $\sum_{n=0}^{\infty}r^n=\frac{1}{1-r}$ where $|r|< 1$\
@@ -461,10 +465,12 @@ $$
 P_{2} = \sum_{n=1}^{\infty} ((1-β) \times (1-α))^{n-1} \times (1-β) \times α 
 $$
 
-By applying the geometric series steps as in the previous question, we get that: $$
+By applying the geometric series steps as in the previous question, I get that: $$
 \Large 
 P_{2} = (1-β) \times α \times \sum_{n=0}^{\infty} ((1-β) \times (1-α))^{n}
-$$ And finally:
+$$
+
+And finally:
 
 $$
 \Large
@@ -482,9 +488,9 @@ $$
 \sum_{n=0}^{\infty}r^n=\frac{1}{1-r} 
 $$\
 
-The equation $\sum_{n=0}^{\infty}n(n-1)r^{n-2}$ has no common ratio i.e. there are extra terms: $n(n-1)$ - a polynomial.This means it is not part of the geometric series. However, I can but we can use properties of the geometric series to work out the sum of the latter. I can do so by altering the geomtric series to take the same form of the equation of interest.
+The equation $\sum_{n=0}^{\infty}n(n-1)r^{n-2}$ has no common ratio i.e. there are extra terms: $n(n-1)$ - a polynomial.This means it is not part of the geometric series. However, I can but I can use properties of the geometric series to work out the sum of the latter. I can do so by altering the geometric series to take the same form of the equation of interest.
 
-1.Differentiating the geometric series gives a similar form to the second expression:
+.Differentiating the geometric series gives a similar form to the second expression:
 
 $$
 \Large
@@ -548,6 +554,7 @@ $$
 \frac{(1-r)^2\times\frac{d}{dx}(1)-1 \times \frac{d}{dx}(1-r)^2}{((1-r)^2)^2}
 $$\
 \
+
 Note: I now also have to apply chain rule to differentiate $(1-r)^2$. $1-r$ is the inner function, $^2$ is the outer. So $\frac{d}{dx}(1-r)^2 = -2(1-r)$ Thus, I arrive at:
 
 \
@@ -611,7 +618,9 @@ Importantly, the variance value in this term is actually standard deviation of a
 $$
 \Large
 \sigma_{\text{sample}} = \frac{\sigma}{\sqrt{n}} = \frac{21}{\sqrt{100}} = 2.1
-$$ This makes sense because as sample size increases, variance should decrease. In turn, by weighing a whole box, the variance of the box will decrease significantly, even if the variance of the individual tins is constant.\
+$$
+
+This makes sense because as sample size increases, variance should decrease. In turn, by weighing a whole box, the variance of the box will decrease significantly, even if the variance of the individual tins is constant.\
 
 Substituting the parameters into the penultimate equation gives:
 
@@ -623,6 +632,7 @@ $$\
 #### Now, I can consult the z-table:
 
 ![image](images\ztable.png)\
+
 The CDF's corresponding z-value is 0.0062. This means the probability of a box's weight/can being \<420.75g is 0.62%. To work out the expectation of the fine:
 
 $$
@@ -646,7 +656,9 @@ $$\
 I need to calculate the CDF $F(x) = P(X ≤ 421.8)$. I will use the same logic as before and calculate the z-value before consulting the table. This time, $X = 421.8$ and $n = 25$ which means that to calculate the z-value: $$
 \Large
 \sigma_{\text{sample}} = \frac{\sigma}{\sqrt{n}} = \frac{21}{\sqrt{25}} = 4.2
-$$ This higher $\sigma$ compared to the previous question is to be expected given the smaller sample size. Thus:
+$$
+
+This higher $\sigma$ compared to the previous question is to be expected given the smaller sample size. Thus:
 
 $$
 \Large
@@ -654,6 +666,7 @@ Z = \frac{421.8 - 426}{4.2} = -1
 $$\
 
 ![image](images\ztableb.png)\
+
 The CDF's corresponding z-value is 0.1587. This means the probability of a box's weight/can being \<421.8g is 15.87%. To work out the expectation of the fine:
 
 $$
@@ -688,7 +701,9 @@ Since the probability of success = 0.5:
 $$
 \Large
 \sum_{n=0}^{\infty}r^n=\frac{1}{1-0.5}  = 2
-$$ As expected, it takes two trials until a success is expected. In turn:
+$$
+
+As expected, it takes two trials until a success is expected. In turn:
 
 $$
 \Large
@@ -700,32 +715,48 @@ N itself however will have its own distribution which must be considered before 
 $$
 \Large
 Var(n) = \frac{1-p}{p^2}
-$$ Thus, $$
+$$
+
+Thus,
+
+$$
 \Large
 Var(n) = \frac{1-0.5}{0.5^2}= 2
 $$\
 
-To calculate the expectation of the fine I need to use the formula, $$
+To calculate the expectation of the fine I need to use the formula,
+
+$$
 \Large
 E(n^2) = \text{Var}(n) + (E(n))^2
 $$
 
-I have the variance and expected no. samples until success but i also need the expectation of n\^2 becuase $n(n−1)=n^2−n$. Therefore to calculate the expectation of $n^2$:
+I have the variance and expected no. samples until success but i also need the expectation of n\^2 because $n(n−1)=n^2−n$. Therefore to calculate the expectation of $n^2$:
 
 $$
 \Large
 E(n)^2 = 4 + 2^2 = 6
-$$ Now I can calculate the E(n(n-1)):
+$$
+
+Now I can calculate the E(n(n-1)):
 
 $$
 \Large
 E(n(n-1))=  E(n^2) - E(n) = 6-2 = 4
-$$ Now I have $E(n(n-1))$, I can plug it into the equation: $$
+$$
+
+Now I have $E(n(n-1))$, I can plug it into the equation:
+
+$$
 \Large
 E(\text{Fine}) = 5\times{}E(n(n-1))=  5 \times 4 = 20
-$$ In conclusion: $$
+$$
+
+In conclusion:
+
+$$
 \Large
-E(\text{Fine}) =  £20
+E(\text{Fine}) =  £20/\text{box}
 $$
 
 \
@@ -749,7 +780,7 @@ X_i^{(1)} = \left\{
 \right.
 $$
 
-For $ i =1...,175$ this is equivalent to:
+For $i =1...,175$ this is equivalent to:
 
 $$
 \Large
@@ -761,11 +792,13 @@ k= 0, \text{ }1-p = 1- 0.996 = 0.004
 \right.
 $$
 
-In summary, each random variables can be denoted as $X_i^{(1)} \sim \text{Bernoulli}(1,p)\text{ for } i = 1...,175$
+In summary, each random variables can be denoted as $X_i^{(1)} \sim \text{Bernoulli}(1,p)\text{ for } i = 1...,175$.
 
 \
 
-For $X^{(2)}$: $$
+For $X^{(2)}$:
+
+$$
 \Large
 X_i^{(2)} = \left\{
 \begin{array}{ll}
@@ -775,11 +808,11 @@ X_i^{(2)} = \left\{
 \right.
 $$
 
-$ i =1...,186$This is equivalent to:
+for $i =1...,186$, this is equivalent to:
 
 $$
 \Large
-X_i^{(1)} = \left\{
+X_i^{(2)} = \left\{
 \begin{array}{ll}
 k=1, \text{ }p = 0.005 \\
 k=0, \text{ }1-p = 1- 0.005 = 0.996
@@ -794,13 +827,96 @@ Again, each random variable trial can be denoted as $X_i^{(2)} \sim \text{Bernou
 
 #### Expressing the number of B supporters at the end of the first day:
 
-This encompasses repeating the trial n-times, thus making both $X_i^{(1)}$ and $X_i^{(2)}$ follow a Binomial distribution. This is because the sum of Bernoulli random variable trail successes $(\sum X_i = X_1 + X_2...,X_{175})$ will denote the number of successes amongst the number if if Is Binomial.
+Every trial is independent and peoples allegiance has no bearing on other people. Crucially, distinct Bernoulli trials are repeated; not the same Bernoulli trial. This is because every $X$ is unique within a given day i.e. unique random variables (prospective voters). This precludes the use of the Binomial distribution characteristics; using binomial formulas would imply that the Bernoulli trials are repeated on single person n within a single day. This is not the case.
 
-The number of B supporters at the end of day 1 will be the inital supporters - those that switch allegiance to support M + those that switch allegiance to support B:
+The number of B supporters at the end of day 1 will be the B's Inital supporters - those that switch allegiance to support M + those that switch allegiance to support B:
 
 $$
-\text{B supporters after 1 day} = 175 - P(B > M) + P(M > B) NEED TO INCLUDE THE N HERE
+\text{B supporters after 1 day} =\text{B  supporters at the start of day} - \text{Supporters who switch to M} + \text{Supporters who switch to B}
+$$\
+\
+
+Here I will denote 'B supporters at the start of the day' as 'B' and M supporters at the start of the day as 'M' which are both integers. Using the introduced Random distributions this gives:
+
 $$
+\text{B supporters after 1 day} = B -  (B-\sum_{i=1}^{B} X_i^{(1)}) +  \sum_{i=1}^{M}X_i^{(2)}
+$$\
+
+The $(B-\sum_{i=1}^{B} X_i^{(1)})$ is included as it is all the failed trials for $X_i^{(1)}$ minus the number of B supporters who switch. The sum symbol is sufficient here because if a trial ends in success,the output is 1. This represents a person so the sum of these will equate to the number of successes. Therefore, probabilities such as $'p'$ and $'p-1'$ do not need to be expressed in the equation above.\
+\
+\
+
+#### Expected number of B supporters at the end of the first day:
+
+Using the formula, I can calculate the E(B supporters after one day). I must first calculate the sum of the expected occurrences in the two $X_i^{(1)}$ and $X_i^{(2)}$ terms.
+
+I can use the properties of the expectation to calculate these. Because I'm not working with a binomial distribution I will not use its expectation formula. Instead, I will use the expectation formula for the Bernoulli: E(X) = p. Therefore p can be multiplied for the number of Bernoulli trials in each term:
+
+expectations For $E(\sum_{i=1}^{175} X_i^{(1)}) = 175 \times  0.996 = 174.3 = 174$
+
+For $E(\sum_{i=1}^{186}X_i^{(2)}) = 186 \times 0.005 = 0.93 = 1$\
+
+I have rounded these numbers to the nearest integer as people can cast either 1 or 0 votes.
+
+Our terms are:
+
+-   $B = 175$\
+
+-   $M = 186$\
+
+-   $E(\sum_{i=1}^{175} X_i^{(1)}) = 174$\
+
+-   $E(\sum_{i=1}^{186}X_i^{(2)})  = 1$\
+    \
+
+Substituting these values gives:\
+
+$$
+\Large
+\text{B supporters after 1 day} = 175 -  (175-174) +  1 
+$$\
+
+Thus:\
+$$
+\Large
+\text{B supporters after 1 day} = 175
+$$\
+\
+\
+\
+\
+
+## Question 4b
+
+#### Number of M supporters at end of first day:
+
+$$
+\text{M supporters after 1 day} =\text{M  supporters at the start of day} + \text{Supporters who switch to M} - \text{Supporters who switch to B}
+$$\
+
+Therefore: $$
+\text{M supporters after 1 day} = M +  (B-\sum_{i=1}^{B} X_i^{(1)}) -  \sum_{i=1}^{M}X_i^{(2)}
+$$\
+
+Substituting the same values from Question 4a gives:\
+
+$$
+\Large
+\text{B supporters after 1 day} = 186 +  (175-174) - 1 
+$$\
+
+Thus:\
+$$
+\Large
+\text{M supporters after 1 day} = 186
+$$\
+\
+\
+\
+\
+
+
+
 
 ### \## References
 
