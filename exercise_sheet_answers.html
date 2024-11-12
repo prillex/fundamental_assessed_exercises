@@ -1254,31 +1254,40 @@ expressed in the equation above.<br />
 I must first calculate the sum of the expected occurrences in the two
 <span class="math inline">\(X_i^{(1)}\)</span> and <span class="math inline">\(X_i^{(2)}\)</span> terms.</p>
 <p>I can use the properties of the expectation to calculate these.
-Becuase I’m not working with a binomial distribution I will not use its
+Because I’m not working with a binomial distribution I will not use its
 expectation formula. Instead, I will use the expectation formula for the
 Bernoulli: E(X) = p. Therefore p can be multiplied for the number of
 Bernoulli trials in each term:</p>
 <p>expectations For <span class="math inline">\(E(\sum_{i=1}^{175}
 X_i^{(1)}) = 175 \times  0.996 = 174.3 = 174\)</span></p>
 <p>For <span class="math inline">\(E(\sum_{i=1}^{186}X_i^{(2)}) = 186
-\times 0.005 = 0.93 = 1\)</span></p>
+\times 0.005 = 0.93 = 1\)</span><br />
+</p>
+<p>I have rounded these numbers to the nearest integer as people can
+cast either 1 or 0 votes.</p>
 <p>Our terms are:</p>
 <ul>
-<li><p><span class="math inline">\(B = 175\)</span></p></li>
-<li><p><span class="math inline">\(M = 186\)</span></p></li>
+<li><p><span class="math inline">\(B = 175\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(M = 186\)</span><br />
+</p></li>
 <li><p><span class="math inline">\(E(\sum_{i=1}^{175} X_i^{(1)}) =
-174\)</span> </p></li>
+174\)</span><br />
+</p></li>
 <li><p><span class="math inline">\(E(\sum_{i=1}^{186}X_i^{(2)})  =
 1\)</span><br />
 <br />
-Substituting these values gives:</p></li>
+</p></li>
 </ul>
+<p>Substituting these values gives:<br />
+</p>
 <p><span class="math display">\[
 \Large
 \text{B supporters after 1 day} = 175 -  (175-174) +  1
 \]</span><br />
 </p>
-<p>Thus: <span class="math display">\[
+<p>Thus:<br />
+<span class="math display">\[
 \Large
 \text{B supporters after 1 day} = 175
 \]</span><br />
@@ -1294,11 +1303,32 @@ Substituting these values gives:</p></li>
 <div id="number-of-m-supporters-at-end-of-first-day" class="section level4">
 <h4>Number of M supporters at end of first day:</h4>
 <p><span class="math display">\[
-CHANGE
-\text{B supporters after 1 day} =\text{B  supporters at the start of
-day} - \text{Supporters who switch to M} + \text{Supporters who switch
+\text{M supporters after 1 day} =\text{M  supporters at the start of
+day} + \text{Supporters who switch to M} - \text{Supporters who switch
 to B}
 \]</span><br />
+</p>
+<p>Therefore: <span class="math display">\[
+\text{M supporters after 1 day} = M +  (B-\sum_{i=1}^{B} X_i^{(1)})
+-  \sum_{i=1}^{M}X_i^{(2)}
+\]</span><br />
+</p>
+<p>Substituting the same values from Question 4a gives:<br />
+</p>
+<p><span class="math display">\[
+\Large
+\text{B supporters after 1 day} = 186 +  (175-174) - 1
+\]</span><br />
+</p>
+<p>Thus:<br />
+<span class="math display">\[
+\Large
+\text{M supporters after 1 day} = 186
+\]</span><br />
+<br />
+<br />
+<br />
+<br />
 </p>
 </div>
 <div id="references" class="section level3">

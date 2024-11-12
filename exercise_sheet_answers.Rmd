@@ -839,6 +839,7 @@ $$\
 Here I will denote 'B supporters at the start of the day' as 'B' and M supporters at the start of the day as 'M' which are both integers. Using the introduced Random distributions this gives:
 
 $$
+\Large
 \text{B supporters after 1 day} = B -  (B-\sum_{i=1}^{B} X_i^{(1)}) +  \sum_{i=1}^{M}X_i^{(2)}
 $$\
 
@@ -894,7 +895,9 @@ $$
 \text{M supporters after 1 day} =\text{M  supporters at the start of day} + \text{Supporters who switch to M} - \text{Supporters who switch to B}
 $$\
 
-Therefore: $$
+Therefore: \
+$$
+\Large
 \text{M supporters after 1 day} = M +  (B-\sum_{i=1}^{B} X_i^{(1)}) -  \sum_{i=1}^{M}X_i^{(2)}
 $$\
 
@@ -902,7 +905,7 @@ Substituting the same values from Question 4a gives:\
 
 $$
 \Large
-\text{B supporters after 1 day} = 186 +  (175-174) - 1 
+\text{M supporters after 1 day} = 186 +  (175-174) - 1 
 $$\
 
 Thus:\
