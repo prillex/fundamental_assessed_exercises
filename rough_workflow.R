@@ -185,3 +185,5 @@ for (sim in 1:simulations) {
 }
 
 answer <- B_more_than_M/ 10000  # Average number of times B has the majority
+
+print(answer)  # = 0.0981
