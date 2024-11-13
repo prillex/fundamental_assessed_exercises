@@ -3,7 +3,7 @@
 # Workflow R question
 
 
-#Q4 C
+#Q4C
 
 # Creating the loops for one day first:
 
@@ -187,3 +187,73 @@ for (sim in 1:simulations) {
 answer <- B_more_than_M/ 10000  # Average number of times B has the majority
 
 print(answer)  # = 0.0981
+
+
+
+
+# Q4d ----
+
+# Repeat but change no. iterations to 60
+no._iterations_60 <- 60  # No. days 
+
+# Final loop iterations ----
+simulations <- 10000  # This sample size willallow the true probability to be inferred confidently
+B_more_than_M <- 0  # Intial No. where B > M
+
+
+X1 <- 175  # This will become no. permutations for X1
+X1_trials <- numeric(175)  # Where outcomes of each Bernoulli trial will be stored
+no._X1_successes <- 0  # Initial number of successes (Will grow with loops)
+
+X2 <- 186  # This will become no. permutations for X1
+X2_trials <- numeric(186)  # Where outcomes of each Bernoulli trial will be stored
+no._X2_successes <- 0  # Initial number of successes (Will grow with loops)
+
+
+
+# Run the simulation 10000
+for (sim in 1:simulations) {
+  
+  # Run the 14-iteration loop
+  for (day in 1:no._iterations_60) {
+    # For X1 outcomes
+    X1_trials <- numeric(X1)
+    no._X1_successes <- 0
+    
+    for (i in 1:X1) {
+      X1_trials[i] <- sample(results, size = 1, replace = FALSE, prob = X1_probs)
+      if (X1_trials[i] == 1) {
+        no._X1_successes <- no._X1_successes + 1
+      }
+    }
+    
+    # For X2 outcomes
+    X2_trials <- numeric(X2)
+    no._X2_successes <- 0
+    
+    for (i in 1:X2) {
+      X2_trials[i] <- sample(results, size = 1, replace = FALSE, prob = X2_probs)
+      if (X2_trials[i] == 1) {
+        no._X2_successes <- no._X2_successes + 1
+      }
+    }
+    
+    # Calculate No._B and No._M
+    No._B <- X1 - (X1 - no._X1_successes) + no._X2_successes
+    No._M <- 361 - No._B
+    
+    # Update X1 and X2 for the next iteration
+    X1 <- No._B
+    X2 <- No._M
+  }
+  
+  # Check if No._B > No._M in the final result and count it
+  if (No._B > No._M) {
+    B_more_than_M <- B_more_than_M + 1
+  }
+}
+
+answer <- B_more_than_M/ 10000  # Average number of times B has the majority
+
+print(answer)  # = 0.989
+

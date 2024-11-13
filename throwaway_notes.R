@@ -57,6 +57,7 @@ z \
 $$
   
   
+  diff(pnorm(c(0, 420.75), mean = 426, sd = 2.1))
 
   
   # Probability
