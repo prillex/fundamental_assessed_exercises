@@ -829,7 +829,7 @@ Again, each random variable trial can be denoted as $X_i^{(2)} \sim \text{Bernou
 
 Every trial is independent and peoples allegiance has no bearing on other people. Crucially, distinct Bernoulli trials are repeated; not the same Bernoulli trial. This is because every $X$ is unique within a given day i.e. unique random variables (prospective voters). This precludes the use of the Binomial distribution characteristics; using binomial formulas would imply that the Bernoulli trials are repeated on single person n within a single day. This is not the case.
 
-The number of B supporters at the end of day 1 will be the B's Inital supporters - those that switch allegiance to support M + those that switch allegiance to support B:
+The number of B supporters at the end of day 1 will be the B's Initial supporters - those that switch allegiance to support M + those that switch allegiance to support B:
 
 $$
 \text{B supporters after 1 day} =\text{B  supporters at the start of day} - \text{Supporters who switch to M} + \text{Supporters who switch to B}
@@ -1178,27 +1178,106 @@ for (sim in 1:simulations) {
 
 answer <- B_more_than_M/ 10000  # Average number of times B has the majority
 
-print(answer)  # = 0.96
+print(answer)  # = 0.981
 
 ```
 
 #### Conclusion 
 
-P(B>M after 60 days) = 0.989 = 98.9%.
+P(B>M after 60 days) = 0.981 = 98.1%.
 
 The difference in probability of B winning with the delay is:
 
 $$
 \Large
-0.989 - 0.098 = 0.891 
+0.981 - 0.098 = 0.883 
 $$
 Therefore the increase in B probability of winning following the delay is:
 $$
 \Large
-= +89.1\text%
+= +88.3\text%
+$$\
+\
+\
+\
+\
+
+
+## Question 5a
+
+One important feature of the poisson distribution is that lambda (λ) represents the mean and the sample variance as they should be approximately equal values. Therefore I can consider both as foundations for calculating point estimation. To calculate the mean no. strikes I can do (3sf):
+$$
+\Large
+ȳ= \frac{\sum_{i=1}^{182}yi} {n} = \frac{60}{182}=0.330
+$$
+For the sample variance (3sf):
+$$
+\Large
+s^2 = \frac{1}{n - 1} \sum_{i=1}^{n} y_i = \frac{1}{182-1}\times60 = 0.331 
 $$
 
-FIND ANSWER INCREASE SIMS GRADUALLY
+I have proven that there can be 2 estimates for lambda. However, the mean is regarded as a better foundation for an estimator as it tends to be more concentrated around the true value of lambda than variance. Therefore, I will continue with the first lambda estimate.
+
+
+Now I can scrutinise whether my suggested estimator is bias or not:
+
+$\hat{\lambda} =  \frac{\sum_{i=1}^{n}yi} {n}  =y ̄$
+Bias: $\text{Bias}(\lambda)= E(\lambda)- \lambda$
+$E(\lambda) = E(\frac{\sum_{i=1}^{n}yi} {n}) = \frac{\sum_{i=1}^{n}E(yi)} {n}$
+$E(yi)= \lambda$
+
+Therefore:
+$E(\lambda) = \frac{n\times \lambda} {n} = \lambda$\
+
+In turn: 
+$\text{Bias}(\lambda)= E(\lambda)- \lambda = \lambda - \lambda = 0$
+
+I have proved that the estimator is not bias. Furthermore, the sample mean is known to be a consistent estimator of lambda. Now I can calculate the standard error for the estimator.
+
+#### Standard Error
+
+Standard error = sd of the sample mean:
+
+$$
+\Large
+se = \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{1}{n}\text{ Var}(X)}
+$$
+As previously calculated, the sample variance = 0.331. Therefore :
+
+$$
+\Large
+se \text{ (3sf)}= \sqrt{\frac{1}{182}\times 0.331} = 0.0426 
+$$\
+\
+\
+\
+
+
+
+#### Calculating 95% confidence intervals for λ
+While the data does not have a normal distribution, I can apply the central limit theorem. The sample size is large (n > 30) so the sample mean will be approximately normal ($\bar{y}\text~ N(\lambda,\frac{\lambda}{n})$). For a poisson distribution with a large sample size, we can use the following formula for a approximate confidence interval:
+
+$$
+\Large
+95\text{% } CI =\left[ \bar{y} - z_{1 - \frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}, \, \bar{y} + z_{1 - \frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}} \right]
+$$\
+\
+\
+In this cas $\alpha$ 0.05 but by consulting the z-table, I know that $z_1$ for a 95% CI is 1.96. Therefore:
+
+$$
+\Large
+95\text{% } CI =\left[0.330 - 1.96\times 0.0426, \, 0.330 + 1.96 \times 0.0426\right]
+$$\
+$$
+\Large
+95\text{% } CI =\left[0.247 ,\text{ } 0.414\right]
+$$\
+
+
+#### Does the confidence interval support the hypothesis at the 5%-level that λ = 1?
+At the 5% level, the confidence intervals do not span 1. Therefore the parameter lambda is estimated to fall within this interval 95% of the time. As a result, the intervals do not support the hypothesis at the 5% level.
+
 
 ### \## References
 

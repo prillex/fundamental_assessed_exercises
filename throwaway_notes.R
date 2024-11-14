@@ -74,3 +74,22 @@ If this were the case then it would change from from $X_i^{(1)} \sim \text{Berno
 
 
 no._samples <- 175  # No. of Bernoulli trials (one per person)
+
+
+# q5
+# Biases and sample variance for point inference
+
+2.$\hat{\lambda}_2 = \frac{1}{n-1}\times\sum_{i=1}^{n} y_i =  s^2 = \lambda$
+  
+  Bias: $\text{Bias}(\lambda_2)= E(\lambda_2)- \lambda_2$
+  Expectation of lambda: $E(\hat{\lambda}_2) = \frac{1}{n-1}\times \lambda $
+  $E(\hat{\lambda}_2) = \frac{\lambda }{n-1} $
+  
+  
+  
+  \hat{\mu}
+
+
+This is a more reliable foundation for a point predictor than variance because variance has wider distribution and is less concentrated around the true λ value.
+
+I can confirm this 
