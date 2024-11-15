@@ -33,7 +33,17 @@ $$
   
   
   
-# Quadratic solve not needed
+Now I find the inverse:
+Reciprocal of $\frac{n\lambda}{ \sum_{i=1}^n y_i }$:\
+$$
+\Large
+\frac{1}{1- \frac{n\lambda}{\sum_{i=1}^n y_i }}  =e^{\lambda}
+$$\
+\
+$$
+\Large
+\frac{1}{1- \frac{n\lambda}{\sum_{i=1}^n y_i }}  =e^{\lambda}
+$$\# Quadratic solve not needed
   Therefore, to solve:
   $$
   \Large
@@ -92,4 +102,24 @@ no._samples <- 175  # No. of Bernoulli trials (one per person)
 
 This is a more reliable foundation for a point predictor than variance because variance has wider distribution and is less concentrated around the true λ value.
 
-I can confirm this 
+
+
+
+Now I can move the constants and put them at the end of the equation:
+  $$
+  LL(y; \lambda) =  \left( \sum_{i=1}^n y_i \right) \ln \lambda - \sum_{i=1}^n ln\text{ }y_i! -n\lambda  - n \ln (1 - e^{-\lambda}) 
+$$
+
+  
+  
+  Now I find the inverse:
+  Reciprocal of $\frac{n\lambda}{ \sum_{i=1}^n y_i }$:\
+$$
+  \Large
+\frac{1}{1- \frac{n\lambda}{\sum_{i=1}^n y_i }}  =e^{\lambda}
+$$\
+\
+$$
+  \Large
+\frac{1}{1- \frac{n\lambda}{\sum_{i=1}^n y_i }}  =e^{\lambda}
+$$\

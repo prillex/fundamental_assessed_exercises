@@ -19,7 +19,7 @@ library(tidyverse)
 
 #### *Matt Prill*
 
-Note: *All code formulated for this assessment is accessible in my github repository linked here. It also contains images of my hand written workings out. My workflow for the R questions can be found in the 'rough_workflow.R' file. There is no onus to look at these; all relevant and neat workings can be seen in this document. I have included them in the repository to **(A)*** track my own workflow (version control) and\* **(B)** *allow you to consult them should you wish to.*
+Note: *Version control has been used to track my workflow and all these documents are accessible through my github repository [linked here](https://github.com/prillex/fundamental_assessed_exercises). It also contains images of my hand written workings out. My workflow for the R questions can be found in the 'rough_workflow.R' file. There is no onus to look at these; all relevant and neat workings can be seen in this document. I have included them in the repository to (A) track my own workflow (version control) and (B) allow you to consult them should you wish to.*
 
 ## Question 1a
 
@@ -490,26 +490,26 @@ $$\
 
 The equation $\sum_{n=0}^{\infty}n(n-1)r^{n-2}$ has no common ratio i.e. there are extra terms: $n(n-1)$ - a polynomial.This means it is not part of the geometric series. However, I can but I can use properties of the geometric series to work out the sum of the latter. I can do so by altering the geometric series to take the same form of the equation of interest.
 
-.Differentiating the geometric series gives a similar form to the second expression:
+Differentiating the geometric series gives a similar form to the second expression (with respect to r):
 
 $$
 \Large
-\frac{d}{dx} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dx} \left( \frac{1}{1 - r} \right)
+\frac{d}{dr} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dr} \left( \frac{1}{1 - r} \right)
 $$
 
-For the first term (equation) I apply the power rule: $\frac{d}{dx} \left( x^n \right) = n x^{n-1}$ Note, I am derivating with respect to $r$ i.e. $r = x$ to match geometric series form.
+For the first term (equation) I apply the power rule: $\frac{d}{dx} \left( x^n \right) = n x^{n-1}$ Note, I am derivating with respect to $r$ to match geometric series form.
 
 $$
 \Large
-\frac{d}{dx} \left( \sum_{n=0}^{\infty} r^n \right) =
+\frac{d}{dr} \left( \sum_{n=0}^{\infty} r^n \right) =
 \sum_{n=0}^{\infty} nr^{n-1}
 $$
 
-And for the sum I can apply the quotient rule to find the derivative: $\frac{d}{dx} \left( \frac{f}{g} \right) = \frac{g \frac{d}{dx}(f) - f \frac{d}{dx}(g)}{g^2}$ Again, I am derivating with respect to r (r = x)
+And for the sum I can apply the quotient rule to find the derivative: $\frac{d}{dr} \left( \frac{f}{g} \right) = \frac{g \frac{d}{dr}(f) - f \frac{d}{dr}(g)}{g^2}$ Again, I am derivating with respect to r (r = x)
 
 $$
 \Large
- \frac{d}{dx} \left( \frac{1}{1 - r} \right) = \frac{(1-r)\times\frac{d}{dx}(1)-1 \times \frac{d}{dx}(1-r)}{(1-r)^2}
+ \frac{d}{dr} \left( \frac{1}{1 - r} \right) = \frac{(1-r)\times\frac{d}{dr}(1)-1 \times \frac{d}{dr}(1-r)}{(1-r)^2}
  = \frac{1}{(1-r)^2}
 $$
 
@@ -527,14 +527,14 @@ The equation form now mirrors that of the equation of interest: $\sum_{n=0}^{\in
 The second derivative of $\sum_{n=0}^{\infty}r^n$:
 
 $$
-\Large \frac{d^2}{dx^2} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dx} \sum_{n=0}^{\infty} n r^{n-1}
+\Large \frac{d^2}{dr^2} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dr} \sum_{n=0}^{\infty} n r^{n-1}
 $$
 
 Using the power rule again:
 
 $$
 \Large
-\frac{d}{dx}\sum_{n=0}^{\infty} nr^{n-1}
+\frac{d}{dr}(\sum_{n=0}^{\infty} nr^{n-1})
 = \sum_{n=0}^{\infty}n(n-1)r^{n-2}
 $$
 
@@ -542,20 +542,20 @@ This is the exact same as the equation of interest. Therefore, the second deriva
 
 $$
 \Large
-\frac{d2}{dx2} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dx}\sum_{n=0}^{\infty} nr^{n-1} = \sum_{n=0}^{\infty}n(n-1)r^{n-2}
+\frac{d2}{dr2} \left( \sum_{n=0}^{\infty} r^n \right) = \frac{d}{dr}\sum_{n=0}^{\infty} nr^{n-1} = \sum_{n=0}^{\infty}n(n-1)r^{n-2}
 $$
 
 Therefore, to find its respective sum, I must find the second derivative of the initial equations sum too. I can do this again with the quotient rule.
 
 $$
 \Large
-\frac{d2}{dx2} \left( \frac{1}{1 - r} \right) =
-\frac{d}{dx} \left( \frac{1}{(1 - r^2)} \right) =
-\frac{(1-r)^2\times\frac{d}{dx}(1)-1 \times \frac{d}{dx}(1-r)^2}{((1-r)^2)^2}
+\frac{d2}{dr2} \left( \frac{1}{1 - r} \right) =
+\frac{d}{dr} \left( \frac{1}{(1 - r^2)} \right) =
+\frac{(1-r)^2\times\frac{d}{dr}(1)-1 \times \frac{d}{dr}(1-r)^2}{((1-r)^2)^2}
 $$\
 \
 
-Note: I now also have to apply chain rule to differentiate $(1-r)^2$. $1-r$ is the inner function, $^2$ is the outer. So $\frac{d}{dx}(1-r)^2 = -2(1-r)$ Thus, I arrive at:
+Note: I now also have to apply chain rule to differentiate $(1-r)^2$. $1-r$ is the inner function, $^2$ is the outer. So $\frac{d}{dr}(1-r)^2 = -2(1-r)$ Thus, I arrive at:
 
 \
 $$
@@ -710,7 +710,7 @@ $$
 E(n) = 2
 $$
 
-N itself however will have its own distribution which must be considered before plugging into the fine equation. The variance of n can be calculated using the varience formula for geometric distributions:
+N itself however will have its own distribution which must be considered before plugging into the fine equation. The variance of n can be calculated using the variance formula for geometric distributions:
 
 $$
 \Large
@@ -1182,18 +1182,16 @@ print(answer)  # = 0.981
 
 ```
 
-#### Conclusion 
+#### Conclusion
 
-P(B>M after 60 days) = 0.981 = 98.1%.
+P(B\>M after 60 days) = 0.981 = 98.1%.
 
 The difference in probability of B winning with the delay is:
 
 $$
 \Large
 0.981 - 0.098 = 0.883 
-$$
-Therefore the increase in B probability of winning following the delay is:
-$$
+$$ Therefore the increase in B probability of winning following the delay is: $$
 \Large
 = +88.3\text%
 $$\
@@ -1202,35 +1200,25 @@ $$\
 \
 \
 
-
 ## Question 5a
 
-One important feature of the poisson distribution is that lambda (λ) represents the mean and the sample variance as they should be approximately equal values. Therefore I can consider both as foundations for calculating point estimation. To calculate the mean no. strikes I can do (3sf):
-$$
+One important feature of the poisson distribution is that lambda (λ) represents the mean and the sample variance as they should be approximately equal values. Therefore I can consider both as foundations for calculating point estimation. To calculate the mean no. strikes I can do (3sf): $$
 \Large
 ȳ= \frac{\sum_{i=1}^{182}yi} {n} = \frac{60}{182}=0.330
-$$
-For the sample variance (3sf):
-$$
+$$ For the sample variance (3sf): $$
 \Large
 s^2 = \frac{1}{n - 1} \sum_{i=1}^{n} y_i = \frac{1}{182-1}\times60 = 0.331 
 $$
 
 I have proven that there can be 2 estimates for lambda. However, the mean is regarded as a better foundation for an estimator as it tends to be more concentrated around the true value of lambda than variance. Therefore, I will continue with the first lambda estimate.
 
-
 Now I can scrutinise whether my suggested estimator is bias or not:
 
-$\hat{\lambda} =  \frac{\sum_{i=1}^{n}yi} {n}  =y ̄$
-Bias: $\text{Bias}(\lambda)= E(\lambda)- \lambda$
-$E(\lambda) = E(\frac{\sum_{i=1}^{n}yi} {n}) = \frac{\sum_{i=1}^{n}E(yi)} {n}$
-$E(yi)= \lambda$
+$\hat{\lambda} =  \frac{\sum_{i=1}^{n}yi} {n}  =y ̄$ Bias: $\text{Bias}(\lambda)= E(\lambda)- \lambda$ $E(\lambda) = E(\frac{\sum_{i=1}^{n}yi} {n}) = \frac{\sum_{i=1}^{n}E(yi)} {n}$ $E(yi)= \lambda$
 
-Therefore:
-$E(\lambda) = \frac{n\times \lambda} {n} = \lambda$\
+Therefore: $E(\lambda) = \frac{n\times \lambda} {n} = \lambda$\
 
-In turn: 
-$\text{Bias}(\lambda)= E(\lambda)- \lambda = \lambda - \lambda = 0$
+In turn: $\text{Bias}(\lambda)= E(\lambda)- \lambda = \lambda - \lambda = 0$
 
 I have proved that the estimator is not bias. Furthermore, the sample mean is known to be a consistent estimator of lambda. Now I can calculate the standard error for the estimator.
 
@@ -1241,8 +1229,7 @@ Standard error = sd of the sample mean:
 $$
 \Large
 se = \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{1}{n}\text{ Var}(X)}
-$$
-As previously calculated, the sample variance = 0.331. Therefore :
+$$ As previously calculated, the sample variance = 0.331. Therefore :
 
 $$
 \Large
@@ -1252,10 +1239,9 @@ $$\
 \
 \
 
-
-
 #### Calculating 95% confidence intervals for λ
-While the data does not have a normal distribution, I can apply the central limit theorem. The sample size is large (n > 30) so the sample mean will be approximately normal ($\bar{y}\text~ N(\lambda,\frac{\lambda}{n})$). For a poisson distribution with a large sample size, we can use the following formula for a approximate confidence interval:
+
+While the data does not have a normal distribution, I can apply the central limit theorem. The sample size is large (n \> 30) so the sample mean will be approximately normal ($\bar{y}\text~ N(\lambda,\frac{\lambda}{n})$). For a poisson distribution with a large sample size, we can use the following formula for a approximate confidence interval:
 
 $$
 \Large
@@ -1263,7 +1249,7 @@ $$
 $$\
 \
 \
-In this cas $\alpha$ 0.05 but by consulting the z-table, I know that $z_1$ for a 95% CI is 1.96. Therefore:
+In this case $\alpha$ 0.05 but by consulting the z-table, I know that $z_1$ for a 95% CI is 1.96. Therefore:
 
 $$
 \Large
@@ -1274,10 +1260,180 @@ $$
 95\text{% } CI =\left[0.247 ,\text{ } 0.414\right]
 $$\
 
-
 #### Does the confidence interval support the hypothesis at the 5%-level that λ = 1?
-At the 5% level, the confidence intervals do not span 1. Therefore the parameter lambda is estimated to fall within this interval 95% of the time. As a result, the intervals do not support the hypothesis at the 5% level.
 
+At the 5% level, the confidence intervals do not span 1. Therefore the parameter lambda is estimated to fall within this interval 95% of the time. As a result, the intervals do not support the hypothesis at the 5% level. Additionally, it does span any value ≥ 0.5 so if we were to round to the nearest integer, this would be 0, not 1.\
+\
+\
+\
+\
+
+## 5b
+
+I want to find the log of the likelihood function for this discrete random variable. First I will identify the the likelihood of the given probability mass function. Therefore:\
+$$
+\Large
+L(y;λ) = L(\frac{ e^{-\lambda}\lambda^y }{(1 - e^{-\lambda})y!}) = 
+\prod_{i=1}^{n} \frac{ e^{-\lambda}\lambda^{yi} }{(1 - e^{-\lambda})yi!}
+$$\
+
+Now I can discern the log likelihood (including constants):
+
+$$
+\Large
+LL(y;\lambda) = ln (L(\lambda))  = 
+ln(\prod_{i=1}^{n} \frac{ e^{-\lambda}\lambda^{y_i} }{(1 - e^{-\lambda})y_i!})
+= \sum_{i=1}^nln(\frac{ e^{-\lambda}\lambda^{y_i} }{(1 - e^{-\lambda})y_i!})
+$$\
+
+I can use the rule whereby $ln(ab) = ln(a) + ln(b)$. This also means that:\
+$$
+LL(y;\lambda) = \sum_{i=1}^n
+\ln(e^{-\lambda}) + \ln(\lambda y_i) - \ln(1 - e^{-\lambda}) - \ln(y_i!)
+$$
+
+Now I will take the sum of the log of each term ($\sum_{i=1}^{n} ln(x)$) and then sum them together using the $ln(ab) = ln(a)+ln(b)$. This will allow me to decipher which terms are constants and rearrange accordingly afterwards.
+
+$$
+\sum_{i=1}^{n} ln(e^{-\lambda}) = n\lambda
+$$\
+$$
+\sum_{i=1}^{n} ln(\lambda^{yi}) = (\sum_{i=1}^ny_i) \times ln (\lambda)
+$$\
+$$
+\sum_{i=1}^{n} ln(1 - e^{-\lambda}) = n\times ln(1-e^{-\lambda})
+$$\
+$$
+\sum_{i=1}^{n} ln(yi!) = \sum_{i=1}^{n} ln\text{ }yi!
+$$
+
+Given the aforementioned rule whereby ln(ab) = ln(a) + ln(b), this gives:
+
+$$
+\Large
+LL(y; \lambda) = -n\lambda +  \sum_{i=1}^n y_i \ln \lambda - n \ln (1 - e^{-\lambda}) - \sum_{i=1}^n ln\text{ }y_i!
+$$
+
+To find the maximum likelihood estimate, I can now differentiate this equation with respect to lambda. I will use partial derivatives because one term depends on both $y_i$ and lambda $$
+\Large
+\frac{d(LL) }{d\lambda}=\frac{d }{d\lambda}(-n\lambda +  \sum_{i=1}^n y_i \ln \lambda - n \ln (1 - e^{-\lambda}) - \sum_{i=1}^n ln\text{ }y_i!)
+$$\
+
+#### Derivative of each term:
+
+Power rule:\
+\
+$$
+\frac{d }{d\lambda}(-n\lambda) = -n
+$$\
+\
+Chain rule: $\left( \sum_{i=1}^n y_i \right)$ = constant, f(x) = ln, g(x) = lambda
+
+$$
+\frac{d }{d\lambda}(\left( \sum_{i=1}^n y_i \right) \ln \lambda) = \frac{\sum_{i=1}^n y_i}{\lambda}
+$$\
+\
+Chain rule where $f(x) = ln \text{ and } g(x) = 1-e^{-\lambda}$:\
+
+$$
+\frac{d }{d\lambda}(- n \ln (1 - e^{-\lambda})) = -\frac{ne^{-\lambda}}{1-e^{-\lambda}}
+$$\
+\
+Derivating a constant (no dependency on lambda):\
+
+$$
+\frac{d }{d\lambda}(\sum_{i=1}^n ln\text{ }y_i!) = 0
+$$\
+\
+
+Therefore:\
+\
+$$
+\Large
+\frac{d(LL)}{d\lambda} = -n + \frac{\sum_{i=1}^n y_i}{\lambda}-\frac{ne^{-\lambda}}{1-e^{-\lambda}}
+$$
+
+Because I'm maximizing the log likelihood model, I now equate this to 0:\
+\
+$$
+\Large
+\frac{d( LL)}{d\lambda} = -n + \frac{\sum_{i=1}^n y_i}{\lambda}-\frac{ne^{-\lambda}}{1-e^{-\lambda}} =0
+$$\
+\
+The lambda value that maximises the likelihood must satisfy this equation. Now I can rearrange the equation to get the desired form from the question ($\frac{\hat{\lambda}}{1-e^{-\hat{\lambda}}}= \frac{4}{3}$):\
+
+$$
+\Large
+-n + \frac{\sum_{i=1}^n y_i}{\lambda}= \frac{ne^{-\lambda}}{1-e^{-\lambda}} 
+$$\
+\
+Now clear the denominators by multiplying by ${1-e^{-\lambda}}$:\
+
+$$
+\Large
+-n\lambda(1-e^{-\lambda})  + \sum_{i=1}^n y_i(1-e^{-\lambda}) = ne^{-\lambda}
+$$\
+
+Expanding the brackets gives: $$
+\Large
+-n\lambda + n\lambda e^{-\lambda} + \sum_{i=1}^n y_i -\sum_{i=1}^ny_ie^{-\lambda} = ne^{-\lambda}
+$$\
+\
+Cancel out $ne^{-\lambda}$:
+
+$$
+\Large
+-n\lambda + \sum_{i=1}^n y_i -\sum_{i=1}^ny_ie^{-\lambda} = 0
+$$\
+\
+This is equivalent to:\
+\
+$$
+\Large
+\sum_{i=1}^n y_i -n\lambda  = \sum_{i=1}^ny_ie^{-\lambda}
+$$\
+\
+
+Now I can divide by $\sum_{i=1}^n y_i$:\
+\
+$$
+\Large
+1-\frac{n\lambda}{ \sum_{i=1}^n y_i }  =  e^{-\lambda}
+$$\
+\
+Rearranging gives:\
+\
+
+$$
+\Large
+\frac{n\lambda}{ \sum_{i=1}^n y_i }  =  1- e^{-\lambda}
+$$\
+\
+Thus:\
+\
+$$
+\Large
+n\lambda  =  \sum_{i=1}^n y_i  \times \frac{e^\lambda-1}{e^\lambda}
+$$\
+
+Therefore:\
+$$
+\Large
+\frac{\lambda}{1 - e^{-\lambda}} = \frac{3}{4}
+$$
+
+\
+
+\
+
+\
+\
+\
+\
+
+\
+\
+\
 
 ### \## References
 
