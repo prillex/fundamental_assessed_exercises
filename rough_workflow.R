@@ -257,3 +257,72 @@ answer <- B_more_than_M/ 10000  # Average number of times B has the majority
 
 print(answer)  # = 0.989
 
+
+
+# Q5C ----
+#  Plotting the derivative of log likelihood function
+# -n + \frac{\sum_{i=1}^n y_i}{\lambda}-\frac{ne^{-\lambda}}{1-e^{-\lambda}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Q7----
+# Data
+ozone <- read.csv("data/ozone.csv")
+
+# Libraries
+library(tidyverse)  # For all data visualisation (ggplot2) and/or wrangling (dplyr)
+
+# a)
+# Exploratory Data Analysis
+summary(ozone)  # Summarry statistics
+
+
+# Multiplot ----
+# Radiation
+radiation_plot <- ozone %>%  # Choosing data frame and creating a plot with the pipe
+  ggplot(aes(x = radiation, y = ozone)) +  # Setting variables for axis
+  geom_point() +  # Scatterplot
+  labs(x = "Radiation (langleys)", y = "Ozone (ppb)") + # Axis Labels 
+  theme_classic()  # Make background white
+
+# Temperature
+temperature_plot <- ozone %>%  # Choosing data frame and creating a plot with the pipe
+  ggplot(aes(x = temperature, y = ozone)) +  # Setting variables for axis
+  geom_point() +  # Scatterplot
+  labs(x = "Temperature (farenheit)", y = "Ozone (ppb)") + # Axis Labels 
+  theme_classic()  # Make background white
+
+# Wind speed
+wind_plot <- ozone %>%  # Choosing data frame and creating a plot with the pipe
+  ggplot(aes(x = wind, y = ozone)) +  # Setting variables for axis
+  geom_point() +  # Scatterplot
+  labs(x = "Wind Speed (mph)", y = "Ozone (ppb)") + # Axis Labels 
+  theme_classic()  # Make background white
+
+
+multiplot(radiation_plot, wind_plot, temperature_plot, cols = 3)
+
+cor(ozone)  # Correlation coefficients between variables
+
+ggpairs(ozone,  # Full matrix
+        lower = list(continuous = "smooth"),  # Line OBF
+        diag = list(continuous = "barDiag"),  # Order
+        axisLabels = "show") +  # Axes
+  theme_classic()

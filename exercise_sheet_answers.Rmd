@@ -60,7 +60,7 @@ To showcase that these equations lack a unique solution for any value of η, I c
 4.  Find the determinant of the sub-matrix, and multiply this with the coefficient.
 5.  Repeat the same procedure for each element in the first row.
 6.  To determine the sign of each term, sum the indices of the coefficient. If it is even, the sign is positive, and if it’s odd, the sign is negative.
-7.  Sum all terms to find the determinant (Linear Algebra Slides, 2019).
+7.  Sum all terms to find the determinant.
 
 Therefore, to find the determinant ($\text{det}$) of a $3 \times 3$ matrix, I can use the following formula:
 
@@ -1333,7 +1333,7 @@ $$
 \frac{d }{d\lambda}(\left( \sum_{i=1}^n y_i \right) \ln \lambda) = \frac{\sum_{i=1}^n y_i}{\lambda}
 $$\
 \
-Chain rule where $f(x) = ln \text{ and } g(x) = 1-e^{-\lambda}$:\
+Chain rule: $-n$ = constant, $f(x) = ln \text{ and } g(x) = 1-e^{-\lambda}$:\
 
 $$
 \frac{d }{d\lambda}(- n \ln (1 - e^{-\lambda})) = -\frac{ne^{-\lambda}}{1-e^{-\lambda}}
@@ -1423,18 +1423,88 @@ $$
 $$
 
 \
-
-\
-
-\
-\
-\
-\
+\## Question 5c To plot the \$ -n + \frac{\sum_{i=1}^n y_i}{\lambda}-\frac{ne^{-\lambda}}{1-e^{-\lambda}}\$\
 
 \
 \
+\# Question 6a\
+\
+\
+\
+\# Question 7a
+
+#### Exploratory Data Analysis
+
+```{r}
+summary(ozone)  # Summary statistics
+```
+
+This shows me the mean, quartiles and the minima and maxima from each variable.
+
+#### Correlations
+
+```{r}
+cor(ozone)  # Correlation coefficients between variables
+```
+
+This allows me to see the correlations between the raw data which I visualise in the following scatterplot matrix:
+
+```{r}
+ggpairs(ozone,  # Full matrix
+        lower = list(continuous = "smooth"),  # Line OBF
+        diag = list(continuous = "barDiag"),  # Order
+        axisLabels = "show") +  # Axes
+  theme_classic()  # Blank background
+```
+
+This outputs:\
+\
+![image](images\scatter_matrix.png)\
 \
 
-### \## References
+#### Multiplot Visualising ozone as the response:
 
-Linear Algebra Slides, 2020
+```{r}
+
+# Radiation
+radiation_plot <- ozone %>%  # Choosing data frame and creating a plot with the pipe
+  ggplot(aes(x = radiation, y = ozone)) +  # Setting variables for axis
+  geom_point() +  # Scatterplot
+  labs(x = "Radiation (langleys)", y = "Ozone (ppb)") + # Axis Labels 
+  theme_classic()  # Make background white
+
+# Temperature
+temperature_plot <- ozone %>%  # Choosing data frame and creating a plot with the pipe
+  ggplot(aes(x = temperature, y = ozone)) +  # Setting variables for axis
+  geom_point() +  # Scatterplot
+  labs(x = "Temperature (farenheit)", y = "Ozone (ppb)") + # Axis Labels 
+  theme_classic()  # Make background white
+
+# Wind speed
+wind_plot <- ozone %>%  # Choosing data frame and creating a plot with the pipe
+  ggplot(aes(x = wind, y = ozone)) +  # Setting variables for axis
+  geom_point() +  # Scatterplot
+  labs(x = "Wind Speed (mph)", y = "Ozone (ppb)") + # Axis Labels 
+  theme_classic()  # Make background white
+
+
+multiplot(radiation_plot, wind_plot, temperature_plot, cols = 3)
+```
+
+The output is:\
+\
+![image](images\ozone_relationships.png)\
+
+#### Discussion of findings: 
+
+Starting with the relationship between radiation and ozone, there appears to be a slight positive correlation. This is supported by the correlation coefficient of 0.35 seen in the scatter matrix which confirms a weak positive correlation. Furthermore, through visual assessment, it appears that the effect of radiation on ozone appears to be more volatile at higher radiations and suggest that any linearity could be heteroscedsatic with more variation in residuals at higher radiations.\
+
+Moving onto the relationship between ozone and windspeed, there appears to be a negative correlation. The correlation of -0.613. However, the strongest correlation is between temperature and ozone which is positive and has a correlation coefficient of 0.692.\
+
+Judging by the correlation coefficients, there does not appear to be any extreme co-linearity between any of the variables despite the fact that wind speed and temperature are almost certainly non-independent.\
+
+\
+\
+\
+
+## 
