@@ -326,3 +326,16 @@ ggpairs(ozone,  # Full matrix
         diag = list(continuous = "barDiag"),  # Order
         axisLabels = "show") +  # Axes
   theme_classic()
+
+
+
+## 7b ----
+# The mode
+model <- lm (ozone ~ temperature + wind + radiation, data = ozone)
+summary(model)
+
+# Model validity checks 
+# Plot including leverage, normality and homscedacity.
+plot(model)
+
+

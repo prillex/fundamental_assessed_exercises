@@ -1430,8 +1430,8 @@ $$
 \# Question 6a\
 \
 \
-\
-\# Question 7a
+
+# Question 7a
 
 #### Exploratory Data Analysis
 
@@ -1495,11 +1495,11 @@ The output is:\
 \
 ![image](images\ozone_relationships.png)\
 
-#### Discussion of findings: 
+#### Discussion of findings:
 
 Starting with the relationship between radiation and ozone, there appears to be a slight positive correlation. This is supported by the correlation coefficient of 0.35 seen in the scatter matrix which confirms a weak positive correlation. Furthermore, through visual assessment, it appears that the effect of radiation on ozone appears to be more volatile at higher radiations and suggest that any linearity could be heteroscedsatic with more variation in residuals at higher radiations.\
 
-Moving onto the relationship between ozone and windspeed, there appears to be a negative correlation. The correlation of -0.613. However, the strongest correlation is between temperature and ozone which is positive and has a correlation coefficient of 0.692.\
+Moving onto the relationship between ozone and windspeed, there appears to be a negative correlation (-0.613). However, the strongest correlation is between temperature and ozone which is positive and has a correlation coefficient of 0.692.\
 
 Judging by the correlation coefficients, there does not appear to be any extreme co-linearity between any of the variables despite the fact that wind speed and temperature are almost certainly non-independent.\
 
@@ -1507,4 +1507,45 @@ Judging by the correlation coefficients, there does not appear to be any extreme
 \
 \
 
-## 
+## Question 7b
+
+#### Creating the linear model
+
+```{r}
+model <- lm (ozone ~ temperature + wind + radiation, data = ozone)  # Response and fixed effects
+summary(model)
+```
+
+The summary of the model which including the three fixed explanatory effects highlights the extent of their relationship with ozone (ppb). Firstly, the effect of temperature is positive as expected; the estimate is 1.6 which means that for every increase in 1 degrees Fahrenheit there is an associcated increase in ozone of 1.6 ppb. This supports the initial expectations. This relationship is statstically significant at the 0.05 significance threshold (used for all future analsyes), (p \<0.0001). This was the most significant result which I also predicted given the initial visualisation.
+
+For wind speed, the estimate of -3.39 also supports the negative correlations and coefficients observed din question 7a. The p-value here is also very significant (p = \<0.0001).
+
+Finally, and also unexpectedly, the effect of radiation on ozone was also significant (p \< 0.05). While I had identified the weak positive relationship beforehand, which is compounded by the estimate for radiation's effect of 0.06, I had not expected this weak relationship to render a statistically significant finding.
+
+It should be noted that I have not used a linear mixed effects model. However, it could be argued that wind temperature and radiation's effect on the ozone could depend on each variables levels, thus making the current model too simple. Furthermore to test whether the models assumptions have been violated or not, I will check the diagnostic plots.
+
+#### Model Validity Checks
+
+I generate the diagnostic plots by:
+
+```{r}
+par(mfrow = c(2, 2))
+plot(model)
+```
+
+\
+This gives:\
+\
+![image](images\diagnostic_plots.png)\
+\
+The diagnostic plot give a host of insights into whether the model assumptions have been violated. Firstly, the 'Residuals vs Fitted' values reveal that there is a level of heteroscedascity in the data. It shows that the spread of residuals across differnt levels of the fitted values is inconsistent. Therfore the assumption that they are even (the assumption of homoscedacity) has been vioalted. In particular, there appears to be a more erratic spread of residuals at the extremes of the fitted values. A similar interpretation can be made for the 'Scale-Location' plot.
+
+Next, the assumption of linearity in the residuals has also been violated. This can be seen in the Q-Q plot whereby a number of residuals deviate from the expected linear distribution (along the dotted line). This is most apparent when looking at the data point from the 77th day.
+
+Finally, the 'Residuals vs Leverage' diagnostic plot shows that the there are no residuals that have a extreme and noteworthy effect on the conclusions. Generally, a Cook's score that exceeds 1 is regarded as extreme leverage and yet none exceed 0.5. In turn, I can conclude that there are no residuals with extreme leverage that could have a disproportionate influence on the model outputs
+
+
+In conclusion, the model's reliability is limited in some respect. Namely, the lack of homoscedascity and linearity in the residuals limits the validity of inferring the results of the model. \
+\
+\
+\##
