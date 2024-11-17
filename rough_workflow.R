@@ -336,6 +336,13 @@ summary(model)
 
 # Model validity checks 
 # Plot including leverage, normality and homscedacity.
+par(mfrow = c(2, 2))
 plot(model)
+dev.off()
 
+## 7c ----
+model_2 <- lm (log(ozone) ~ log(temperature) + log(wind) + log(radiation), data = ozone)
+summary(model_2) # Radiation and temp more sig, wind less
+par(mfrow = c(2, 1))
+plot(model_2)
 

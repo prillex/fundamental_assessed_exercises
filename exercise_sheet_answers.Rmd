@@ -1516,11 +1516,11 @@ model <- lm (ozone ~ temperature + wind + radiation, data = ozone)  # Response a
 summary(model)
 ```
 
-The summary of the model which including the three fixed explanatory effects highlights the extent of their relationship with ozone (ppb). Firstly, the effect of temperature is positive as expected; the estimate is 1.6 which means that for every increase in 1 degrees Fahrenheit there is an associcated increase in ozone of 1.6 ppb. This supports the initial expectations. This relationship is statstically significant at the 0.05 significance threshold (used for all future analsyes), (p \<0.0001). This was the most significant result which I also predicted given the initial visualisation.
+The summary of the model which including the three fixed explanatory effects highlights the extent of their relationship with ozone (ppb). Firstly, the effect of temperature is positive as expected; the estimate is 1.6 which means that for every increase in 1 degrees Fahrenheit there is an associated increase in ozone of 1.6 ppb. This supports the initial expectations. This relationship is statistically significant at the 0.05 significance threshold (used for all future analyses), (p \<0.0001). This was the most significant result which I also predicted given the initial visualisation.
 
-For wind speed, the estimate of -3.39 also supports the negative correlations and coefficients observed din question 7a. The p-value here is also very significant (p = \<0.0001).
+For wind speed, the estimate of -3.39 also supports the negative correlations and coefficients observed din question 7a. The p-value here is also very significant (p = <0.0001).
 
-Finally, and also unexpectedly, the effect of radiation on ozone was also significant (p \< 0.05). While I had identified the weak positive relationship beforehand, which is compounded by the estimate for radiation's effect of 0.06, I had not expected this weak relationship to render a statistically significant finding.
+Finally, and also unexpectedly, the effect of radiation on ozone was also significant (p < 0.05). While I had identified the weak positive relationship beforehand, which is compounded by the estimate for radiation's effect of 0.06, I had not expected this weak relationship to render a statistically significant finding.
 
 It should be noted that I have not used a linear mixed effects model. However, it could be argued that wind temperature and radiation's effect on the ozone could depend on each variables levels, thus making the current model too simple. Furthermore to test whether the models assumptions have been violated or not, I will check the diagnostic plots.
 
@@ -1540,12 +1540,40 @@ This gives:\
 \
 The diagnostic plot give a host of insights into whether the model assumptions have been violated. Firstly, the 'Residuals vs Fitted' values reveal that there is a level of heteroscedascity in the data. It shows that the spread of residuals across differnt levels of the fitted values is inconsistent. Therfore the assumption that they are even (the assumption of homoscedacity) has been vioalted. In particular, there appears to be a more erratic spread of residuals at the extremes of the fitted values. A similar interpretation can be made for the 'Scale-Location' plot.
 
-Next, the assumption of linearity in the residuals has also been violated. This can be seen in the Q-Q plot whereby a number of residuals deviate from the expected linear distribution (along the dotted line). This is most apparent when looking at the data point from the 77th day.
+Next, the assumption of normality in the residuals distribution has also been violated. This can be seen in the Q-Q plot whereby a number of residuals deviate from the expected normal distribution (along the dotted line). This is most apparent when looking at the data point from the 77th day.
 
 Finally, the 'Residuals vs Leverage' diagnostic plot shows that the there are no residuals that have a extreme and noteworthy effect on the conclusions. Generally, a Cook's score that exceeds 1 is regarded as extreme leverage and yet none exceed 0.5. In turn, I can conclude that there are no residuals with extreme leverage that could have a disproportionate influence on the model outputs
 
 
-In conclusion, the model's reliability is limited in some respect. Namely, the lack of homoscedascity and linearity in the residuals limits the validity of inferring the results of the model. \
+In conclusion, the model's reliability is limited in some respect. Namely, the lack of homoscedascity and nomrality in the residuals limits the validity of inferring the results of the model. \
 \
 \
-\##
+
+## Question 7c
+
+```{r}
+model_2 <- lm (log(ozone) ~ log(temperature) + log(wind) + log(radiation), data = ozone)  # Log-transform variables
+summary(model_2) # Model summary
+
+```
+
+Starting with the model outputs, it is clear to see that log-transforming the response and explanatory effects has affected the coefficients and the corresponding p-values:\
+\
+![image](images\coefficients_comparison.png)\
+\
+
+Firstly, the modelled effect of wind speed on ozone has been greatly reduced. The coefficent is -0.68 which means that the second model predicts for every 1 mph increase in wind speed, there is a ~2.27 smaller change in the ozone compared to the first model. This is undoubtedly caused by the log transformation. Earlier, I identified data point 77 as a clear outlier. Upon looking at the data, I can see that this data point contains the highest ozone recording (168 ppb) and the second lowest wind speed (3.4 mph). The log transformation would have made this raw data less extreme relative to the rest of the data and therefore the modelled effect of wind speed on ozone has been largely suppressed hence the less extreme coefficient and p-value (2.91e-06 compared to the first models p value of 9.29-07).
+
+In contrast, the log transformation has heightened the perceived impact of radiation and temperature in comparison to the first model with coefficients coefficients increasing from 0.06 to 0.31 and 1.62 to 3.15, respectively. In turn, the model successfully explains more of the random varaition in the data (noise) compared to the previous model. The most likely explanation for this is that the transformation has made the data more linear; it has made the extreme residual values (discussed in the previous question) less extreme relative to the rest of the data.   This is evidenced by assessing the diagnostic plots:\
+\
+```{r}
+par(mfrow = c(2, 1))
+plot(model_2)
+```
+\
+\
+![image](images\7c_diagnostic_plots.png)\
+\
+
+In comparison to the former models diagnostic plot, this 'Residuals vs Fitted' plot highlights a huge amelioration in the extent of heteroscedescity in the data. Now ther residuals are much more evenly distributed around the flat x axis line. This means that the variance of the residuals is more consitent and that the assumption of homoscedascity has not been vioalted to the same extent as before. Furthermore, the linearity of the residuals is much better as can be seen in the Q-Q plot; this means that the residuals follow the normal  distribution assumed of linear models. While I have not used statistical tests such as the Bartletts test for homoscedacity and the Shaprio Wilks for normality to test whether assumptions have been met, I can at least confirm through visual assessment of the diagnostic plot that the transformations have made the data in the second model more approporaite for a linear model.
+
