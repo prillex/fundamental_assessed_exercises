@@ -259,9 +259,44 @@ print(answer)  # = 0.989
 
 
 
+
+
+
+
+
+
+
+
+
+
 # Q5C ----
 #  Plotting the derivative of log likelihood function
 # -n + \frac{\sum_{i=1}^n y_i}{\lambda}-\frac{ne^{-\lambda}}{1-e^{-\lambda}}
+
+lambdas <- seq(1, 100, length.out = 100) # Creating values from 1-100 increasing by intervals of 1 to represent hypothetical lambda values
+n <- 182  # Using given data from the question (n)
+sumyi <- 60 # Using data from the question (sum of ys)
+DLL_values <-  -n + (sumyi/lambdas) - ((n * exp(-lambdas)) / (1 - exp(-lambdas)))  # Converting the derivative of the LL equation into R
+
+
+plotting_data <- data.frame(lambda = lambdas, DLL = DLL_values)  # Creating a dataframe of the lambdas and DDL vlaues
+
+
+plotting_data %>%  # Specifying the dataframe
+  ggplot(aes(x = DLL, y = lambda)) +  # Specifying the data
+  geom_point() +  # Plotting the  data 
+  geom_line() +  # Fitting a line that goes through every points
+  theme_classic()  # Removing the background
+
+plotting_data %>%  # Specifying the data frame 
+  filter(DLL >=  0) %>%  # Removing all rows where the DLL is > 0
+  row_number()  # Printing these. Now I can workout where it becomes positive
+
+
+
+
+
+
 
 
 
