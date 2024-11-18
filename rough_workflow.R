@@ -295,17 +295,27 @@ plotting_data %>%  # Specifying the data frame
 
 
 
+# 5d ----
+# Creating the function
+help(optimise)  # Can see that a function ('f') is needed 
+
+# Creating a function from the absolute value of the function in Q5b
+f <- function(lambda){(lambda/1-(exp(-lambda)))- (4/3)}  # The (2) equation function (to be minimised)
+
+# Defining the interval
+interval  <- c(5, 6)  # Interval identified in 5c
+
+minimised <- optimise(f,  # Optimising the pre-defined function
+         lower = min(interval),  upper = max(interval), 
+         maximum = F)  # False because I am minimising the function
 
 
+minimised %>%  # The minimised function
+  .$minimum %>%  # The minimimised function minimum
+  round(3)  # Rounding to 3 dp
 
 
-
-
-
-
-
-
-
+minimised$par
 
 
 
