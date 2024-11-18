@@ -1936,6 +1936,27 @@ Therefore, it becomes positive at row 6 meaning that the interval
 <div id="question-5d" class="section level2">
 <h2>Question 5d</h2>
 <p><br />
+</p>
+<pre class="r"><code># Creating the function
+help(optimise)  # Can see that a function (&#39;f&#39;) is needed 
+
+# Creating a function from the absolute value of the function in Q5b
+f &lt;- function(lambda){(lambda/1-(exp(-lambda)))- (4/3)}  # The (2) equation function (to be minimised)
+
+# Defining the interval
+interval  &lt;- c(5, 6)  # Interval identified in 5c
+
+minimised &lt;- optimise(f,  # Optimising the pre-defined function
+         lower = min(interval),  upper = max(interval), 
+         maximum = F)  # False because I am minimising the function
+
+
+minimised %&gt;%  # The minimised function
+  .$minimum %&gt;%  # The minimimised function minimum
+  round(3)  # Rounding to 3 dp</code></pre>
+<p><br />
+Therefore, the MLE <span class="math inline">\(\hat{\lambda}\)</span> is
+5.000.<br />
 <br />
 <br />
 <br />
@@ -1944,12 +1965,136 @@ Therefore, it becomes positive at row 6 meaning that the interval
 <br />
 </p>
 </div>
-</div>
-<div id="question-6a" class="section level1">
-<h1>Question 6a</h1>
+<div id="question-6a" class="section level2">
+<h2>Question 6a</h2>
 <p><br />
+A characteristic of the binomial is that its theoretical mean <span class="math inline">\(= n \times p\)</span> where p is the probability
+of success.<br />
+<br />
+Therefore, <span class="math inline">\(E(Y) = n\times p\)</span><br />
+<br />
+According to methods of moments, the aforementioned theoretical mean can
+be equated to the sample mean (y) which is <span class="math inline">\(\frac{\text{No. successes}}{n} = n \times
+p\)</span><br />
+<br />
+Therefore, <span class="math inline">\(E(Y) = y = n \times
+p\)</span><br />
 <br />
 </p>
+<p>Since <span class="math inline">\(y = n\times p\)</span> can be
+rearranged to give <span class="math inline">\(p =
+\frac{y}{n}\)</span>:<br />
+<br />
+</p>
+<p><span class="math display">\[
+\Large
+E(Y) = \frac{y}{n} = \hat{p}
+\]</span><br />
+<br />
+<br />
+</p>
+</div>
+<div id="question-6b" class="section level2">
+<h2>Question 6b</h2>
+<div id="mean" class="section level4">
+<h4>Mean</h4>
+<p>Given the methods of moments estimator <span class="math inline">\(T
+= T(Y) = \frac{Y}{n}\)</span>:<br />
+<br />
+<span class="math inline">\(E(T) = E(\frac{Y}{n})\)</span></p>
+<p>Referring back to the equation for the theoretical mean of the
+binomial <span class="math inline">\((p \times n)\)</span>, the mean of
+<span class="math inline">\(E(\frac{Y}{n})\)</span>, and therefore T
+is:</p>
+<p><span class="math display">\[
+\Large
+\text{mean of } E(\frac{Y}{n}) = \frac{Y}{n} \times n \times p
+=  y\times p
+\]</span><br />
+</p>
+<p><span class="math inline">\(Y \times p\)</span> is simply p because Y
+must sum to 1 (p + (1-p) = 1). Therefore:</p>
+<p><span class="math display">\[
+E(T)= \bar{T} = p
+\]</span><br />
+<br />
+<br />
+<br />
+</p>
+</div>
+<div id="variance" class="section level4">
+<h4>Variance</h4>
+<p>The equation for the variance of a binomial is Var(Y) = <span class="math inline">\(n \times p(1-p)\)</span><br />
+<br />
+Method of moments states that <span class="math inline">\(E(Y) =
+E(Y_i)\)</span>.<br />
+<br />
+In turn <span class="math inline">\(Var(Y) = Var(Y_i)\)</span>.<br />
+<br />
+and that: <span class="math inline">\(\frac{Var(Y)}{n} =
+\frac{1}{n^2}\sum_{i=1}^nVar(X_i)\)</span></p>
+<p>Given this equation and the fact that <span class="math inline">\(E(Y) = E(Y_i)\)</span> this means that:<br />
+<br />
+<span class="math display">\[
+\Large
+Var(\frac{Y}{n})=\frac{1}{n^2}Var(Y)
+\]</span><br />
+<br />
+Subsisting the aforementioned equation for a binomials variance:<br />
+<br />
+<span class="math display">\[
+\Large
+Var(\frac{Y}{n})=\frac{1}{n^2}\times n \times p(1-p)
+\]</span><br />
+<br />
+This is equivalent to:<br />
+<span class="math display">\[
+\Large
+Var(\frac{Y}{n})=\frac{np(1-p)}{n^2} =  \frac{p(1-p)}{n}
+\]</span><br />
+<br />
+In conclusion:<br />
+<br />
+<span class="math display">\[
+\Large
+Var(T) = \frac{p(1-p)}{n}
+\]</span><br />
+<br />
+<br />
+</p>
+</div>
+<div id="the-bias-of-t-as-an-estimator-of-p" class="section level4">
+<h4>The bias of T as an estimator of p</h4>
+<p><span class="math inline">\(E(\hat{T})\)</span> should equal <span class="math inline">\(T\)</span> if it is an unbiased estimator.</p>
+<p>As previously defined, the <span class="math inline">\(E(T) =
+p\)</span>. T itself is also p since <span class="math inline">\(\frac{Y}{n} = \frac{y}{n} = p\)</span> and
+therefore the difference between E(T) and T itself is 0 (p-p).
+Therefore, T is an unbiased estimator (bias = 0).<br />
+<br />
+<br />
+<br />
+</p>
+</div>
+<div id="the-mean-square-error-of-t-as-an-estimator-of-p" class="section level4">
+<h4>The mean square error of T as an estimator of p</h4>
+<p><span class="math inline">\(MSE(T) =
+Var(T)+\text{Bias}^2(T)\)</span></p>
+<p>A stated, the estimator is unbiased. Therefore, the bias = 0 and the
+MSE = Var(T).<br />
+<br />
+<span class="math inline">\(MSE = Var(T) = Var(\frac{Y}{n}) =
+\frac{p(1-p)}{n}\)</span></p>
+<p><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+</p>
+</div>
+</div>
 </div>
 <div id="question-7a" class="section level1">
 <h1>Question 7a</h1>

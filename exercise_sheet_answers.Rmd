@@ -1479,7 +1479,9 @@ The final row number (lambda value) where the DLL is \<= 0 is row 5. Therefore, 
 \
 
 ## Question 5d
+
 \
+
 ```{r, eval = FALSE}
 
 # Creating the function
@@ -1501,9 +1503,9 @@ minimised %>%  # The minimised function
   round(3)  # Rounding to 3 dp
 
 ```
+
 \
-Therefore, the MLE $\hat{\lambda}$ is 5.000.
-\
+Therefore, the MLE $\hat{\lambda}$ is 5.000.\
 \
 \
 \
@@ -1512,8 +1514,9 @@ Therefore, the MLE $\hat{\lambda}$ is 5.000.
 \
 
 ## Question 6a
+
 \
-A characteristic of the binomial is that its theoretical mean = $n \times p $ where p is the probability of success.\
+A characteristic of the binomial is that its theoretical mean $= n \times p$ where p is the probability of success.\
 \
 Therefore, $E(Y) = n\times p$\
 \
@@ -1522,17 +1525,100 @@ According to methods of moments, the aforementioned theoretical mean can be equa
 Therefore, $E(Y) = y = n \times p$\
 \
 
-Since $y = n\times p$ can be rearranged to give $p = \frac{y}{n}$:
+Since $y = n\times p$ can be rearranged to give $p = \frac{y}{n}$:\
+\
 
 $$
 \Large
 E(Y) = \frac{y}{n} = \hat{p}
+$$\
+\
+\
+
+## Question 6b
+
+#### Mean: 
+
+\
+
+Given the methods of moments estimator $T = T(Y) = \frac{Y}{n}$:\
+\
+$E(T) = E(\frac{Y}{n})$
+
+Referring back to the equation for the theoretical mean of the binomial $(p \times n)$, the mean of $E(\frac{Y}{n})$, and therefore T is:
+
 $$
+\Large
+\text{mean of } E(\frac{Y}{n}) = \frac{Y}{n} \times n \times p =  y\times p
+$$\
+
+$Y \times p$ is simply p because Y must sum to 1 (p + (1-p) = 1). Therefore:
+
+$$
+E(T)= \bar{T} = p
+$$\
 \
 \
 \
+
+#### Variance: 
+
 \
-## Question 6b 
+
+The equation for the variance of a binomial is Var(Y) = $n \times p(1-p)$\
+\
+Method of moments states that $E(Y) = E(Y_i)$.\
+\
+In turn $Var(Y) = Var(Y_i)$.\
+\
+and that: $\frac{Var(Y)}{n} = \frac{1}{n^2}\sum_{i=1}^nVar(X_i)$
+
+Given this equation and the fact that $E(Y) = E(Y_i)$ this means that:\
+\
+$$
+\Large
+Var(\frac{Y}{n})=\frac{1}{n^2}Var(Y)
+$$\
+\
+Subsisting the aforementioned equation for a binomials variance:\
+\
+$$
+\Large
+Var(\frac{Y}{n})=\frac{1}{n^2}\times n \times p(1-p) 
+$$\
+\
+This is equivalent to:\
+$$
+\Large
+Var(\frac{Y}{n})=\frac{np(1-p)}{n^2} =  \frac{p(1-p)}{n}
+$$\
+\
+In conclusion:\
+\
+$$
+\Large
+Var(T) = \frac{p(1-p)}{n}
+$$\
+\
+\
+
+#### The bias of T as an estimator of p
+
+$E(\hat{T})$ should equal $T$ if it is an unbiased estimator.
+
+As previously defined, the $E(T) = p$. T itself is also p since $\frac{Y}{n} = \frac{y}{n} = p$ and therefore the difference between E(T) and T itself is 0 (p-p). Therefore, T is an unbiased estimator (bias = 0).\
+\
+\
+\
+
+#### The mean square error of T as an estimator of p
+
+$MSE(T) = Var(T)+\text{Bias}^2(T)$
+
+A stated, the estimator is unbiased. Therefore, the bias = 0 and the MSE = Var(T).\
+\
+$MSE = Var(T) = Var(\frac{Y}{n}) = \frac{p(1-p)}{n}$
+
 \
 \
 \
