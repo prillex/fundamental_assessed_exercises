@@ -1537,7 +1537,7 @@ $$\
 
 ## Question 6b
 
-#### Mean: 
+#### Mean:
 
 \
 
@@ -1561,7 +1561,7 @@ $$\
 \
 \
 
-#### Variance: 
+#### Variance:
 
 \
 
@@ -1615,15 +1615,57 @@ As previously defined, the $E(T) = p$. T itself is also p since $\frac{Y}{n} = \
 
 $MSE(T) = Var(T)+\text{Bias}^2(T)$
 
-A stated, the estimator is unbiased. Therefore, the bias = 0 and the MSE = Var(T).\
+A stated, the estimator is unbiased. Therefore, the bias = 0 and the MSE is simply Var(T).\
 \
-$MSE = Var(T) = Var(\frac{Y}{n}) = \frac{p(1-p)}{n}$
+$MSE = Var(T) = Var(\frac{Y}{n}) = \frac{p(1-p)}{n}$\
+\
+\
+\
+\
+
+## Question 6c
 
 \
+If S is unbiased, $E(S) = E(θ) = E(p^2)$\
 \
+This would mean that $E(\frac{Y^2}{n^2}) = p^2$
+
+I can recall the first theoretical moments of a binomial random variable:
+
+1.  $E(Y) = n\times p$\
+    \
+2.  $E(Y^2)= Var(Y) + (n\times p) ^2$\
+    \
+
+The second moment is denoted as $\frac{1}{n}\sum_{i = 1}^nY_i = n\times p(1-p) + n^2p^2$\
 \
+Since $Y_i = Y$ in method of moments, subsisting gives:\
 \
+
+$$
+\Large
+E(\frac{Y^2}{n^2}) = \frac{1}{n^2}(n\times p(1-p) + n^2 \times p^2) =  \frac{np(1-p) + n^2 p^2}{n^2} = \frac{p(1-p)}{n} + p^2
+$$\
 \
+The expectation of the parameter ($E(θ)$) is $E(p^2) =  p^2$/
+There is a clear difference between the expectation of the parameter and the estimator:\
+\
+$$
+\frac{p(1-p)}{n} + p^2 \not= p^2
+$$\
+\
+The bias is:\
+\
+$$
+\frac{p(1-p)}{n} + p^2 - p^2 = \frac{p(1-p)}{n}
+$$\
+\
+$$
+\text{In conclusion, the bias of the estimator S for θ is } \frac{p(1-p)}{n}.
+$$
+
+\
+
 \
 \
 \

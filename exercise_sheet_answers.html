@@ -1997,7 +1997,9 @@ E(Y) = \frac{y}{n} = \hat{p}
 <div id="question-6b" class="section level2">
 <h2>Question 6b</h2>
 <div id="mean" class="section level4">
-<h4>Mean</h4>
+<h4>Mean:</h4>
+<p><br />
+</p>
 <p>Given the methods of moments estimator <span class="math inline">\(T
 = T(Y) = \frac{Y}{n}\)</span>:<br />
 <br />
@@ -2023,7 +2025,9 @@ E(T)= \bar{T} = p
 </p>
 </div>
 <div id="variance" class="section level4">
-<h4>Variance</h4>
+<h4>Variance:</h4>
+<p><br />
+</p>
 <p>The equation for the variance of a binomial is Var(Y) = <span class="math inline">\(n \times p(1-p)\)</span><br />
 <br />
 Method of moments states that <span class="math inline">\(E(Y) =
@@ -2080,20 +2084,73 @@ Therefore, T is an unbiased estimator (bias = 0).<br />
 <p><span class="math inline">\(MSE(T) =
 Var(T)+\text{Bias}^2(T)\)</span></p>
 <p>A stated, the estimator is unbiased. Therefore, the bias = 0 and the
-MSE = Var(T).<br />
+MSE is simply Var(T).<br />
 <br />
 <span class="math inline">\(MSE = Var(T) = Var(\frac{Y}{n}) =
-\frac{p(1-p)}{n}\)</span></p>
-<p><br />
-<br />
-<br />
-<br />
+\frac{p(1-p)}{n}\)</span><br />
 <br />
 <br />
 <br />
 <br />
 </p>
 </div>
+</div>
+<div id="question-6c" class="section level2">
+<h2>Question 6c</h2>
+<p><br />
+If S is unbiased, <span class="math inline">\(E(S) = E(θ) =
+E(p^2)\)</span><br />
+<br />
+This would mean that <span class="math inline">\(E(\frac{Y^2}{n^2}) =
+p^2\)</span></p>
+<p>I can recall the first theoretical moments of a binomial random
+variable:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(E(Y) = n\times p\)</span><br />
+<br />
+</li>
+<li><span class="math inline">\(E(Y^2)= Var(Y) + (n\times p)
+^2\)</span><br />
+<br />
+</li>
+</ol>
+<p>The second moment is denoted as <span class="math inline">\(\frac{1}{n}\sum_{i = 1}^nY_i = n\times p(1-p) +
+n^2p^2\)</span><br />
+<br />
+Since <span class="math inline">\(Y_i = Y\)</span> in method of moments,
+subsisting gives:<br />
+<br />
+</p>
+<p><span class="math display">\[
+\Large
+E(\frac{Y^2}{n^2}) = \frac{1}{n^2}(n\times p(1-p) + n^2 \times p^2)
+=  \frac{np(1-p) + n^2 p^2}{n^2} = \frac{p(1-p)}{n} + p^2
+\]</span><br />
+<br />
+The expectation of the parameter (<span class="math inline">\(E(θ)\)</span>) is <span class="math inline">\(E(p^2) =  p^2\)</span>/ There is a clear
+difference between the expectation of the parameter and the
+estimator:<br />
+<br />
+<span class="math display">\[
+\frac{p(1-p)}{n} + p^2 \not= p^2
+\]</span><br />
+<br />
+The bias is:<br />
+<br />
+<span class="math display">\[
+\frac{p(1-p)}{n} + p^2 - p^2 = frac{p(1-p)}{n}
+\]</span><br />
+<br />
+<span class="math display">\[
+\text{In conclusion, the bias of the estimator S for θ is }
+\frac{p(1-p)}{n}.
+\]</span></p>
+<p><br />
+</p>
+<p><br />
+<br />
+<br />
+</p>
 </div>
 </div>
 <div id="question-7a" class="section level1">
