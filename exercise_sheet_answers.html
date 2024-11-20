@@ -2171,19 +2171,39 @@ since this would match the expectation of θ.<br />
 a(\frac{p(1-p)}{n}) + a(p^2) + b(p) = p^2
 \]</span> Since E(S) already has a term that’s <span class="math inline">\(p^2\)</span>, and I can’t split up the terms
 belonging to S, I can alter the b multiplier of T to cancel out the rest
-of the bias:</p>
-<p><span class="math display">\[
-a(\frac{p(1-p)}{n} + p^2) + b(p) = p^2
+of the bias. Therefore <span class="math inline">\(a\)</span> can take
+the value 1:<br />
+<br />
+<span class="math display">\[
+\frac{p(1-p)}{n} + p^2 + b(p) = p^2
+\]</span><br />
+<br />
+Isolating b(p) and then the multiplier:<br />
+<br />
+<span class="math display">\[
+b(p) = -p^2 - \frac{p(1-p)}{n} + p^2
 \]</span><br />
 <br />
 <span class="math display">\[
-b(p) = p^2 - a(\frac{p(1-p)}{n} + p^2)
+b = \frac{-p^2}{p} - \frac{\frac{p(1-p)}{n} } p + \frac{p^2}{p}
 \]</span><br />
 <br />
 <span class="math display">\[
-b = p^2 - \frac{a(\frac{p(1-p)}{n} + p^2)}{p}
+b = -p - \frac{\frac{p(1-p)}{n} } p + p
 \]</span><br />
 <br />
+<span class="math display">\[
+b = - \frac{\frac{p(1-p)}{n} } p = -\frac{p(1-p)}{np} = -\frac{1-p}{n}
+\]</span><br />
+<br />
+This proves that the multiplier <span class="math inline">\(b\)</span>
+acting on T (p) that makes <span class="math inline">\(aS +
+bT\)</span>’s expectation = <span class="math inline">\(p^2\)</span>
+(when <span class="math inline">\(a\)</span> = 1) is <span class="math inline">\(-\frac{1-p}{n}\)</span>. In <a href="turn:\" class="uri">turn:\</a><br />
+<span class="math display">\[
+\Large
+aS + bT  \text{ where } a = 1 \text{ and } b = -\frac{1-p}{p}= p^2  
+\]</span><br />
 </p>
 <p><br />
 </p>
