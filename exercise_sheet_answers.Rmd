@@ -1115,6 +1115,9 @@ print(answer)  # = 0.098
 
 
 ```
+In conclusion, the probability that in this election B would hold the majority of the votes is 0.098 (9.8%).\
+\
+\
 
 ## Question 4d
 
@@ -1276,7 +1279,7 @@ At the 5% level, the confidence intervals do not span 1. Therefore the parameter
 \
 \
 
-## 5b
+## Question 5b
 
 I want to find the log of the likelihood function for this discrete random variable. First I will identify the the likelihood of the given probability mass function. Therefore:\
 $$
@@ -1296,35 +1299,39 @@ $$\
 
 I can use the rule whereby $ln(ab) = ln(a) + ln(b)$. This also means that:\
 $$
-LL(y;\lambda) = \sum_{i=1}^n
-\ln(e^{-\lambda}) + \ln(\lambda y_i) - \ln(1 - e^{-\lambda}) - \ln(y_i!)
+LL(y;\lambda) = \sum_{i=1}^n(
+\ln(e^{-\lambda}) + \ln(\lambda y_i) - \ln(1 - e^{-\lambda}) - \ln(y_i!))
 $$
 
 Now I will take the sum of the log of each term ($\sum_{i=1}^{n} ln(x)$) and then sum them together using the $ln(ab) = ln(a)+ln(b)$. This will allow me to decipher which terms are constants and rearrange accordingly afterwards.
 
 $$
-\sum_{i=1}^{n} ln(e^{-\lambda}) = n\lambda
+\sum_{i=1}^{n} ln(e^{-\lambda}) = -n\lambda
 $$\
+\
+Using the property: $ln(a^b)= ln(a)\times b$:\
 $$
 \sum_{i=1}^{n} ln(\lambda^{yi}) = (\sum_{i=1}^ny_i) \times ln (\lambda)
 $$\
+\
 $$
 \sum_{i=1}^{n} ln(1 - e^{-\lambda}) = n\times ln(1-e^{-\lambda})
 $$\
+\
 $$
-\sum_{i=1}^{n} ln(yi!) = \sum_{i=1}^{n} ln\text{ }yi!
+\sum_{i=1}^{n} ln(yi!) = \sum_{i=1}^{n} ln\text{ }(yi!)
 $$
 
 Given the aforementioned rule whereby ln(ab) = ln(a) + ln(b), this gives:
 
 $$
 \Large
-LL(y; \lambda) = -n\lambda +  \sum_{i=1}^n y_i \ln \lambda - n \ln (1 - e^{-\lambda}) - \sum_{i=1}^n ln\text{ }y_i!
+LL(y; \lambda) = -n\lambda +  \sum_{i=1}^n y_i \ln \lambda - n \ln (1 - e^{-\lambda}) - \sum_{i=1}^n ln\text{ }(y_i!)
 $$
 
 To find the maximum likelihood estimate, I can now differentiate this equation with respect to lambda. I will use partial derivatives because one term depends on both $y_i$ and lambda $$
 \Large
-\frac{d(LL) }{d\lambda}=\frac{d }{d\lambda}(-n\lambda +  \sum_{i=1}^n y_i \ln \lambda - n \ln (1 - e^{-\lambda}) - \sum_{i=1}^n ln\text{ }y_i!)
+\frac{d(LL) }{d\lambda}=\frac{d }{d\lambda}(-n\lambda +  \sum_{i=1}^n y_i \ln \lambda - n \ln (1 - e^{-\lambda}) - \sum_{i=1}^n ln\text{ }(y_i!))
 $$\
 
 #### Derivative of each term:
@@ -1335,13 +1342,13 @@ $$
 \frac{d }{d\lambda}(-n\lambda) = -n
 $$\
 \
-Chain rule: $\left( \sum_{i=1}^n y_i \right)$ = constant, f(x) = ln, g(x) = lambda
+Chain rule: $\left( \sum_{i=1}^n y_i \right)$ = constant, outer function = $f(x)$ = ln, inner function = $g(x)$ = lambda:\
 
 $$
 \frac{d }{d\lambda}(\left( \sum_{i=1}^n y_i \right) \ln \lambda) = \frac{\sum_{i=1}^n y_i}{\lambda}
 $$\
 \
-Chain rule: $-n$ = constant, $f(x) = ln \text{ and } g(x) = 1-e^{-\lambda}$:\
+Chain rule: $-n$ = constant, outer function = $f(x)$ = ln, inner function = $g(x) = 1-e^{-\lambda}$:\
 
 $$
 \frac{d }{d\lambda}(- n \ln (1 - e^{-\lambda})) = -\frac{ne^{-\lambda}}{1-e^{-\lambda}}
@@ -1350,7 +1357,7 @@ $$\
 Derivating a constant (no dependency on lambda):\
 
 $$
-\frac{d }{d\lambda}(\sum_{i=1}^n ln\text{ }y_i!) = 0
+\frac{d }{d\lambda}(\sum_{i=1}^n ln\text{ }(y_i!)) = 0
 $$\
 \
 
@@ -1375,60 +1382,76 @@ $$
 -n + \frac{\sum_{i=1}^n y_i}{\lambda}= \frac{ne^{-\lambda}}{1-e^{-\lambda}} 
 $$\
 \
-Now clear the denominators by multiplying by ${1-e^{-\lambda}}$:\
+Now I can clear the denominators by multiplying by ${\lambda(1-e^{-\lambda})}$:\
 
 $$
 \Large
--n\lambda(1-e^{-\lambda})  + \sum_{i=1}^n y_i(1-e^{-\lambda}) = ne^{-\lambda}
+-n\lambda(1-e^{-\lambda})  + \sum_{i=1}^n y_i(1-e^{-\lambda}) = \lambda ne^{-\lambda}
 $$\
 
-Expanding the brackets gives: $$
+Expanding the brackets gives: \ 
+$$
 \Large
--n\lambda + n\lambda e^{-\lambda} + \sum_{i=1}^n y_i -\sum_{i=1}^ny_ie^{-\lambda} = ne^{-\lambda}
+-n\lambda + n\lambda e^{-\lambda} + \sum_{i=1}^n y_i -\sum_{i=1}^ny_ie^{-\lambda} = \lambda ne^{-\lambda}
 $$\
 \
-Cancel out $ne^{-\lambda}$:
+Cancel out $\lambda ne^{-\lambda}$:\
 
 $$
 \Large
 -n\lambda + \sum_{i=1}^n y_i -\sum_{i=1}^ny_ie^{-\lambda} = 0
 $$\
 \
-This is equivalent to:\
+
+\
+A property of the poisson random variable is that $\frac{1}{n} \sum_{i=1}^n y_i = \bar{y}$. Therefore, $\sum_{i=1}^n y_i = n\bar{y}$. Applying this to the eqaution gives:\
 \
 $$
 \Large
-\sum_{i=1}^n y_i -n\lambda  = \sum_{i=1}^ny_ie^{-\lambda}
+-n\lambda + n\bar{y} -n\bar{y}e^{-\lambda} = 0
 $$\
+\
+Each term has n in common so factorising gives:\
+$$
+\Large
+-n(\lambda - \bar{y} +\bar{y}e^{-\lambda}) = 0
+$$\
+As stated in the question, n > 0 and a must be an integer. Because n does not equal 0,  I can divide by -n on both sides:\
+$$
+\Large
+\lambda - \bar{y} +\bar{y}e^{-\lambda} = 0
+$$\
+\
+Rearranging for lambda:\
+$$
+\Large
+ - \bar{y} +\bar{y}e^{-\lambda} = \lambda
+$$\
+\
+Matching the form from the question:\
+$$
+\Large
+y (- 1 +e^{-\lambda}) = y (1 -e^{-\lambda}) = \lambda
+$$\
+Finally, dividing both side by ($1 -e^{-\lambda}$) isolates the mean:\
+\
+$$
+\Large
+y  = \frac{\lambda}{1 -e^{-\lambda}}
+$$\
+\
+Now this matches the form of the equation for $\bar{y}$ in the question.
+\
+\
+\
+\
+\
+\
+\
+\
 \
 
-Now I can divide by $\sum_{i=1}^n y_i$:\
-\
-$$
-\Large
-1-\frac{n\lambda}{ \sum_{i=1}^n y_i }  =  e^{-\lambda}
-$$\
-\
-Rearranging gives:\
-\
 
-$$
-\Large
-\frac{n\lambda}{ \sum_{i=1}^n y_i }  =  1- e^{-\lambda}
-$$\
-\
-Thus:\
-\
-$$
-\Large
-n\lambda  =  \sum_{i=1}^n y_i  \times \frac{e^\lambda-1}{e^\lambda}
-$$\
-
-Therefore:\
-$$
-\Large
-\frac{\lambda}{1 - e^{-\lambda}} = \frac{3}{4}
-$$\
 \
 \
 \
