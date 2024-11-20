@@ -1556,6 +1556,11 @@ for (sim in 1:simulations) {
 answer &lt;- B_more_than_M/ 10000  # Average number of times B has the majority
 
 print(answer)  # = 0.098</code></pre>
+<p>In conclusion, the probability that in this election B would hold the
+majority of the votes is 0.098 (9.8%).<br />
+<br />
+<br />
+</p>
 </div>
 <div id="question-4d" class="section level2">
 <h2>Question 4d</h2>
@@ -1740,8 +1745,8 @@ to round to the nearest integer, this would be 0, not 1.<br />
 </p>
 </div>
 </div>
-<div id="b-1" class="section level2">
-<h2>5b</h2>
+<div id="question-5b" class="section level2">
+<h2>Question 5b</h2>
 <p>I want to find the log of the likelihood function for this discrete
 random variable. First I will identify the the likelihood of the given
 probability mass function. Therefore:<br />
@@ -1764,31 +1769,37 @@ e^{-\lambda})y_i!})
 <p>I can use the rule whereby <span class="math inline">\(ln(ab) = ln(a)
 + ln(b)\)</span>. This also means that:<br />
 <span class="math display">\[
-LL(y;\lambda) = \sum_{i=1}^n
-\ln(e^{-\lambda}) + \ln(\lambda y_i) - \ln(1 - e^{-\lambda}) - \ln(y_i!)
+LL(y;\lambda) = \sum_{i=1}^n(
+\ln(e^{-\lambda}) + \ln(\lambda y_i) - \ln(1 - e^{-\lambda}) -
+\ln(y_i!))
 \]</span></p>
 <p>Now I will take the sum of the log of each term (<span class="math inline">\(\sum_{i=1}^{n} ln(x)\)</span>) and then sum them
 together using the <span class="math inline">\(ln(ab) =
 ln(a)+ln(b)\)</span>. This will allow me to decipher which terms are
 constants and rearrange accordingly afterwards.</p>
 <p><span class="math display">\[
-\sum_{i=1}^{n} ln(e^{-\lambda}) = n\lambda
+\sum_{i=1}^{n} ln(e^{-\lambda}) = -n\lambda
 \]</span><br />
+<br />
+Using the property: <span class="math inline">\(ln(a^b)= ln(a)\times
+b\)</span>:<br />
 <span class="math display">\[
 \sum_{i=1}^{n} ln(\lambda^{yi}) = (\sum_{i=1}^ny_i) \times ln (\lambda)
 \]</span><br />
+<br />
 <span class="math display">\[
 \sum_{i=1}^{n} ln(1 - e^{-\lambda}) = n\times ln(1-e^{-\lambda})
 \]</span><br />
+<br />
 <span class="math display">\[
-\sum_{i=1}^{n} ln(yi!) = \sum_{i=1}^{n} ln\text{ }yi!
+\sum_{i=1}^{n} ln(yi!) = \sum_{i=1}^{n} ln\text{ }(yi!)
 \]</span></p>
 <p>Given the aforementioned rule whereby ln(ab) = ln(a) + ln(b), this
 gives:</p>
 <p><span class="math display">\[
 \Large
 LL(y; \lambda) = -n\lambda +  \sum_{i=1}^n y_i \ln \lambda - n \ln (1 -
-e^{-\lambda}) - \sum_{i=1}^n ln\text{ }y_i!
+e^{-\lambda}) - \sum_{i=1}^n ln\text{ }(y_i!)
 \]</span></p>
 <p>To find the maximum likelihood estimate, I can now differentiate this
 equation with respect to lambda. I will use partial derivatives because
@@ -1797,7 +1808,7 @@ lambda <span class="math display">\[
 \Large
 \frac{d(LL) }{d\lambda}=\frac{d }{d\lambda}(-n\lambda +  \sum_{i=1}^n
 y_i \ln \lambda - n \ln (1 - e^{-\lambda}) - \sum_{i=1}^n ln\text{
-}y_i!)
+}(y_i!))
 \]</span><br />
 </p>
 <div id="derivative-of-each-term" class="section level4">
@@ -1809,13 +1820,16 @@ y_i \ln \lambda - n \ln (1 - e^{-\lambda}) - \sum_{i=1}^n ln\text{
 \]</span><br />
 <br />
 Chain rule: <span class="math inline">\(\left( \sum_{i=1}^n y_i
-\right)\)</span> = constant, f(x) = ln, g(x) = lambda</p>
+\right)\)</span> = constant, outer function = <span class="math inline">\(f(x)\)</span> = ln, inner function = <span class="math inline">\(g(x)\)</span> = lambda:<br />
+</p>
 <p><span class="math display">\[
 \frac{d }{d\lambda}(\left( \sum_{i=1}^n y_i \right) \ln \lambda) =
 \frac{\sum_{i=1}^n y_i}{\lambda}
 \]</span><br />
 <br />
-Chain rule: <span class="math inline">\(-n\)</span> = constant, <span class="math inline">\(f(x) = ln \text{ and } g(x) =
+Chain rule: <span class="math inline">\(-n\)</span> = constant, outer
+function = <span class="math inline">\(f(x)\)</span> = ln, inner
+function = <span class="math inline">\(g(x) =
 1-e^{-\lambda}\)</span>:<br />
 </p>
 <p><span class="math display">\[
@@ -1826,7 +1840,7 @@ Chain rule: <span class="math inline">\(-n\)</span> = constant, <span class="mat
 Derivating a constant (no dependency on lambda):<br />
 </p>
 <p><span class="math display">\[
-\frac{d }{d\lambda}(\sum_{i=1}^n ln\text{ }y_i!) = 0
+\frac{d }{d\lambda}(\sum_{i=1}^n ln\text{ }(y_i!)) = 0
 \]</span><br />
 <br />
 </p>
@@ -1857,63 +1871,81 @@ the question (<span class="math inline">\(\frac{\hat{\lambda}}{1-e^{-\hat{\lambd
 \frac{ne^{-\lambda}}{1-e^{-\lambda}}
 \]</span><br />
 <br />
-Now clear the denominators by multiplying by <span class="math inline">\({1-e^{-\lambda}}\)</span>:<br />
+Now I can clear the denominators by multiplying by <span class="math inline">\({\lambda(1-e^{-\lambda})}\)</span>:<br />
 </p>
 <p><span class="math display">\[
 \Large
--n\lambda(1-e^{-\lambda})  + \sum_{i=1}^n y_i(1-e^{-\lambda}) =
+-n\lambda(1-e^{-\lambda})  + \sum_{i=1}^n y_i(1-e^{-\lambda}) = \lambda
 ne^{-\lambda}
 \]</span><br />
 </p>
-<p>Expanding the brackets gives: <span class="math display">\[
+<p>Expanding the brackets gives:   <span class="math display">\[
 \Large
 -n\lambda + n\lambda e^{-\lambda} + \sum_{i=1}^n y_i
--\sum_{i=1}^ny_ie^{-\lambda} = ne^{-\lambda}
+-\sum_{i=1}^ny_ie^{-\lambda} = \lambda ne^{-\lambda}
 \]</span><br />
 <br />
-Cancel out <span class="math inline">\(ne^{-\lambda}\)</span>:</p>
+Cancel out <span class="math inline">\(\lambda
+ne^{-\lambda}\)</span>:<br />
+</p>
 <p><span class="math display">\[
 \Large
 -n\lambda + \sum_{i=1}^n y_i -\sum_{i=1}^ny_ie^{-\lambda} = 0
 \]</span><br />
 <br />
-This is equivalent to:<br />
+</p>
+<p><br />
+A property of the poisson random variable is that <span class="math inline">\(\frac{1}{n} \sum_{i=1}^n y_i = \bar{y}\)</span>.
+Therefore, <span class="math inline">\(\sum_{i=1}^n y_i =
+n\bar{y}\)</span>. Applying this to the eqaution gives:<br />
 <br />
 <span class="math display">\[
 \Large
-\sum_{i=1}^n y_i -n\lambda  = \sum_{i=1}^ny_ie^{-\lambda}
+-n\lambda + n\bar{y} -n\bar{y}e^{-\lambda} = 0
 \]</span><br />
+<br />
+Each term has n in common so factorising gives:<br />
+<span class="math display">\[
+\Large
+-n(\lambda - \bar{y} +\bar{y}e^{-\lambda}) = 0
+\]</span><br />
+As stated in the question, n &gt; 0 and a must be an integer. Because n
+does not equal 0, I can divide by -n on both sides:<br />
+<span class="math display">\[
+\Large
+\lambda - \bar{y} +\bar{y}e^{-\lambda} = 0
+\]</span><br />
+<br />
+Rearranging for lambda:<br />
+<span class="math display">\[
+\Large
+- \bar{y} +\bar{y}e^{-\lambda} = \lambda
+\]</span><br />
+<br />
+Matching the form from the question:<br />
+<span class="math display">\[
+\Large
+y (- 1 +e^{-\lambda}) = y (1 -e^{-\lambda}) = \lambda
+\]</span><br />
+Finally, dividing both side by (<span class="math inline">\(1
+-e^{-\lambda}\)</span>) isolates the mean:<br />
+<br />
+<span class="math display">\[
+\Large
+y  = \frac{\lambda}{1 -e^{-\lambda}}
+\]</span><br />
+<br />
+Now this matches the form of the equation for <span class="math inline">\(\bar{y}\)</span> in the question.<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 </p>
-<p>Now I can divide by <span class="math inline">\(\sum_{i=1}^n
-y_i\)</span>:<br />
-<br />
-<span class="math display">\[
-\Large
-1-\frac{n\lambda}{ \sum_{i=1}^n y_i }  =  e^{-\lambda}
-\]</span><br />
-<br />
-Rearranging gives:<br />
-<br />
-</p>
-<p><span class="math display">\[
-\Large
-\frac{n\lambda}{ \sum_{i=1}^n y_i }  =  1- e^{-\lambda}
-\]</span><br />
-<br />
-Thus:<br />
-<br />
-<span class="math display">\[
-\Large
-n\lambda  =  \sum_{i=1}^n y_i  \times \frac{e^\lambda-1}{e^\lambda}
-\]</span><br />
-</p>
-<p>Therefore:<br />
-<span class="math display">\[
-\Large
-\frac{\lambda}{1 - e^{-\lambda}} = \frac{3}{4}
-\]</span><br />
-<br />
+<p><br />
 <br />
 <br />
 </p>

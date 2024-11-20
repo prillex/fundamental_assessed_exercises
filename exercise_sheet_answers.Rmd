@@ -1404,7 +1404,7 @@ $$\
 \
 
 \
-A property of the poisson random variable is that $\frac{1}{n} \sum_{i=1}^n y_i = \bar{y}$. Therefore, $\sum_{i=1}^n y_i = n\bar{y}$. Applying this to the eqaution gives:\
+A property of the poisson random variable is that the sample mean is given by $\frac{1}{n} \sum_{i=1}^n y_i = \bar{y}$. Therefore, $\sum_{i=1}^n y_i = n\bar{y}$. Applying this to the equation gives:\
 \
 $$
 \Large
