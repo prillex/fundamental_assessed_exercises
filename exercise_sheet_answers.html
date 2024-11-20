@@ -2011,11 +2011,12 @@ is:</p>
 <p><span class="math display">\[
 \Large
 \text{mean of } E(\frac{Y}{n}) = \frac{Y}{n} \times n \times p
-=  y\times p
+=  Y\times p
 \]</span><br />
 </p>
 <p><span class="math inline">\(Y \times p\)</span> is simply p because Y
-must sum to 1 (p + (1-p) = 1). Therefore:</p>
+(<span class="math inline">\(Y = y_i\)</span>) must sum to 1 (p + (1-p)
+= 1). Therefore:</p>
 <p><span class="math display">\[
 E(T)= \bar{T} = p
 \]</span><br />
@@ -2138,13 +2139,52 @@ estimator:<br />
 The bias is:<br />
 <br />
 <span class="math display">\[
-\frac{p(1-p)}{n} + p^2 - p^2 = frac{p(1-p)}{n}
+\frac{p(1-p)}{n} + p^2 - p^2 = \frac{p(1-p)}{n}
 \]</span><br />
 <br />
 <span class="math display">\[
 \text{In conclusion, the bias of the estimator S for θ is }
 \frac{p(1-p)}{n}.
-\]</span></p>
+\]</span><br />
+<br />
+<br />
+<br />
+## Question 6d<br />
+<br />
+For aS + bT to give an unbiased estimate for θ, E(aS + bT) must equal
+p^2.<br />
+<br />
+Currently, I know that:</p>
+<p>$$ E(T) = p\[10pt]</p>
+<p>E(S) = + p^2 $$<br />
+<br />
+Therefore, currently:</p>
+<p><span class="math display">\[
+aS + bT = a(\frac{p(1-p)}{n} + p^2) + b(p) = a(\frac{p(1-p)}{n}) +
+a(p^2) + b(p)
+\]</span><br />
+<br />
+I want this to sum to <span class="math inline">\(p^2\)</span> instead
+since this would match the expectation of θ.<br />
+<br />
+<span class="math display">\[
+a(\frac{p(1-p)}{n}) + a(p^2) + b(p) = p^2
+\]</span> Since E(S) already has a term that’s <span class="math inline">\(p^2\)</span>, and I can’t split up the terms
+belonging to S, I can alter the b multiplier of T to cancel out the rest
+of the bias:</p>
+<p><span class="math display">\[
+a(\frac{p(1-p)}{n} + p^2) + b(p) = p^2
+\]</span><br />
+<br />
+<span class="math display">\[
+b(p) = p^2 - a(\frac{p(1-p)}{n} + p^2)
+\]</span><br />
+<br />
+<span class="math display">\[
+b = p^2 - \frac{a(\frac{p(1-p)}{n} + p^2)}{p}
+\]</span><br />
+<br />
+</p>
 <p><br />
 </p>
 <p><br />

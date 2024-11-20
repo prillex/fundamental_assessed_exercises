@@ -1549,10 +1549,10 @@ Referring back to the equation for the theoretical mean of the binomial $(p \tim
 
 $$
 \Large
-\text{mean of } E(\frac{Y}{n}) = \frac{Y}{n} \times n \times p =  y\times p
+\text{mean of } E(\frac{Y}{n}) = \frac{Y}{n} \times n \times p =  Y\times p
 $$\
 
-$Y \times p$ is simply p because Y must sum to 1 (p + (1-p) = 1). Therefore:
+$Y \times p$ is simply p because Y ($Y = y_i$) must sum to 1 (p + (1-p) = 1). Therefore:
 
 $$
 E(T)= \bar{T} = p
@@ -1662,7 +1662,66 @@ $$\
 \
 $$
 \text{In conclusion, the bias of the estimator S for θ is } \frac{p(1-p)}{n}.
+$$\
+\
+\
+\
+## Question 6d
+\
+\
+For aS + bT to give an unbiased estimate for θ, E(aS + bT) must equal p^2.\
+\
+Currently, I know that:
+
 $$
+E(T) = p\\[10pt]
+
+E(S) =\frac{p(1-p)}{n} + p^2
+$$\
+\
+Therefore, currently:
+
+$$
+aS + bT = a(\frac{p(1-p)}{n} + p^2) + b(p) = a(\frac{p(1-p)}{n}) + a(p^2) + b(p)
+$$\
+\
+I want this to sum to $p^2$ instead since this would match the expectation of θ.\
+\
+$$
+ a(\frac{p(1-p)}{n}) + a(p^2) + b(p) = p^2
+$$
+Since E(S) already has a term that's $p^2$, and I can't split up the terms belonging to S, I can alter the b multiplier of T to cancel out the rest of the bias. Therefore $a$ can take the value 1:\
+\
+$$
+\frac{p(1-p)}{n} + p^2 + b(p) = p^2
+$$\
+\
+Isolating b(p) and then the multiplier:\
+\
+$$
+b(p) = -p^2 - \frac{p(1-p)}{n} + p^2
+$$\
+\
+$$
+b = \frac{-p^2}{p} - \frac{\frac{p(1-p)}{n} } p + \frac{p^2}{p}
+$$\
+\
+$$
+b = -p - \frac{\frac{p(1-p)}{n} } p + p
+$$\
+\
+$$
+b = - \frac{\frac{p(1-p)}{n} } p = -\frac{p(1-p)}{np} = -\frac{1-p}{n}
+$$\
+\
+This proves that the multiplier $b$ acting on T (p) that makes $aS + bT$'s expectation = $p^2$ (when $a$ = 1) is $-\frac{1-p}{n}$. In turn:\
+\
+$$
+\Large
+aS + bT  \text{ where } a = 1 \text{ and } b = -\frac{1-p}{p}= p^2  
+$$
+\
+
 
 \
 
