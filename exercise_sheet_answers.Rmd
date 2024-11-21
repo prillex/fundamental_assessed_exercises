@@ -281,9 +281,10 @@ $$
 x + y + z &= 1 \\
 y + 3z & = 0 \\
 \end{aligned}
-$$
+$$\
+\
 
-## ?Now I can assign the free variable (z) to a parameter and characterise ?
+
 
 \
 \
@@ -330,10 +331,7 @@ $$
 x + y + z &= 1 \\
 y + 3z & = 1 \\
 \end{aligned}
-$$
-
-## ?Now I can assign the free variable (z) to a parameter and characterise?
-
+$$\
 \
 \
 \
