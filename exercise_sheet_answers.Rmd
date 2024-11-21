@@ -702,7 +702,7 @@ $$
 \sum_{n=0}^{\infty}r^n=\frac{1}{1-0.5}  = 2
 $$\
 \
-As expected, it takes two trials until a success is expected. In [turn:\\](turn:\){.uri}\
+As expected, it takes two trials until a success is expected. In [[turn:\\\\](turn:\\){.uri}]([turn:\\](turn:\){.uri}){.uri}\
 $$
 \Large
 E(n) = 2
@@ -1450,8 +1450,7 @@ Therefore $\bar{y} =\frac{1}{45} \times 60 = 1.333$\
 \
 1.333 is equivalent to $\frac{4}{3}$\
 \
-In conclusion, where lambda is greater than 0:
-\
+In conclusion, where lambda is greater than 0:\
 $$
 \Large
 \frac{\lambda}{1-e^{-\lambda}}=\frac{4}{3} 
@@ -1704,7 +1703,7 @@ $$\
 
 \
 \
-For aS + bT to give an unbiased estimate for θ, E(aS + bT) must equal p\^2.\
+For $aS + bT$ to give an unbiased estimate for θ, $E(aS + bT)$ must equal $p^2$.\
 \
 Currently, I know that:\
 \
