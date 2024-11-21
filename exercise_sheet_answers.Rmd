@@ -284,8 +284,6 @@ y + 3z & = 0 \\
 $$\
 \
 
-
-
 \
 \
 \
@@ -704,8 +702,7 @@ $$
 \sum_{n=0}^{\infty}r^n=\frac{1}{1-0.5}  = 2
 $$\
 \
-As expected, it takes two trials until a success is expected. In turn:\
-\
+As expected, it takes two trials until a success is expected. In [turn:\\](turn:\){.uri}\
 $$
 \Large
 E(n) = 2
@@ -725,7 +722,7 @@ $$
 Var(n) = \frac{1-0.5}{0.5^2}= 2
 $$\
 
-To calculate the expectation of the fine I need to use the formula,\
+The expectation of $n^2$ is not simply (E(n))\^2 because this does not account for the variance associated with the expectation of this. Instead, To calculate the expectation of the fine I need to use the formula,\
 \
 $$
 \Large
@@ -1113,6 +1110,7 @@ print(answer)  # = 0.098
 
 
 ```
+
 In conclusion, the probability that in this election B would hold the majority of the votes is 0.098 (9.8%).\
 \
 \
@@ -1141,7 +1139,7 @@ no._X2_successes <- 0  # Initial number of successes (Will grow with loops)
 # Run the simulation 10000 times
 for (sim in 1:simulations) {
   
-  # Run the 14-iteration loop
+  # Run the 60-iteration loop
   for (day in 1:no._iterations_60) {
     # For X1 outcomes
     X1_trials <- numeric(X1)
@@ -1312,10 +1310,14 @@ $$
 \sum_{i=1}^{n} ln(\lambda^{yi}) = (\sum_{i=1}^ny_i) \times ln (\lambda)
 $$\
 \
+Next term:\
+\
 $$
 \sum_{i=1}^{n} ln(1 - e^{-\lambda}) = n\times ln(1-e^{-\lambda})
 $$\
 \
+Final term:\
+
 $$
 \sum_{i=1}^{n} ln(yi!) = \sum_{i=1}^{n} ln\text{ }(yi!)
 $$
@@ -1387,8 +1389,7 @@ $$
 -n\lambda(1-e^{-\lambda})  + \sum_{i=1}^n y_i(1-e^{-\lambda}) = \lambda ne^{-\lambda}
 $$\
 
-Expanding the brackets gives: \ 
-$$
+Expanding the brackets gives:   $$
 \Large
 -n\lambda + n\lambda e^{-\lambda} + \sum_{i=1}^n y_i -\sum_{i=1}^ny_ie^{-\lambda} = \lambda ne^{-\lambda}
 $$\
@@ -1414,7 +1415,7 @@ $$
 \Large
 -n(\lambda - \bar{y} +\bar{y}e^{-\lambda}) = 0
 $$\
-As stated in the question, n > 0 and a must be an integer. Because n does not equal 0,  I can divide by -n on both sides:\
+As stated in the question, n \> 0 and a must be an integer. Because n does not equal 0, I can divide by -n on both sides:\
 $$
 \Large
 \lambda - \bar{y} +\bar{y}e^{-\lambda} = 0
@@ -1438,17 +1439,26 @@ $$
 y  = \frac{\lambda}{1 -e^{-\lambda}}
 $$\
 \
-Now this matches the form of the equation for $\bar{y}$ in the question.
+Now this matches the form of the equation for $\bar{y}$ in the question.\
+\
+Now I'm using values that are not 0. There are $(1\times33) + (2\times10) + (1\times3) + (1 \times 4) = 60 = \sum_{i=1}^n y_i$\
+\
+Now since n is non-zero values this is equal to the difference between the initial $n$ and the no. zero values ($182-137 = 45$)\
+\
+Finally, since the sample mean = $\frac{1}{n}(\sum_{i=1}^n y_i) =  \bar{y}$\
+Therefore $\bar{y} =\frac{1}{45} \times 60 = 1.333$\
+\
+1.333 is equivalent to $\frac{4}{3}$\
+\
+In conclusion, where lambda is greater than 0:
+\
+$$
+\Large
+\frac{\lambda}{1-e^{-\lambda}}=\frac{4}{3} 
+$$\
 \
 \
 \
-\
-\
-\
-\
-\
-\
-
 
 \
 \
@@ -1671,8 +1681,7 @@ $$
 E(\frac{Y^2}{n^2}) = \frac{1}{n^2}(n\times p(1-p) + n^2 \times p^2) =  \frac{np(1-p) + n^2 p^2}{n^2} = \frac{p(1-p)}{n} + p^2
 $$\
 \
-The expectation of the parameter ($E(θ)$) is $E(p^2) =  p^2$/
-There is a clear difference between the expectation of the parameter and the estimator:\
+The expectation of the parameter ($E(θ)$) is $E(p^2) =  p^2$/ There is a clear difference between the expectation of the parameter and the estimator:\
 \
 $$
 \frac{p(1-p)}{n} + p^2 \not= p^2
@@ -1690,21 +1699,25 @@ $$\
 \
 \
 \
-## Question 6d
-\
-\
-For aS + bT to give an unbiased estimate for θ, E(aS + bT) must equal p^2.\
-\
-Currently, I know that:
 
+## Question 6d
+
+\
+\
+For aS + bT to give an unbiased estimate for θ, E(aS + bT) must equal p\^2.\
+\
+Currently, I know that:\
+\
 $$
 E(T) = p\\[10pt]
-
 E(S) =\frac{p(1-p)}{n} + p^2
 $$\
 \
-Therefore, currently:
+\
 
+Therefore, currently:\
+
+\
 $$
 aS + bT = a(\frac{p(1-p)}{n} + p^2) + b(p) = a(\frac{p(1-p)}{n}) + a(p^2) + b(p)
 $$\
@@ -1713,18 +1726,21 @@ I want this to sum to $p^2$ instead since this would match the expectation of θ
 \
 $$
  a(\frac{p(1-p)}{n}) + a(p^2) + b(p) = p^2
-$$
+$$\
+\
 Since E(S) already has a term that's $p^2$, and I can't split up the terms belonging to S, I can alter the b multiplier of T to cancel out the rest of the bias. Therefore $a$ can take the value 1:\
 \
 $$
 \frac{p(1-p)}{n} + p^2 + b(p) = p^2
 $$\
 \
+
 Isolating b(p) and then the multiplier:\
 \
 $$
 b(p) = -p^2 - \frac{p(1-p)}{n} + p^2
 $$\
+
 \
 $$
 b = \frac{-p^2}{p} - \frac{\frac{p(1-p)}{n} } p + \frac{p^2}{p}
@@ -1738,14 +1754,11 @@ $$
 b = - \frac{\frac{p(1-p)}{n} } p = -\frac{p(1-p)}{np} = -\frac{1-p}{n}
 $$\
 \
-This proves that the multiplier $b$ acting on T (p) that makes $aS + bT$'s expectation = $p^2$ (when $a$ = 1) is $-\frac{1-p}{n}$. In turn :\ 
-\
+This proves that the multiplier $b$ acting on T (p) that makes $aS + bT$'s expectation = $p^2$ (when $a$ = 1) is $-\frac{1-p}{n}$. In turn : \
 $$
 \Large
 aS + bT  \text{ where } a = 1 \text{ and } b = -\frac{1-p}{p}= p^2  
-$$
-\
-
+$$\
 
 \
 

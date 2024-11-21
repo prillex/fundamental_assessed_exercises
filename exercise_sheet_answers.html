@@ -1111,8 +1111,10 @@ Var(n) = \frac{1-p}{p^2}
 Var(n) = \frac{1-0.5}{0.5^2}= 2
 \]</span><br />
 </p>
-<p>To calculate the expectation of the fine I need to use the
-formula,<br />
+<p>The expectation of <span class="math inline">\(n^2\)</span> is not
+simply (E(n))^2 because this does not account for the variance
+associated with the expectation of this. Instead, To calculate the
+expectation of the fine I need to use the formula,<br />
 <br />
 <span class="math display">\[
 \Large
@@ -1579,7 +1581,7 @@ no._X2_successes &lt;- 0  # Initial number of successes (Will grow with loops)
 # Run the simulation 10000 times
 for (sim in 1:simulations) {
   
-  # Run the 14-iteration loop
+  # Run the 60-iteration loop
   for (day in 1:no._iterations_60) {
     # For X1 outcomes
     X1_trials &lt;- numeric(X1)
@@ -1781,11 +1783,15 @@ b\)</span>:<br />
 \sum_{i=1}^{n} ln(\lambda^{yi}) = (\sum_{i=1}^ny_i) \times ln (\lambda)
 \]</span><br />
 <br />
+Next term:<br />
+<br />
 <span class="math display">\[
 \sum_{i=1}^{n} ln(1 - e^{-\lambda}) = n\times ln(1-e^{-\lambda})
 \]</span><br />
 <br />
-<span class="math display">\[
+Final term:<br />
+</p>
+<p><span class="math display">\[
 \sum_{i=1}^{n} ln(yi!) = \sum_{i=1}^{n} ln\text{ }(yi!)
 \]</span></p>
 <p>Given the aforementioned rule whereby ln(ab) = ln(a) + ln(b), this
@@ -1932,7 +1938,13 @@ y  = \frac{\lambda}{1 -e^{-\lambda}}
 <br />
 Now this matches the form of the equation for <span class="math inline">\(\bar{y}\)</span> in the question.<br />
 <br />
+Now I’m using values that are not 0. There are $(1) + (2) + (1) + (1 ) =
+60 $<br />
 <br />
+Now since n is non-zero values this is equal to the difference between
+the intial n and the no. zero values (<span class="math inline">\(182-137 = 45\)</span>)<br />
+<br />
+Finally, since the sample mean = _i^<br />
 <br />
 <br />
 <br />
@@ -2208,17 +2220,28 @@ The bias is:<br />
 <br />
 <br />
 <br />
-## Question 6d<br />
+</p>
+</div>
+<div id="question-6d" class="section level2">
+<h2>Question 6d</h2>
+<p><br />
 <br />
 For aS + bT to give an unbiased estimate for θ, E(aS + bT) must equal
 p^2.<br />
 <br />
-Currently, I know that:</p>
-<p>$$ E(T) = p\[10pt]</p>
-<p>E(S) = + p^2 $$<br />
+Currently, I know that:<br />
 <br />
-Therefore, currently:</p>
-<p><span class="math display">\[
+<span class="math display">\[
+E(T) = p\\[10pt]
+E(S) =\frac{p(1-p)}{n} + p^2
+\]</span><br />
+<br />
+<br />
+</p>
+<p>Therefore, currently:<br />
+</p>
+<p><br />
+<span class="math display">\[
 aS + bT = a(\frac{p(1-p)}{n} + p^2) + b(p) = a(\frac{p(1-p)}{n}) +
 a(p^2) + b(p)
 \]</span><br />
@@ -2228,7 +2251,9 @@ since this would match the expectation of θ.<br />
 <br />
 <span class="math display">\[
 a(\frac{p(1-p)}{n}) + a(p^2) + b(p) = p^2
-\]</span> Since E(S) already has a term that’s <span class="math inline">\(p^2\)</span>, and I can’t split up the terms
+\]</span><br />
+<br />
+Since E(S) already has a term that’s <span class="math inline">\(p^2\)</span>, and I can’t split up the terms
 belonging to S, I can alter the b multiplier of T to cancel out the rest
 of the bias. Therefore <span class="math inline">\(a\)</span> can take
 the value 1:<br />
@@ -2237,12 +2262,14 @@ the value 1:<br />
 \frac{p(1-p)}{n} + p^2 + b(p) = p^2
 \]</span><br />
 <br />
-Isolating b(p) and then the multiplier:<br />
+</p>
+<p>Isolating b(p) and then the multiplier:<br />
 <br />
 <span class="math display">\[
 b(p) = -p^2 - \frac{p(1-p)}{n} + p^2
 \]</span><br />
-<br />
+</p>
+<p><br />
 <span class="math display">\[
 b = \frac{-p^2}{p} - \frac{\frac{p(1-p)}{n} } p + \frac{p^2}{p}
 \]</span><br />
