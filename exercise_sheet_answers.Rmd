@@ -627,7 +627,7 @@ $$\
 
 #### Now, I can consult the z-table:
 
-![image](images\ztable.png)\
+![image](images\Z-tables\ztable.png)\
 
 The CDF's corresponding z-value is 0.0062. This means the probability of a box's weight/can being \<420.75g is 0.62%. To work out the expectation of the fine:
 
@@ -663,7 +663,7 @@ $$
 Z = \frac{421.8 - 426}{4.2} = -1
 $$\
 
-![image](images\ztableb.png)\
+![image](images\Z-tables\ztableb.png)\
 \
 \
 The CDF's corresponding z-value is 0.1587. This means the probability of a box's weight/can being \<421.8g is 15.87%. To work out the expectation of the fine:\
@@ -702,7 +702,7 @@ $$
 \sum_{n=0}^{\infty}r^n=\frac{1}{1-0.5}  = 2
 $$\
 \
-As expected, it takes two trials until a success is expected. In [[turn:\\\\](turn:\\){.uri}]([turn:\\](turn:\){.uri}){.uri}\
+As expected, it takes two trials until a success is expected. In [[turn:\\\\](turn:\){.uri}]([turn:\\](turn:)%7B.uri%7D){.uri}\
 $$
 \Large
 E(n) = 2
@@ -1487,7 +1487,7 @@ plotting_data %>%  # Specifying the dataframe
 
 This gives:\
 \
-![image](images\DLL_function.png)\
+![image](images\R%20plots\DLL_function.png)\
 \
 I could determine the interval (length 1) where DLL becomes positive visually (root) but I will use R to be sure:\
 \
@@ -1794,7 +1794,7 @@ ggpairs(ozone,  # Full matrix
 
 This outputs:\
 \
-![image](images\scatter_matrix.png)\
+![image](images\R%20plots\scatter_matrix.png)\
 \
 
 #### Multiplot Visualising ozone as the response:
@@ -1828,7 +1828,7 @@ multiplot(radiation_plot, wind_plot, temperature_plot, cols = 3)
 
 The output is:\
 \
-![image](images\ozone_relationships.png)\
+![image](images\R%20plots\ozone_relationships.png)\
 
 #### Discussion of findings:
 
@@ -1871,7 +1871,7 @@ plot(model)
 \
 This gives:\
 \
-![image](images\diagnostic_plots.png)\
+![image](images\R%20plots\diagnostic_plots.png)\
 \
 The diagnostic plot give a host of insights into whether the model assumptions have been violated. Firstly, the 'Residuals vs Fitted' values reveal that there is a level of heteroscedasticity in the data. It shows that the spread of residuals across different levels of the fitted values is inconsistent. Therefore the assumption that they are even (the assumption of homoscedasticity) has been violated. In particular, there appears to be a more erratic spread of residuals at the extremes of the fitted values. A similar interpretation can be made for the 'Scale-Location' plot.
 
@@ -1893,7 +1893,7 @@ summary(model_2) # Model summary
 
 Starting with the model outputs, it is clear to see that log-transforming the response and explanatory effects has affected the coefficients and the corresponding p-values:\
 \
-![image](images\coefficients_comparison.png)\
+![image](images\R%20plots\coefficients_comparison.png)\
 \
 
 Firstly, the modelled effect of wind speed on ozone has been greatly reduced. The coefficent is -0.68 which means that the second model predicts for every 1 mph increase in wind speed, there is a \~2.27 smaller change in the ozone compared to the first model. This is undoubtedly caused by the log transformation. Earlier, I identified data point 77 as a clear outlier. Upon looking at the data, I can see that this data point contains the highest ozone recording (168 ppb) and the second lowest wind speed (3.4 mph). The log transformation would have made this raw data less extreme relative to the rest of the data and therefore the modelled effect of wind speed on ozone has been largely suppressed hence the less extreme coefficient and p-value (2.91e-06 compared to the first models p value of 9.29-07).
@@ -1908,7 +1908,7 @@ plot(model_2)
 
 \
 \
-![image](images\7c_diagnostic_plots.png)\
+![image](images\R%20plots\7c_diagnostic_plots.png)\
 \
 
 In comparison to the former models diagnostic plot, this 'Residuals vs Fitted' plot highlights a huge amelioration in the extent of heteroscedasticity in the data. Now the residuals are much more evenly distributed around the flat x axis line. This means that the variance of the residuals is more consistent and that the assumption of homoscedasticity has not been violated to the same extent as before. Furthermore, the linearity of the residuals is much better as can be seen in the Q-Q plot; this means that the residuals follow the normal distribution assumed of linear models. While I have not used statistical tests to confirm whether the model assumptions have been met such as the Bartlett test for homoscedasticity and the Shapiro Wilks for normality, I can at least confirm through visual assessment of the diagnostic plot that the transformations have made the data in the second model more appropriate for a linear model.
