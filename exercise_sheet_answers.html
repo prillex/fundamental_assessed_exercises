@@ -1090,7 +1090,7 @@ finite geometric series is:<br />
 \sum_{n=0}^{\infty}r^n=\frac{1}{1-0.5}  = 2
 \]</span><br />
 <br />
-As expected, it takes two trials until a success is expected. In [<a href="turn:\" class="uri">turn:\\</a>](<a href="turn:)%7B.uri%7D" class="uri">turn:\</a><br />
+As expected, it takes two trials until a success is expected. In <a href="%5Bturn:\%5D(turn:)%7B.uri%7D" class="uri">[turn:\\](turn:){.uri}</a><br />
 <span class="math display">\[
 \Large
 E(n) = 2
@@ -1380,8 +1380,8 @@ for(i in 1:X1){  # Sampling everyone
                       size = 1, # 1 Bernoulli per person
                       replace = F,  # Only one decision per person (all people must be sampled)
                       prob = X1_probs)  # Pre-specified probabilities
-  if (X1_trials[i] == 1) {  # &#39;If current trial is a success...&#39;
-    no._X1_successes &lt;- no._X1_successes + 1  # &#39;...Increase the number of success by 1
+  if (X1_trials[i] == 1) {  # If a successes
+    no._X1_successes &lt;- no._X1_successes + 1  # Add 1 to no. successes
   }
 }
 
@@ -1403,9 +1403,9 @@ for(i in 1:X2){  # Sampling everyone
   X2_trials[i] &lt;- sample(results, 
                       size = 1, # 1 Bernoulli per person
                       replace = F,  # Only one decision per person (all people must be sampled)
-                      prob = X2_probs)  # Pre-specificed probabilities
-  if (X2_trials[i] == 1) {  # &#39;If current trial is a success...&#39;
-    no._X2_successes &lt;- no._X2_successes + 1  # &#39;...Increase the number of success by 1
+                      prob = X2_probs)  # Pre-specified probabilities
+  if (X2_trials[i] == 1) {  # If a success
+    no._X2_successes &lt;- no._X2_successes + 1  # Add 1 to no. successes
   }
 }
 
@@ -1446,7 +1446,7 @@ for (day in 1:no._iterations) { # Loop for each day (n = 14)
   
   for (i in 1:X1) {
     X1_trials[i] &lt;- sample(results, size = 1, replace = FALSE, prob = X1_probs)
-    if (X1_trials[i] == 1) {
+    if (X1_trials[i] == 1) { 
       no._X1_successes &lt;- no._X1_successes + 1
     }
   }
@@ -2513,6 +2513,29 @@ Bartlett test for homoscedasticity and the Shapiro Wilks for normality,
 I can at least confirm through visual assessment of the diagnostic plot
 that the transformations have made the data in the second model more
 appropriate for a linear model.</p>
+<p><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+</p>
+</div>
+<div id="genai-statement" class="section level2">
+<h2>GenAI statement</h2>
+<p><br />
+<br />
+<em>“When submitting your assessment, you must include the following
+declaration, ticking all that apply:”</em></p>
+<ul>
+<li><p>I have used GenAI tools to proofread and correct grammar or
+spelling errors.</p></li>
+<li><p>I have used GenAI to understand how Latex code can be integrated
+with Rmarkdown.</p></li>
+</ul>
+<p>References:</p>
+<p>OpenAI, 2024. ChatGPT [online]. Available at: <a href="https://chat.openai.com/" class="uri">https://chat.openai.com/</a></p>
 </div>
 </div>
 
