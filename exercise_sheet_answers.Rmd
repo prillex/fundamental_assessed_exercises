@@ -935,8 +935,8 @@ for(i in 1:X1){  # Sampling everyone
                       size = 1, # 1 Bernoulli per person
                       replace = F,  # Only one decision per person (all people must be sampled)
                       prob = X1_probs)  # Pre-specified probabilities
-  if (X1_trials[i] == 1) {  # 'If current trial is a success...'
-    no._X1_successes <- no._X1_successes + 1  # '...Increase the number of success by 1
+  if (X1_trials[i] == 1) {  # If a successes
+    no._X1_successes <- no._X1_successes + 1  # Add 1 to no. successes
   }
 }
 
@@ -958,9 +958,9 @@ for(i in 1:X2){  # Sampling everyone
   X2_trials[i] <- sample(results, 
                       size = 1, # 1 Bernoulli per person
                       replace = F,  # Only one decision per person (all people must be sampled)
-                      prob = X2_probs)  # Pre-specificed probabilities
-  if (X2_trials[i] == 1) {  # 'If current trial is a success...'
-    no._X2_successes <- no._X2_successes + 1  # '...Increase the number of success by 1
+                      prob = X2_probs)  # Pre-specified probabilities
+  if (X2_trials[i] == 1) {  # If a success
+    no._X2_successes <- no._X2_successes + 1  # Add 1 to no. successes
   }
 }
 
@@ -1001,7 +1001,7 @@ for (day in 1:no._iterations) { # Loop for each day (n = 14)
   
   for (i in 1:X1) {
     X1_trials[i] <- sample(results, size = 1, replace = FALSE, prob = X1_probs)
-    if (X1_trials[i] == 1) {
+    if (X1_trials[i] == 1) { 
       no._X1_successes <- no._X1_successes + 1
     }
   }
@@ -1912,3 +1912,28 @@ plot(model_2)
 \
 
 In comparison to the former models diagnostic plot, this 'Residuals vs Fitted' plot highlights a huge amelioration in the extent of heteroscedasticity in the data. Now the residuals are much more evenly distributed around the flat x axis line. This means that the variance of the residuals is more consistent and that the assumption of homoscedasticity has not been violated to the same extent as before. Furthermore, the linearity of the residuals is much better as can be seen in the Q-Q plot; this means that the residuals follow the normal distribution assumed of linear models. While I have not used statistical tests to confirm whether the model assumptions have been met such as the Bartlett test for homoscedasticity and the Shapiro Wilks for normality, I can at least confirm through visual assessment of the diagnostic plot that the transformations have made the data in the second model more appropriate for a linear model.
+
+\
+\
+\
+\
+\
+\
+\
+
+## GenAI statement
+\
+\
+*"When submitting your assessment, you must include the following declaration, ticking all that apply:"*
+
+- I have used GenAI tools to proofread and correct grammar or spelling errors.
+
+- I have used GenAI to understand how Latex code can be integrated with Rmarkdown.
+
+
+References:
+
+OpenAI, 2024. ChatGPT [online]. Available at: https://chat.openai.com/ 
+
+
+
